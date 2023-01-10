@@ -17,7 +17,7 @@ Also, a module to create correlated data along a directed graph based on a Monte
 $ pip install snha4py
 ```
 
-# Create your 1_{st} "St. Nicolas House"
+# Create your 1<sup>st</sup> "St. Nicolas House"
 ```shell
 $ python3
 ```
@@ -40,13 +40,13 @@ Python 3.x.xx ()
 >>> s.plot_graph(ax=ax[2])
 
 >>> ax[0].set_title('True Graph')
->>> ax[1].set_title('Correlation Coefficient)
+>>> ax[1].set_title('Correlation Coefficient')
 >>> ax[2].set_title('Predicted Graph')
 
 >>> plt.show()
 ```
 <div align="center">
-  <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png">
+  <img src="https://github.com/thake93/snha4py/blob/main/example.png">
 </div>
 
 # References
