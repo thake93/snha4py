@@ -13,8 +13,41 @@ Also, a module to create correlated data along a directed graph based on a Monte
 # Documentation
 
 # Install
+```
+$ pip install snha4py
+```
 
-# Examples
+# Create your 1_{st} "St. Nicolas House"
+```shell
+$ python3
+```
+```python
+Python 3.x.xx ()
+
+>>> from Snha import Snha
+>>> import matplotlib.pyplot as plt
+
+>>> s = Snha()
+>>> s.new_graph()
+>>> s.create_corr_data(200,25)
+>>> s.comp_corr(method='spearman')
+>>> s.st_nich_alg()
+
+>>> fig,ax = plt.subplots(1,3, figsize=(30,10))
+
+>>> s.plot_graph(pred=False, ax=ax[0])
+>>> s.plot_corr(ax=ax[1])
+>>> s.plot_graph(ax=ax[2])
+
+>>> ax[0].set_title('True Graph')
+>>> ax[1].set_title('Correlation Coefficient)
+>>> ax[2].set_title('Predicted Graph')
+
+>>> plt.show()
+```
+<div align="center">
+  <img src="https://www.tensorflow.org/images/tf_logo_horizontal.png">
+</div>
 
 # References
 Groth, D., Scheffler, C., and Hermanussen, M. (2019). Body height in stunted indonesian children
