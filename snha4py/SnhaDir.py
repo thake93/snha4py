@@ -1,4 +1,4 @@
-
+class SnhaDir:
     def comp_xi(self):
         """
         Computes Xi correlation matrix for the Snha objects data.
@@ -8,6 +8,7 @@
             for j, r2 in enumerate(self.data):
                 self.xi[i, j] = self.xiCorr(self.data[r1], self.data[r2])
         self.xi = pd.DataFrame(self.xi)
+
     def get_xi(self):
         """
         Get the Xi correlation matrix from the Snha object.
@@ -16,6 +17,7 @@
             xi: Xi correlation matrix
         """
         return self.xi
+
     def xi_corr(self, x, y):
         """
         Computes the Xi correlation between two arrays.

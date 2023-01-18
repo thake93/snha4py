@@ -28,6 +28,28 @@ class SnhaDataGen:
     def create_data(self):
         """
         Creates correlated data along edges of a directed graph based on a Monte Carlo approach.
+
+        Example:
+
+        ```{.py}
+        from snha4py.SnhaDataGen import SnhaDataGen
+        import numpy as np
+
+        graph = np.array(
+            [
+                [0, 0, 1, 0, 0, 0],
+                [0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 1, 0, 0],
+                [0, 0, 0, 0, 1, 1],
+                [0, 0, 0, 0, 0, 1],
+                [0, 0, 0, 0, 0, 0],
+            ]
+        )
+        dg = SnhaDataGen(graph, n=100, steps=15, mean=100, sd=2, noise=1, prop=0.05)
+
+        data = dg.get_data()
+        print(data)
+        ```
         """
         p = self.graph.shape[0]
         vtx = np.arange(p)

@@ -1,4 +1,20 @@
 #! /usr/bin/env python3
+"""
+Example:
+
+```{.py}
+from snha4py.SnhaNewGraph import SnhaNewGraph
+
+fct = dir(SnhaNewGraph)
+ignore = ["set_graph", "get_graph", "undir2dir"]
+for f in fct:
+    if f not in ignore and "__" not in f:
+        print(f)
+        g = SnhaNewGraph(graph_type=f, nodes=5, edges=8, mode="directed", cont=2)
+        graph = g.get_graph()
+        print(graph)
+```
+"""
 import numpy as np
 
 
@@ -195,9 +211,10 @@ class SnhaNewGraph:
 
 if __name__ == "__main__":
     fct = dir(SnhaNewGraph)
+    ignore = ["set_graph", "get_graph", "undir2dir"]
     for f in fct:
-        if "__" not in f:
+        if f not in ignore and "__" not in f:
             print(f)
-            g = SnhaNewGraph(f)
+            g = SnhaNewGraph(graph_type=f, nodes=5, edges=8, mode="directed", cont=2)
             graph = g.get_graph()
             print(graph)

@@ -76,7 +76,7 @@ class SnhaPlot:
         orth_vec = self.unit_length_vec(orth_vec)
         return orth_vec * scale
 
-    def graph(self, layout=None, mode="directed", col="tab:blue", labels_e=None):
+    def graph(self, layout, mode, col, labels_e, vs):
         """
         Plots a graph.
         Args:
@@ -84,8 +84,9 @@ class SnhaPlot:
             mode (string): 'directed' or 'undirected'
             col (matplotlib.colors): color of the nodes
             labels_e (list): list of edge labels
+            vs (float): size for the nodes
         """
-        circle_radius = 0.15
+        circle_radius = vs
         scale_a = -2
         scale_b = 2
 
