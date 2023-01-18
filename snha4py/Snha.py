@@ -1,9 +1,36 @@
 #! /usr/bin/env python3
+
+"""
+Test 
+
+paragraph
+
+Examples:
+
+```{.py}
+x = 1
+print(x)
+```
+
+classes
+
+```{.kroki echo=false dia=plantuml}
+@startuml
+class A
+class B
+
+A ->  B
+@enduml
+```
+
+"""
+
+
 import pandas as pd
 import numpy as np
-from SnhaNewGraph import SnhaNewGraph
-from SnhaPlot import SnhaPlot
-from SnhaDataGen import SnhaDataGen
+from snha4py.SnhaNewGraph import SnhaNewGraph
+from snha4py.SnhaPlot import SnhaPlot
+from snha4py.SnhaDataGen import SnhaDataGen
 
 # import igraph as ig
 # import matplotlib.pyplot as plt
@@ -99,8 +126,22 @@ class Snha:
                 True (default): assigns self.corr the computed correlation
                 False: returns the computed correlation instead
 
-            Returns:
-                Only if in_place=False: the computed correlation
+        Returns:
+            Only if in_place=False: the computed correlation
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        s.create_corr_data(n=200, steps=25)
+        s.comp_corr()
+
+        cor = s.get_corr()
+        print(cor)
+        ```
         """
         if df is None:
             df = self.data
@@ -113,8 +154,23 @@ class Snha:
         """
         Computes the confusion matrix of the predicted and true edges of the graph.
 
-        Retruns:
-            cmat (np.array; shape:(2,2)): confusion matrix
+        Returns:
+            cmat (numpy.ndarray; shape: (2,2)): confusion matrix
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        s.create_corr_data(n=200, steps=25)
+        s.comp_corr()
+        s.st_nich_alg()
+
+        cm = s.conf_mat()
+        print(cm)
+        ```
         """
         true = self.graph + self.graph.T
 
@@ -141,13 +197,25 @@ class Snha:
         """
         Create correlation data for the Snha objects graph.
 
-        Arguments:
+        Args:
             n (int): the number of measurements per node, default: 100
             steps (int): the number of iterations, default: 15
             mean (float): mean value for sampling from a Gaussian distribution, default: 100
             sd (float): standard deviation for sampling from a Gaussian distribution, default: 2
             noise (float): standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration, default: 1
             prop (float): proportion of the target node value take the source node, default: 0.05
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        s.create_corr_data(n=200, steps=25)
+        data = s.get_data()
+        print(data)
+        ```
         """
         sdg = SnhaDataGen(
             graph=self.graph, n=n, steps=steps, mean=mean, sd=sd, noise=noise, prop=prop
@@ -158,7 +226,7 @@ class Snha:
         """
         Get the association chains extrected by the St. Nicholas Algorithm.
 
-        Arguments:
+        Args:
             rename (boolean): default: True
                 True: Chains of column names of the input data
                 False: Chains of column index numbers
@@ -214,7 +282,22 @@ class Snha:
         Computes the accuracy, sensitivity, specificity, BCR (Balanced Classification Rate) and MCC (Matthews Correlation Coefficient).
 
         Returns:
-            s (dictionary): dictionary containing the statistics
+            stats (dictionary): dictionary containing the statistics
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        s.create_corr_data(n=200, steps=25)
+        s.comp_corr()
+        s.st_nich_alg()
+
+        stats = s.graph_stats()
+        print(stats)
+        ```
         """
         cmat = self.conf_mat()
         stats = {}
@@ -223,7 +306,7 @@ class Snha:
         stats["Accuracy"] = (TP + TN) / (TP + TN + FP + FN)
         stats["Sensitivity"] = TP / (TP + FN)
         stats["Specificity"] = TN / (TN + FP)
-        stats["BCR"] = (s["Sensitivity"] + s["Specificity"]) / 2
+        stats["BCR"] = (stats["Sensitivity"] + stats["Specificity"]) / 2
         stats["MCC"] = (TP * TN - FP * FN) / (
             np.sqrt((TP + FP) * (TP + FN) * (TN + FP) * (TN + FN))
         )
@@ -279,6 +362,17 @@ class Snha:
                 "directed": directed graph (default)
                 "undirected": undirected graph
             cont (int): number of signal seeds; default: 2 (only for graph type rndChain)
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        graph = s.get_graph()
+        print(graph)
+        ```
         """
         g = SnhaNewGraph(
             graph_type=graph_type, nodes=nodes, edges=edges, mode=mode, cont=cont
@@ -291,7 +385,20 @@ class Snha:
 
         Args:
             labels (list): labels for the nodes of the graph
-            target (matplotlib.axes): axes to plot the graph on
+            ax (matplotlib.axes): axes to plot the graph on
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        s.create_corr_data(n=200, steps=25)
+        s.comp_corr()
+
+        s.plot_corr()
+        ```
         """
         if labels is None:
             labels = self.check_labels()
@@ -309,6 +416,7 @@ class Snha:
         labels_e=None,
         pred=True,
         ax=None,
+        vs=0.15,
     ):
         """
         Plots the graph of the Snha Object.
@@ -320,6 +428,21 @@ class Snha:
                 True (default): Plot the determined association chains
                 False: Plot the edges from the adjacency matrix
             vs (float): vertrex size; default: 25
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        s.create_corr_data(n=200, steps=25)
+        s.comp_corr()
+        s.st_nich_alg()
+
+        stats = s.graph_stats()
+        print(stats)
+        ```
         """
         if labels is None:
             labels = self.check_labels()
@@ -330,7 +453,7 @@ class Snha:
         else:
             p = SnhaPlot(data=self.graph, labels_n=labels, ax=ax)
 
-        p.graph(layout=layout, mode=mode, col=col, labels_e=labels_e)
+        p.graph(layout=layout, mode=mode, col=col, labels_e=labels_e, vs=vs)
 
     def set_corr(self, c_data):
         """
@@ -462,6 +585,7 @@ class Snha:
     ):
         """
         Selection to use the St. Nicholaus algorithm with or without bootstrapping.
+
         Args:
             data (pandas.DataFrame):
                 bt=True: Input data
@@ -470,10 +594,28 @@ class Snha:
             bt (boolean): Bootstrap True/Flase; default: False
             n (int): number of bootstrap iterations; default: 100
             lbd (float, [0,1]): fraction of all iterations to accept an edge as a prediction; default: 0.5 (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100)
-            method (str):
+            method (string):
                 "pearson" (default): standard correlation coefficient
                 "kendall": Kendall Tau correlation coefficient
                 "spearman": Spearman rank correlation
+
+        Example:
+
+        ```{.py}
+        from snha4py.Snha import Snha
+
+        s = Snha()
+        s.new_graph()
+        s.create_corr_data(n=200, steps=25)
+        s.comp_corr()
+        s.st_nich_alg()
+
+        chains = s.get_chains()
+        graph_pred = s.get_graph_pred()
+
+        print(chains)
+        print(graph_pred)
+        ```
         """
         if bt:
             if data is None:
