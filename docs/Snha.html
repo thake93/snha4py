@@ -91,10 +91,10 @@
 </head>
 <body>
 <center>
-<a href="SnhaDataGen.html">SnhaDataGen</a>- <a
-href="SnhaDir.html">SnhaDir</a>- <a
-href="SnhaNewGraph.html">SnhaNewGraph</a>- <a
-href="SnhaPlot.html">SnhaPlot</a>- <a href="Snha.html">Snha</a>
+<a href="SnhaDataGen.html">SnhaDataGen</a> - <a
+href="SnhaDir.html">SnhaDir</a> - <a
+href="SnhaNewGraph.html">SnhaNewGraph</a> - <a
+href="SnhaPlot.html">SnhaPlot</a> - <a href="Snha.html">Snha</a>
 </center>
 <header id="title-block-header">
 <h1 class="title">Snha manual</h1>
@@ -194,12 +194,12 @@ correlation</li>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>cor <span class="op">=</span> s.get_corr()</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cor)</span></code></pre></div>
 <pre><code>          0         1         2         3         4         5
-0  1.000000 -0.023414  0.460636  0.136080  0.088723  0.019918
-1 -0.023414  1.000000  0.523529  0.202335  0.082034  0.079157
-2  0.460636  0.523529  1.000000  0.258308  0.137679  0.085396
-3  0.136080  0.202335  0.258308  1.000000  0.410062  0.393984
-4  0.088723  0.082034  0.137679  0.410062  1.000000  0.545841
-5  0.019918  0.079157  0.085396  0.393984  0.545841  1.000000
+0  1.000000 -0.023883  0.534243  0.173535 -0.008895 -0.075869
+1 -0.023883  1.000000  0.485273  0.187127  0.104015  0.162043
+2  0.534243  0.485273  1.000000  0.341489  0.092553  0.068919
+3  0.173535  0.187127  0.341489  1.000000  0.366434  0.423059
+4 -0.008895  0.104015  0.092553  0.366434  1.000000  0.519481
+5 -0.075869  0.162043  0.068919  0.423059  0.519481  1.000000
 </code></pre>
 <hr />
 <h3 id="function-conf_mat"><kbd>function</kbd>
@@ -225,8 +225,8 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> s.conf_mat()</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span></code></pre></div>
-<pre><code>[[ 6. 11.]
- [ 1.  0.]]
+<pre><code>[[ 5. 12.]
+ [ 0.  1.]]
 </code></pre>
 <hr />
 <h3 id="function-create_corr_data"><kbd>function</kbd>
@@ -260,17 +260,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href=
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> s.get_data()</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>              0           1           2           3           4           5
-0     99.976734   96.744113   98.196244   99.547517  107.026024  106.797592
-1     85.638649  109.511017  100.689087   97.028064  100.230048  100.343268
-2     97.851070  100.907989   98.467735   97.693544   98.409193   99.240719
-3    103.173850   94.453358   98.835772  102.304784   97.097650   97.875887
-4     96.901246  103.350132   96.774458   98.767025   98.007133   96.769116
+0    104.402427   95.099320  100.707976   97.635414  101.143560   98.052908
+1    100.798660   92.959670  100.292914   98.162733   95.465464   96.506486
+2     98.626666  102.843831   97.355651   96.196628  101.199510  104.639318
+3     99.878842  102.185775   98.034236  100.625153  103.679387  101.116852
+4     97.356851  104.440563  100.487520  101.001944  102.288360  103.774045
 ..          ...         ...         ...         ...         ...         ...
-195   97.843989  103.794567  104.149156   99.088542   99.971809  100.487976
-196   95.808177  101.132167   96.304111   99.852598   96.826234   96.810812
-197   96.265172   94.663514   95.580108   97.237749   95.715470  102.310341
-198   87.207902  100.396708   93.364090   94.241507   97.673146  100.567490
-199  100.073021  100.667283   96.444364  102.300354  101.575427   98.920944
+195   98.191074  100.430586   96.314453   95.229563  101.051684   98.257696
+196   94.280392   98.161122   96.977334   98.547803   97.598579   99.750387
+197  101.999285   93.195930   97.316448   98.453873   95.074116   98.095943
+198   94.384073  100.464899   97.696671  101.744157  102.882290  100.574681
+199  107.643059  100.624135  104.343417  102.646434  106.757600  105.552441
 
 [200 rows x 6 columns]
 </code></pre>
@@ -361,7 +361,7 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb22-1"><a href=
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
-<pre><code>{&#39;Accuracy&#39;: 0.9444444444444444, &#39;Sensitivity&#39;: 0.8333333333333334, &#39;Specificity&#39;: 1.0, &#39;BCR&#39;: 0.9166666666666667, &#39;MCC&#39;: 0.8770580193070291}
+<pre><code>{&#39;Accuracy&#39;: 1.0, &#39;Sensitivity&#39;: 1.0, &#39;Specificity&#39;: 1.0, &#39;BCR&#39;: 1.0, &#39;MCC&#39;: 1.0}
 </code></pre>
 <hr />
 <h3 id="function-middle_chains"><kbd>function</kbd>
@@ -591,13 +591,13 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb41-1"><a href=
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chains)</span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph_pred)</span></code></pre></div>
-<pre><code>[[3, 5, 4], [1, 2, 3, 5], [2, 0, 3, 5]]
-[[0. 0. 0. 1. 0. 0.]
- [0. 0. 1. 0. 0. 0.]
- [1. 0. 0. 1. 0. 0.]
+<pre><code>[[4, 5, 3, 2], [2, 0, 1, 3, 5], [2, 1, 3, 5, 4], [2, 0, 3, 5]]
+[[0. 1. 0. 1. 0. 0.]
+ [0. 0. 0. 1. 0. 0.]
+ [1. 1. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 1.]
  [0. 0. 0. 0. 0. 1.]
- [0. 0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 1. 0.]]
+ [0. 0. 0. 1. 1. 0.]]
 </code></pre>
 <hr />
 <p><em>This file was automatically generated via <a
