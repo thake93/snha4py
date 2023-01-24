@@ -11,8 +11,9 @@ Next, to the algorithm the package offers a variety of graph implementations, as
 Also, a module to create correlated data along a directed graph based on a Monte Carlo approach is included (_Novine et al. 2022_).
 
 # Documentation
-[HTML](https://htmlpreview.github.io/?https://github.com/thake93/snha4py/blob/main/docs/Snha.html)
-[Markdown](https://github.com/thake93/snha4py/blob/main/docs/Snha.md)
+
+- [HTML](https://htmlpreview.github.io/?https://github.com/thake93/snha4py/blob/main/docs/Snha.html)
+- [Markdown](https://github.com/thake93/snha4py/blob/main/docs/Snha.md)
 
 # Install
 ```
