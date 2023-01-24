@@ -632,11 +632,20 @@ if __name__ == "__main__":
 
     s = Snha()
     s.new_graph()
-    s.create_corr_data()
-    s.comp_corr()
-    s.st_nich_alg()
-    s.data.columns = ["A", "B", "C", "D", "E", "F"]
-    s.plot_graph(pred=False)
-    s.plot_graph()
-    s.plot_corr()
-    plt.show()
+    s.create_corr_data(
+        n=200,
+        steps=25,
+        mean=100,
+        sd=2,
+        noise=1,
+        prop=0.05,
+    )
+    print(s.get_data())
+    # s.create_corr_data()
+    # s.comp_corr()
+    # s.st_nich_alg()
+    # s.data.columns = ["A", "B", "C", "D", "E", "F"]
+    # s.plot_graph(pred=False)
+    # s.plot_graph()
+    # s.plot_corr()
+    # plt.show()
