@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-18" />
+  <meta name="dcterms.date" content="2023-01-24" />
   <title>Snha manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -99,7 +99,7 @@ href="SnhaPlot.html">SnhaPlot</a>- <a href="Snha.html">Snha</a>
 <header id="title-block-header">
 <h1 class="title">Snha manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-18</p>
+<p class="date">2023-01-24</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snha.py"><kbd>module</kbd> <code>Snha.py</code></h1>
@@ -183,7 +183,7 @@ instead</li>
 <li><b><code>Only if in_place=False</code></b>: the computed
 correlation</li>
 </ul>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
@@ -194,12 +194,12 @@ correlation</li>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>cor <span class="op">=</span> s.get_corr()</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cor)</span></code></pre></div>
 <pre><code>          0         1         2         3         4         5
-0  1.000000 -0.045114  0.467120  0.208598  0.023987 -0.041113
-1 -0.045114  1.000000  0.469869  0.183749  0.108454  0.082689
-2  0.467120  0.469869  1.000000  0.358496  0.136324  0.061119
-3  0.208598  0.183749  0.358496  1.000000  0.279943  0.302137
-4  0.023987  0.108454  0.136324  0.279943  1.000000  0.573802
-5 -0.041113  0.082689  0.061119  0.302137  0.573802  1.000000
+0  1.000000 -0.023414  0.460636  0.136080  0.088723  0.019918
+1 -0.023414  1.000000  0.523529  0.202335  0.082034  0.079157
+2  0.460636  0.523529  1.000000  0.258308  0.137679  0.085396
+3  0.136080  0.202335  0.258308  1.000000  0.410062  0.393984
+4  0.088723  0.082034  0.137679  0.410062  1.000000  0.545841
+5  0.019918  0.079157  0.085396  0.393984  0.545841  1.000000
 </code></pre>
 <hr />
 <h3 id="function-conf_mat"><kbd>function</kbd>
@@ -213,7 +213,7 @@ graph.</p>
 <li><b><code>cmat</code></b> (numpy.ndarray; shape: (2,2)): confusion
 matrix</li>
 </ul>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -225,8 +225,8 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb11-1"><a href=
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> s.conf_mat()</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span></code></pre></div>
-<pre><code>[[ 5. 11.]
- [ 1.  1.]]
+<pre><code>[[ 6. 11.]
+ [ 1.  0.]]
 </code></pre>
 <hr />
 <h3 id="function-create_corr_data"><kbd>function</kbd>
@@ -250,7 +250,7 @@ default: 1</li>
 <li><b><code>prop</code></b> (float): proportion of the target node
 value take the source node, default: 0.05</li>
 </ul>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb14"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -260,17 +260,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb14-1"><a href=
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> s.get_data()</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>              0           1           2           3           4           5
-0     97.484527   92.460606   97.269294   99.087014   95.076710   94.755284
-1     96.683122   91.021932   96.755887  103.612308  104.029247  105.556927
-2    107.544658  101.309420  107.121658   99.697106  100.912221   93.093529
-3     98.789280  103.786867  101.366817  103.856666  105.119350  103.819555
-4    100.229066  102.876753  100.927182   92.293322   96.040997   96.619403
+0     99.976734   96.744113   98.196244   99.547517  107.026024  106.797592
+1     85.638649  109.511017  100.689087   97.028064  100.230048  100.343268
+2     97.851070  100.907989   98.467735   97.693544   98.409193   99.240719
+3    103.173850   94.453358   98.835772  102.304784   97.097650   97.875887
+4     96.901246  103.350132   96.774458   98.767025   98.007133   96.769116
 ..          ...         ...         ...         ...         ...         ...
-195   95.147439   95.745388   97.003326   99.347692   92.699568   96.738261
-196   93.285725   97.241289   96.964987  100.238501  104.101675   97.906500
-197  103.629432  100.225988   99.476746   99.968656  102.009537  101.956573
-198   91.618848  102.085936   97.329121  101.096760  107.759379  102.182948
-199   92.914493  104.059301   95.031695  100.065714   99.154133   99.809721
+195   97.843989  103.794567  104.149156   99.088542   99.971809  100.487976
+196   95.808177  101.132167   96.304111   99.852598   96.826234   96.810812
+197   96.265172   94.663514   95.580108   97.237749   95.715470  102.310341
+198   87.207902  100.396708   93.364090   94.241507   97.673146  100.567490
+199  100.073021  100.667283   96.444364  102.300354  101.575427   98.920944
 
 [200 rows x 6 columns]
 </code></pre>
@@ -349,7 +349,7 @@ Classification Rate) and MCC (Matthews Correlation Coefficient).</p>
 <li><b><code>stats</code></b> (dictionary): dictionary containing the
 statistics</li>
 </ul>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb22"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -401,7 +401,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a h
 <li><b><code>cont</code></b> (int): number of signal seeds; default: 2
 (only for graph type rndChain)</li>
 </ul>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb26"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -429,7 +429,7 @@ graph</li>
 <li><b><code>ax</code></b> (matplotlib.axes): axes to plot the graph
 on</li>
 </ul>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb29"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -467,7 +467,7 @@ chains</li>
 matrix</li>
 <li><b><code>vs</code></b> (float): vertrex size; default: 25</li>
 </ul>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb32"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -576,7 +576,7 @@ and n=100) method (string): - <b><code>"pearson" (default)</code></b>:
 standard correlation coefficient - <b><code>"kendall"</code></b>:
 Kendall Tau correlation coefficient - <b><code>"spearman"</code></b>:
 Spearman rank correlation</p>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb41"><pre
 class="sourceCode py"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -591,13 +591,13 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb41-1"><a href=
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chains)</span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph_pred)</span></code></pre></div>
-<pre><code>[[4, 5, 3], [5, 4, 3, 2], [1, 2, 3, 4, 5], [0, 2, 3, 4, 5]]
-[[0. 0. 1. 0. 0. 0.]
+<pre><code>[[3, 5, 4], [1, 2, 3, 5], [2, 0, 3, 5]]
+[[0. 0. 0. 1. 0. 0.]
  [0. 0. 1. 0. 0. 0.]
- [0. 0. 0. 1. 0. 0.]
- [0. 0. 1. 0. 1. 0.]
- [0. 0. 0. 1. 0. 1.]
- [0. 0. 0. 1. 1. 0.]]
+ [1. 0. 0. 1. 0. 0.]
+ [0. 0. 0. 0. 0. 1.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0.]]
 </code></pre>
 <hr />
 <p><em>This file was automatically generated via <a

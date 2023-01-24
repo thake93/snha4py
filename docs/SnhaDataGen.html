@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-18" />
+  <meta name="dcterms.date" content="2023-01-24" />
   <title>SnhaDataGen manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -99,7 +99,7 @@ href="SnhaPlot.html">SnhaPlot</a>- <a href="Snha.html">Snha</a>
 <header id="title-block-header">
 <h1 class="title">SnhaDataGen manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-18</p>
+<p class="date">2023-01-24</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snhadatagen.py"><kbd>module</kbd>
@@ -137,7 +137,7 @@ value take the source node, default: 0.05</li>
 class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>create_data()</span></code></pre></div>
 <p>Creates correlated data along edges of a directed graph based on a
 Monte Carlo approach.</p>
-<p><strong>Example:</strong></p>
+<p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.SnhaDataGen <span class="im">import</span> SnhaDataGen</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -156,17 +156,17 @@ Monte Carlo approach.</p>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> dg.get_data()</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>             0           1           2           3           4           5
-0    93.900432   96.595400  100.298907   91.819930   91.508291   90.618908
-1   107.178459   92.814352   97.491386   92.546470   99.267771   97.577099
-2   102.126225  111.460734  101.774401  104.472835  101.185016  103.401588
-3   102.106370   96.334408   99.254538  100.274611  100.912042   96.575890
-4    99.272827  100.296992  102.690424  101.679251   99.343071   98.361241
+0   101.162630   94.523828   99.020845   96.657848   93.859326   98.813026
+1   105.353756  105.319675  102.049713  101.688376   98.064228   98.168037
+2   104.634820  100.714546  102.314118  103.648115   99.789956   99.455961
+3    97.653828  101.914635   95.725101   97.149894   97.505917  100.594153
+4   103.635892  108.357302  100.818099  105.832179   96.931782   99.816180
 ..         ...         ...         ...         ...         ...         ...
-95   93.067461  106.407457   97.393806   98.103415  100.007772   97.040329
-96  102.710146  102.724092  105.189109  102.454951  101.190917  104.538703
-97   99.054093  107.205211  100.159521   96.836781  100.858363   96.627841
-98  100.803092  105.817842   97.556311  101.003414  102.784753  100.526136
-99  110.145668  108.682802  104.216000   96.094002   95.971391   96.293995
+95   88.144073   98.561350   92.061259   97.974158  101.280569  101.672601
+96  106.616245  106.612050  102.997280   98.962387   97.470855   99.562717
+97   98.782011   99.419715   97.431471  100.349241   93.473814  100.303576
+98   93.559735   97.533822   95.933082   99.810181  102.367042  100.921714
+99  101.445239  104.096739  105.018135  101.047433  102.446944  102.181074
 
 [100 rows x 6 columns]
 </code></pre>
