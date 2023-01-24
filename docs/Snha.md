@@ -1,3 +1,11 @@
+
+<center>
+[SnhaDataGen](SnhaDataGen.md)-
+[SnhaDir](SnhaDir.md)-
+[SnhaNewGraph](SnhaNewGraph.md)-
+[SnhaPlot](SnhaPlot.md)-
+[Snha](Snha.md)
+</center>
 <!-- markdownlint-disable -->
 
 <a href="../snha4py/Snha.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
@@ -142,7 +150,7 @@ Computes the correlation matrix for the Snha objects data.
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
@@ -177,7 +185,7 @@ Computes the confusion matrix of the predicted and true edges of the graph.
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
@@ -218,7 +226,7 @@ Create correlation data for the Snha objects graph.
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
@@ -349,7 +357,7 @@ Computes the accuracy, sensitivity, specificity, BCR (Balanced Classification Ra
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
@@ -415,7 +423,7 @@ Creates a new graph for the Snha object.
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
@@ -448,7 +456,7 @@ Plots the correlation matrix of the Snha data.
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
@@ -495,7 +503,7 @@ Plots the graph of the Snha Object.
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
@@ -654,7 +662,7 @@ Selection to use the St. Nicholaus algorithm with or without bootstrapping.
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}

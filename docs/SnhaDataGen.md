@@ -1,3 +1,11 @@
+
+<center>
+[SnhaDataGen](SnhaDataGen.md)-
+[SnhaDir](SnhaDir.md)-
+[SnhaNewGraph](SnhaNewGraph.md)-
+[SnhaPlot](SnhaPlot.md)-
+[Snha](Snha.md)
+</center>
 <!-- markdownlint-disable -->
 
 <a href="../snha4py/SnhaDataGen.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
@@ -55,7 +63,7 @@ Creates correlated data along edges of a directed graph based on a Monte Carlo a
 
 
 
-**Example:**
+**Examples:**
  
 
 ```{.py}
