@@ -28,7 +28,9 @@
     h2 { margin-left: 0px; }
     h3 { margin-left: 20px; }
     p {  margin-left: 40px; }
-    div.sourceCode, pre, ul, hr {margin-left: 40px;}
+    div.sourceCode, pre, ul, hr {
+    margin-left: 40px;
+    }
     a {
         color: #0645ad;
         text-decoration: none;
@@ -74,7 +76,8 @@
         word-wrap: break-word;
     }
     code span.kw { color: #007020; font-weight: normal; }
-    pre.sourceCode {  background: #fff6f6;  } 
+    pre.sourceCode {  background: rgb(230,230,230); /*#fff6f6;*/  } 
+    pre.py{background:#e9f6ff;}
     blockquote {
         margin: 0;
         padding-left: 3em; 
