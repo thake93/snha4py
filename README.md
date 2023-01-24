@@ -18,6 +18,8 @@ Also, a module to create correlated data along a directed graph based on a Monte
 # Install
 ```
 $ pip3 install snha4py (soon)
+```
+```
 $ pip3 install git+https://github.com/thake93/snha4py.git --user
 ```
 
