@@ -29,7 +29,7 @@ class SnhaDataGen:
         """
         Creates correlated data along edges of a directed graph based on a Monte Carlo approach.
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.SnhaDataGen import SnhaDataGen

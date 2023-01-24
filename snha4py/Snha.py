@@ -129,7 +129,7 @@ class Snha:
         Returns:
             Only if in_place=False: the computed correlation
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
@@ -157,7 +157,7 @@ class Snha:
         Returns:
             cmat (numpy.ndarray; shape: (2,2)): confusion matrix
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
@@ -205,7 +205,7 @@ class Snha:
             noise (float): standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration, default: 1
             prop (float): proportion of the target node value take the source node, default: 0.05
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
@@ -284,7 +284,7 @@ class Snha:
         Returns:
             stats (dictionary): dictionary containing the statistics
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
@@ -363,7 +363,7 @@ class Snha:
                 "undirected": undirected graph
             cont (int): number of signal seeds; default: 2 (only for graph type rndChain)
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
@@ -387,7 +387,7 @@ class Snha:
             labels (list): labels for the nodes of the graph
             ax (matplotlib.axes): axes to plot the graph on
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
@@ -429,7 +429,7 @@ class Snha:
                 False: Plot the edges from the adjacency matrix
             vs (float): vertrex size; default: 25
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
@@ -599,7 +599,7 @@ class Snha:
                 "kendall": Kendall Tau correlation coefficient
                 "spearman": Spearman rank correlation
 
-        Example:
+        Examples:
 
         ```{.py}
         from snha4py.Snha import Snha
