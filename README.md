@@ -12,7 +12,7 @@ Also, a module to create correlated data along a directed graph based on a Monte
 
 # Documentation
 
-- [HTML](https://htmlpreview.github.io/?https://github.com/thake93/snha4py/blob/main/docs/Snha.html)
+- [HTML](https://htmlpreview.github.io/?https://github.com/thake93/snha4py/blob/main/docs/__init__.html)
 - [Markdown](https://github.com/thake93/snha4py/blob/main/docs/Snha.md)
 
 # Install
