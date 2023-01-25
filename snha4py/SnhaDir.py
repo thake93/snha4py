@@ -1,3 +1,12 @@
+#! /usr/bin/env python3
+
+"""
+Direction analysis of the St. Nicolas House Algorithm.
+
+Soon be updated.
+"""
+
+
 class SnhaDir:
     def comp_xi(self):
         """

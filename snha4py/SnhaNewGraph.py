@@ -1,5 +1,8 @@
 #! /usr/bin/env python3
+
 """
+The St. Nicolas House Algorithm graph collection.
+
 Examples:
 
 ```{.py}

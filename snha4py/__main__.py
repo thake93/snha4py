@@ -1,10 +1,15 @@
 #! /usr/bin/env python3
 
 """
-Erklärung
+The St. Nicolas House Algorithm comando line application.
 
-test balab
-balsd
+Currently available functions are:
+
+- the general algorithm with/ without bootstrap to predict a graph from data
+- create correlated data based on a directed graph
+- crete a directed graph
+
+For further information and examples see [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/readme.md).
 """
 
 from snha4py.Snha import Snha
@@ -16,6 +21,12 @@ import matplotlib.pyplot as plt
 
 
 def create_data(args):
+    """
+    A wrapper to create data based on the arguments given by the parser.
+
+    Argumenst:
+        args (argparse.Namespace): Namespace object result from the comando line arguments
+    """
     f = read_file(args.graph, True)
     if f is None:
         print(
@@ -50,6 +61,12 @@ def create_data(args):
 
 
 def create_graph(args):
+    """
+    A wrapper to create a graph based on the arguments given by the parser.
+
+    Argumenst:
+        args (argparse.Namespace): Namespace object result from the comando line arguments
+    """
     print("graph")
     s = Snha()
     s.new_graph(
@@ -73,6 +90,15 @@ def create_graph(args):
 
 
 def read_file(f, graph):
+    """
+    Reads a file.
+
+    Arguments:
+        f (str): path to the file
+        graph (boolean): True: reads the file without a header; False: reads the file with a header
+    Returns:
+        in_file (pandas.DataFrame): data or adjacency matrix
+    """
     name, ext = os.path.splitext(f)
     if ext == ".csv":
         delimiter = ","
@@ -88,7 +114,12 @@ def read_file(f, graph):
 
 
 def snha(args):
-    print("snha")
+    """
+    A wrapper to run the St. Nicolas House algorithm based on the arguments given by the parser.
+
+    Argumenst:
+        args (argparse.Namespace): Namespace object result from the comando line arguments
+    """
     f = read_file(args.data, False)
     if f is None:
         print("Use a *.tab or *.csv file containing a data to analyse.")
@@ -114,19 +145,31 @@ def snha(args):
 
 
 def main(parser):
+    """
+    Calls the desired function.
+
+    Arguments:
+        parser (argparse.ArgumentParser): holding information of the CLI input
+    """
     args = parser.parse_args()
     if args.create_data:
         create_data(args)
     elif args.create_graph:
         create_graph(args)
-    else:
+    elif args.snha:
         snha(args)
+    else:
+        parser.print_help()
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(
+        prog="St. Nicolas House Alogrithm CLI",
+        description=__doc__,
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
 
-    #    parser.add_argument("--st-nich-alg", action="store_true", default=True)
+    parser.add_argument("--snha", action="store_true")
     parser.add_argument("-d", "--data", type=str)
     parser.add_argument("--alpha", type=float, default=0.1)
     parser.add_argument("--bootstrap", action="store_true")
@@ -138,7 +181,7 @@ if __name__ == "__main__":
         default="pearson",
     )
 
-    parser.add_argument("-cd", "--create-data", action="store_true")
+    parser.add_argument("--create-data", action="store_true")
     parser.add_argument("-g", "--graph")
     parser.add_argument("-s", "--steps", default=25, type=int)
     parser.add_argument("-i", "--iterations", default=200, type=int)
@@ -147,7 +190,7 @@ if __name__ == "__main__":
     parser.add_argument("--noise", default=1, type=float)
     parser.add_argument("--prop", default=0.05, type=float)
 
-    parser.add_argument("-cg", "--create-graph", action="store_true")
+    parser.add_argument("--create-graph", action="store_true")
     parser.add_argument(
         "-t",
         "--graph-type",

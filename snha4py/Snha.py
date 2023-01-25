@@ -1,42 +1,17 @@
 #! /usr/bin/env python3
 
 """
-Test 
+The St. Nicolas House algorithm for python.
 
-paragraph
-
-Examples:
-
-```{.py}
-x = 1
-print(x)
-```
-
-classes
-
-```{.kroki echo=false dia=plantuml}
-@startuml
-class A
-class B
-
-A ->  B
-@enduml
-```
+The main module of the snha4py package. It can be used either in code or as a command line application. For further information and examples see the  [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/readme.md).
 
 """
-
 
 import pandas as pd
 import numpy as np
 from snha4py.SnhaNewGraph import SnhaNewGraph
 from snha4py.SnhaPlot import SnhaPlot
 from snha4py.SnhaDataGen import SnhaDataGen
-
-# import igraph as ig
-# import matplotlib.pyplot as plt
-# import random
-# from matplotlib.colors import LinearSegmentedColormap
-# import matplotlib.patches as patches
 
 
 class Snha:

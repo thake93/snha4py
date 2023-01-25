@@ -1,4 +1,9 @@
 #! /usr/bin/env python3
+
+"""
+The St. Nicolas House Algorithm plotting routine.
+"""
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib.colors import LinearSegmentedColormap
@@ -82,7 +87,7 @@ class SnhaPlot:
         Args:
             layout (list): list of coordinates of the nodes
             mode (string): 'directed' or 'undirected'
-            col (matplotlib.colors): color of the nodes
+            col (matplotlib.colors): color of the nodes or a list of colors, which holds a color for each node
             labels_e (list): list of edge labels
             vs (float): size for the nodes
         """
@@ -124,16 +129,29 @@ class SnhaPlot:
         for e in edges:
             self.ax.add_patch(e)
 
-        nodes = [
-            patches.Circle(
+        for i, l in enumerate(layout):
+            if type(col) == list:
+                c = col[i]
+            else:
+                c = col
+
+            n = patches.Circle(
                 (l[0], l[1]),
                 radius=circle_radius,
-                color=col,
+                color=c,
             )
-            for l in layout
-        ]
-        for n in nodes:
             self.ax.add_patch(n)
+
+        # nodes = [
+        #     patches.Circle(
+        #         (l[0], l[1]),
+        #         radius=circle_radius,
+        #         color=col,
+        #     )
+        #     for l in layout
+        # ]
+        # for n in nodes:
+        #     self.ax.add_patch(n)
 
         for i in range(len(layout)):
             x, y = layout[i]
@@ -200,3 +218,27 @@ class SnhaPlot:
             mag = np.sqrt((v**2).sum())
             new_vec.append((v[0] / mag, v[1] / mag))
         return np.array(new_vec)
+
+
+if __name__ == "__main__":
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    graph = np.array(
+        [
+            [0, 0, 1, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 1, 1],
+            [0, 0, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 0],
+        ]
+    )
+    labels = range(6)
+
+    p = SnhaPlot(graph, labels)
+
+    c = ["blue", "red", "green", "orange", "gray", "tab:blue"]
+
+    p.graph(None, "directed", c, range(6), 0.15)
+    plt.show()
