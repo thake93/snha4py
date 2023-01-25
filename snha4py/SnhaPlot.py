@@ -105,11 +105,11 @@ class SnhaPlot:
             style = "Simple, tail_width=0.5, head_width=4, head_length=8"
         else:
             style = "Simple, tail_width=0.5, head_width=0"
-            self.data = np.triu(self.data)
+            self.data = np.triu(self.data + self.data.T)
 
         kw = dict(arrowstyle=style, color="k")
 
-        start, end = np.where(self.data == 1)
+        start, end = np.where(self.data != 0)
         start = layout[start]
         end = layout[end]
 
@@ -226,6 +226,20 @@ if __name__ == "__main__":
 
     graph = np.array(
         [
+            [0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0],
+            [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0],
+            [0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0],
+        ]
+    )
+    """graph = np.array(
+        [
             [0, 0, 1, 0, 0, 0],
             [0, 0, 1, 0, 0, 0],
             [0, 0, 0, 1, 0, 0],
@@ -233,12 +247,24 @@ if __name__ == "__main__":
             [0, 0, 0, 0, 0, 1],
             [0, 0, 0, 0, 0, 0],
         ]
-    )
-    labels = range(6)
+    )"""
+    labels = [
+        "100",
+        "110",
+        "400",
+        "1500",
+        "long",
+        "shot",
+        "high",
+        "disq",
+        "pole",
+        "jave",
+    ]
+    # labels = range(6)
 
     p = SnhaPlot(graph, labels)
 
-    c = ["blue", "red", "green", "orange", "gray", "tab:blue"]
+    # c = ["blue", "red", "green", "orange", "gray", "tab:blue"]
 
-    p.graph(None, "directed", c, range(6), 0.15)
+    p.graph(None, "undirected", "tab:blue", None, 0.15)
     plt.show()
