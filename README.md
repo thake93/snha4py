@@ -3,7 +3,7 @@ Snha4py is a python implementation of the St. Nicholas House algorithm (_Groth e
 The algorithm infers a graph based on the correlation coefficient between variables of a data set. Here, the nodes and the edges would be the variables of the data set and the correlation coefficient, respectively. 
 The correlation coefficient is evaluated in terms of association chains. 
 Therfore, the absolute coefficient is ranked and compared pairwise.
-A association chain is characterized by a sequence of variables for which reversing the start and end point does not change the order of elements.
+An association chain is characterized by a sequence of variables for which reversing the start and end point does not change the order of elements.
 These chains then build the graph.
 
 Next, to the algorithm the package offers a variety of graph implementations, as well as a vizualization routine for the graphs and the correlation matrix.
