@@ -22,15 +22,15 @@ You can use the St. Nicolas House algorithm and other features of the package as
 
 # Install
 ```
-$ pip install snha4py
+pip install snha4py
 ```
 ```
-$ pip3 install git+https://github.com/thake93/snha4py.git --user
+pip3 install git+https://github.com/thake93/snha4py.git --user
 ```
 after the installation you should be able to run:
 
 ```shell
-$ pip show snha4py
+pip show snha4py
 ```
 
 # Create your 1<sup>st</sup> "St. Nicolas House"
@@ -39,36 +39,36 @@ $ pip show snha4py
 
 We start with creating a directory to store the test files.
 ```shell
-$ mkdir test_snha
-$ cd test_snha
+mkdir test_snha
+cd test_snha
 ```
 
 In the first place we create test data in two steps:
 
 1. We create a directed graph.
 ```shell
-$ python3 -m snha4py --create-graph -t werner -o werner.csv
+python3 -m snha4py --create-graph -t werner -o werner.csv
 ```
 
 2. We create correlated data along the edges of the graph.
 ```shell
-$ python3 -m snha4py --create-data --graph werner.csv -o data.csv --steps 25 --iterations 200 --plot
+python3 -m snha4py --create-data --graph werner.csv -o data.csv --steps 25 --iterations 200 --plot
 ```
 
 Now, we can run the algortihm to predict the graph based on the correlation of the data.
 ```shell
-$ python3 -m snha4py --snha --data data.csv -o graph_pred.csv -p
+python3 -m snha4py --snha --data data.csv -o graph_pred.csv -p
 ```
 
 Also, we are able to apply bootstrapping to increase the prediction (_Hake et al. (2023)_).
 ```shell
-$ python3 -m snha4py --snha --data data.csv -o graph_pred_bt.csv --bootstrap -i 10 -p
+python3 -m snha4py --snha --data data.csv -o graph_pred_bt.csv --bootstrap -i 10 -p
 ```
 **Note**: The result might differ from the picture below.
 
 ## As import in your own code
 ```shell
-$ python3
+python3
 ```
 ```python
 Python 3.x.xx ()
