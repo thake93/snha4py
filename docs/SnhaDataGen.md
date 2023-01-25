@@ -1,10 +1,13 @@
 <center>
 
+[Introduction](__init__.md) -
+[Snha](Snha.md) -
 [SnhaDataGen](SnhaDataGen.md) -
 [SnhaDir](SnhaDir.md) -
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
-[Snha](Snha.md)
+[CLI](__main__.md) -
+[Usage](readme.md) 
 
 </center>
 
@@ -13,9 +16,9 @@
 <a href="../snha4py/SnhaDataGen.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `SnhaDataGen.py`
+St. Nicolas House Algorithm data generation. 
 
-
-
+The module generates data correlated data along a directed graph based on the Monte Carlo approach. For further inforation see [Novine et al. (2022) (https://doi.org/10.52905/hbph2021.3.26). 
 
 
 
@@ -26,7 +29,7 @@
 
 
 
-<a href="../snha4py/SnhaDataGen.py#L7"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaDataGen.py#L13"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `__init__`
 
@@ -53,7 +56,7 @@ Create a data generator for correlated data based on a graph.
 
 ---
 
-<a href="../snha4py/SnhaDataGen.py#L28"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaDataGen.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `create_data`
 
@@ -90,7 +93,7 @@ print(data)
 
 ---
 
-<a href="../snha4py/SnhaDataGen.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaDataGen.py#L85"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_data`
 

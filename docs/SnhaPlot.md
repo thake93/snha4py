@@ -1,10 +1,13 @@
 <center>
 
+[Introduction](__init__.md) -
+[Snha](Snha.md) -
 [SnhaDataGen](SnhaDataGen.md) -
 [SnhaDir](SnhaDir.md) -
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
-[Snha](Snha.md)
+[CLI](__main__.md) -
+[Usage](readme.md) 
 
 </center>
 
@@ -13,9 +16,7 @@
 <a href="../snha4py/SnhaPlot.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `SnhaPlot.py`
-
-
-
+The St. Nicolas House Algorithm plotting routine. 
 
 
 
@@ -26,7 +27,7 @@
 
 
 
-<a href="../snha4py/SnhaPlot.py#L11"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L16"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `__init__`
 
@@ -48,7 +49,7 @@ Create a support object to plot a graph or a correlation matrix.
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L37"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L42"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `corr`
 
@@ -60,7 +61,7 @@ Plot the correlation matrix.
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L65"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L70"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_orth_vec`
 
@@ -83,7 +84,7 @@ Computes an orthogonal vector of an input vector.
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L79"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L84"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `graph`
 
@@ -97,13 +98,13 @@ Plots a graph.
  
  - <b>`layout`</b> (list):  list of coordinates of the nodes 
  - <b>`mode`</b> (string):  'directed' or 'undirected' 
- - <b>`col`</b> (matplotlib.colors):  color of the nodes 
+ - <b>`col`</b> (matplotlib.colors):  color of the nodes or a list of colors, which holds a color for each node 
  - <b>`labels_e`</b> (list):  list of edge labels 
  - <b>`vs`</b> (float):  size for the nodes 
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L170"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L188"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `scale`
 
@@ -123,7 +124,7 @@ Centers and rescale the layout coordinates for the nodes.
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L189"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L207"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `unit_length_vec`
 

@@ -1,10 +1,13 @@
 <center>
 
+[Introduction](__init__.md) -
+[Snha](Snha.md) -
 [SnhaDataGen](SnhaDataGen.md) -
 [SnhaDir](SnhaDir.md) -
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
-[Snha](Snha.md)
+[CLI](__main__.md) -
+[Usage](readme.md) 
 
 </center>
 
@@ -13,9 +16,9 @@
 <a href="../snha4py/SnhaDir.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `SnhaDir.py`
+Direction analysis of the St. Nicolas House Algorithm. 
 
-
-
+Soon be updated. 
 
 
 
@@ -31,7 +34,7 @@
 
 ---
 
-<a href="../snha4py/SnhaDir.py#L2"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaDir.py#L11"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `comp_xi`
 
@@ -43,7 +46,7 @@ Computes Xi correlation matrix for the Snha objects data.
 
 ---
 
-<a href="../snha4py/SnhaDir.py#L12"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaDir.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_xi`
 
@@ -61,7 +64,7 @@ Get the Xi correlation matrix from the Snha object.
 
 ---
 
-<a href="../snha4py/SnhaDir.py#L21"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaDir.py#L30"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `xi_corr`
 

@@ -1,10 +1,13 @@
 <center>
 
+[Introduction](__init__.md) -
+[Snha](Snha.md) -
 [SnhaDataGen](SnhaDataGen.md) -
 [SnhaDir](SnhaDir.md) -
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
-[Snha](Snha.md)
+[CLI](__main__.md) -
+[Usage](readme.md) 
 
 </center>
 
@@ -13,6 +16,8 @@
 <a href="../snha4py/SnhaNewGraph.py#L0"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 # <kbd>module</kbd> `SnhaNewGraph.py`
+The St. Nicolas House Algorithm graph collection. 
+
 
 
 **Examples:**
@@ -40,7 +45,7 @@ for f in fct:
 
 
 
-<a href="../snha4py/SnhaNewGraph.py#L22"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L25"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `__init__`
 
@@ -66,7 +71,7 @@ Creates a new graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L50"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L53"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `band`
 
@@ -78,7 +83,7 @@ Implementation of a band graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L57"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L60"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `barabasi`
 
@@ -97,7 +102,7 @@ Creates an Barabasi-M1/M2 graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L77"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L80"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `barabasi_m1`
 
@@ -109,7 +114,7 @@ Implementation of a barabasi-M1 graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L83"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L86"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `barabasi_m2`
 
@@ -121,7 +126,7 @@ Implementation of a barabasi-M2 graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L89"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L92"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `circle`
 
@@ -133,7 +138,7 @@ Implementation of a circle graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L96"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L99"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `edge_dir_shuffle`
 
@@ -145,7 +150,7 @@ Shuffle the direction of the Snha objects graph edges.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L119"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L122"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_graph`
 
@@ -161,7 +166,7 @@ get_graph()
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L111"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L114"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `hub`
 
@@ -173,7 +178,7 @@ Implementation of a hub graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L129"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L132"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `random`
 
@@ -185,7 +190,7 @@ Implementation of a random graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L138"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L141"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `rnd_chain`
 
@@ -197,7 +202,7 @@ Implementation of a random graph. Select random start nodes and create directed 
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L156"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L159"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph`
 
@@ -215,7 +220,7 @@ Calls the graph-function and sets the graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L166"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L169"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `undir2dir`
 
@@ -236,7 +241,7 @@ Creates a directed graph from an undirected graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L196"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L199"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `werner`
 
