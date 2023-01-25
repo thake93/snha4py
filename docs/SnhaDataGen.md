@@ -18,7 +18,7 @@
 # <kbd>module</kbd> `SnhaDataGen.py`
 St. Nicolas House Algorithm data generation. 
 
-The module generates data correlated data along a directed graph based on the Monte Carlo approach. For further inforation see [Novine et al. (2022) (https://doi.org/10.52905/hbph2021.3.26). 
+The module generates data correlated data along a directed graph based on the Monte Carlo approach. For further inforation see [Novine et al. (2022)](https://doi.org/10.52905/hbph2021.3.26). 
 
 
 
