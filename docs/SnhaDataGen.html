@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-24" />
+  <meta name="dcterms.date" content="2023-01-25" />
   <title>SnhaDataGen manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -91,19 +91,25 @@
 </head>
 <body>
 <center>
-<p><a href="SnhaDataGen.html">SnhaDataGen</a> - <a
-href="SnhaDir.html">SnhaDir</a> - <a
+<p><a href="__init__.html">Introduction</a> - <a
+href="Snha.html">Snha</a> - <a href="SnhaDataGen.html">SnhaDataGen</a> -
+<a href="SnhaDir.html">SnhaDir</a> - <a
 href="SnhaNewGraph.html">SnhaNewGraph</a> - <a
-href="SnhaPlot.html">SnhaPlot</a> - <a href="Snha.html">Snha</a></p>
+href="SnhaPlot.html">SnhaPlot</a> - <a href="__main__.html">CLI</a> - <a
+href="readme.html">Usage</a></p>
 </center>
 <header id="title-block-header">
 <h1 class="title">SnhaDataGen manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-24</p>
+<p class="date">2023-01-25</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snhadatagen.py"><kbd>module</kbd>
 <code>SnhaDataGen.py</code></h1>
+<p>St. Nicolas House Algorithm data generation.</p>
+<p>The module generates data correlated data along a directed graph
+based on the Monte Carlo approach. For further inforation see [Novine et
+al. (2022) (https://doi.org/10.52905/hbph2021.3.26).</p>
 <hr />
 <h2 id="class-snhadatagen"><kbd>class</kbd>
 <code>SnhaDataGen</code></h2>
@@ -156,17 +162,17 @@ Monte Carlo approach.</p>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> dg.get_data()</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>             0           1           2           3           4           5
-0   106.313834  103.989352  106.257591  104.621655  101.678007  100.203231
-1    92.634306  103.297415   99.253093   96.521235   97.217435   97.019160
-2   101.434752  102.040772   97.886780   96.532551  102.361275  100.902377
-3    90.478495   96.626178   95.014013   99.155883   99.156570   95.540447
-4   110.066113  101.120195   99.529258  103.139256   97.971169   97.366738
+0    99.260118   99.104494   96.217017  101.385504  100.479672   97.048921
+1    96.750521   95.258836   95.774035  109.376474  104.174333  105.434796
+2    98.934735   94.538559   98.433968   97.011296   96.753610   92.780310
+3    99.776384  100.804678   99.569508   99.844793   98.151992   98.921147
+4   105.067400  101.411483  101.122439   98.298025  102.505208   99.933774
 ..         ...         ...         ...         ...         ...         ...
-95   96.945414   98.801432   98.560398   91.912313   97.929529   98.001654
-96   97.343439   95.637772   94.053372   99.155616  100.902362   96.739886
-97  100.752831   94.726128   99.141496   97.928910  100.586474   98.116079
-98   97.244336  101.801616   94.509458   98.954959  106.960314  100.992754
-99  100.304861   98.004141  101.966501   97.843827   99.683612  101.312909
+95  111.330309   98.517563  102.616597   97.182942   98.432272   97.115607
+96  100.659044  104.364109  104.481356  100.760389   97.158833  100.614464
+97   96.384083   92.104540   96.864650  101.162557   98.886060   97.936540
+98  101.221562  101.109906  103.536984  100.606013  100.441567   99.223037
+99  104.524852   91.494178   97.268715  100.619516   97.453817   95.881376
 
 [100 rows x 6 columns]
 </code></pre>

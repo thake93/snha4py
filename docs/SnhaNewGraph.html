@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-24" />
+  <meta name="dcterms.date" content="2023-01-25" />
   <title>SnhaNewGraph manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -91,19 +91,22 @@
 </head>
 <body>
 <center>
-<p><a href="SnhaDataGen.html">SnhaDataGen</a> - <a
-href="SnhaDir.html">SnhaDir</a> - <a
+<p><a href="__init__.html">Introduction</a> - <a
+href="Snha.html">Snha</a> - <a href="SnhaDataGen.html">SnhaDataGen</a> -
+<a href="SnhaDir.html">SnhaDir</a> - <a
 href="SnhaNewGraph.html">SnhaNewGraph</a> - <a
-href="SnhaPlot.html">SnhaPlot</a> - <a href="Snha.html">Snha</a></p>
+href="SnhaPlot.html">SnhaPlot</a> - <a href="__main__.html">CLI</a> - <a
+href="readme.html">Usage</a></p>
 </center>
 <header id="title-block-header">
 <h1 class="title">SnhaNewGraph manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-24</p>
+<p class="date">2023-01-25</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snhanewgraph.py"><kbd>module</kbd>
 <code>SnhaNewGraph.py</code></h1>
+<p>The St. Nicolas House Algorithm graph collection.</p>
 <p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.SnhaNewGraph <span class="im">import</span> SnhaNewGraph</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -122,19 +125,19 @@ href="SnhaPlot.html">SnhaPlot</a> - <a href="Snha.html">Snha</a></p>
  [0. 0. 0. 0. 1.]
  [0. 0. 0. 0. 0.]]
 barabasi
-[[0. 0. 1. 1. 1.]
- [1. 0. 0. 0. 0.]
+[[0. 0. 1. 1. 0.]
+ [1. 0. 0. 0. 1.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]]
 barabasi_m1
 [[0. 0. 0. 0. 0.]
- [1. 0. 1. 0. 1.]
- [0. 0. 0. 1. 0.]
+ [1. 0. 1. 1. 1.]
+ [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]]
 barabasi_m2
-[[0. 0. 0. 1. 1.]
+[[0. 0. 0. 0. 1.]
  [1. 0. 1. 1. 0.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 1.]
@@ -155,20 +158,20 @@ hub
 [[0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0.]
- [1. 1. 1. 1. 0.]]
+ [1. 1. 1. 0. 1.]
+ [0. 0. 0. 0. 0.]]
 random
-[[0. 0. 1. 1. 0.]
+[[0. 0. 0. 1. 1.]
+ [0. 0. 1. 1. 0.]
+ [0. 0. 0. 1. 0.]
+ [0. 0. 1. 1. 0.]
+ [1. 0. 0. 0. 0.]]
+rnd_chain
+[[0. 1. 0. 1. 1.]
  [0. 0. 0. 0. 0.]
  [0. 1. 0. 1. 1.]
- [0. 1. 1. 0. 0.]
- [0. 1. 0. 0. 0.]]
-rnd_chain
-[[0. 1. 1. 0. 1.]
- [0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0.]
- [1. 0. 1. 0. 1.]
- [0. 1. 1. 0. 0.]]
+ [0. 1. 0. 0. 1.]
+ [0. 0. 0. 0. 0.]]
 werner
 [[0 0 1 0 0 0]
  [0 0 1 0 0 0]

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-24" />
+  <meta name="dcterms.date" content="2023-01-25" />
   <title>__main__ manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -91,44 +91,85 @@
 </head>
 <body>
 <center>
-<p><a href="SnhaDataGen.html">SnhaDataGen</a> - <a
-href="SnhaDir.html">SnhaDir</a> - <a
+<p><a href="__init__.html">Introduction</a> - <a
+href="Snha.html">Snha</a> - <a href="SnhaDataGen.html">SnhaDataGen</a> -
+<a href="SnhaDir.html">SnhaDir</a> - <a
 href="SnhaNewGraph.html">SnhaNewGraph</a> - <a
-href="SnhaPlot.html">SnhaPlot</a> - <a href="Snha.html">Snha</a></p>
+href="SnhaPlot.html">SnhaPlot</a> - <a href="__main__.html">CLI</a> - <a
+href="readme.html">Usage</a></p>
 </center>
 <header id="title-block-header">
 <h1 class="title">__main__ manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-24</p>
+<p class="date">2023-01-25</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-__main__.py"><kbd>module</kbd>
 <code>__main__.py</code></h1>
-<p>Erklärung</p>
-<p>test balab balsd</p>
+<p>The St. Nicolas House Algorithm comando line application.</p>
+<p>Currently available functions are:</p>
+<ul>
+<li>the general algorithm with/ without bootstrap to predict a graph
+from data</li>
+<li>create correlated data based on a directed graph</li>
+<li>crete a directed graph</li>
+</ul>
+<p>For further information and examples see <a
+href="https://github.com/thake93/snha4py/tree/main/snha4py/readme.md">readme
+file</a>.</p>
 <hr />
 <h2 id="function-create_data"><kbd>function</kbd>
 <code>create_data</code></h2>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>create_data(args)</span></code></pre></div>
+<p>A wrapper to create data based on the arguments given by the
+parser.</p>
+<p>Argumenst: args (argparse.Namespace): Namespace object result from
+the comando line arguments</p>
 <hr />
 <h2 id="function-create_graph"><kbd>function</kbd>
 <code>create_graph</code></h2>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>create_graph(args)</span></code></pre></div>
+<p>A wrapper to create a graph based on the arguments given by the
+parser.</p>
+<p>Argumenst: args (argparse.Namespace): Namespace object result from
+the comando line arguments</p>
 <hr />
 <h2 id="function-read_file"><kbd>function</kbd>
 <code>read_file</code></h2>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>read_file(f, graph)</span></code></pre></div>
+<p>Reads a file.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><b><code>f</code></b> (str): path to the file</li>
+<li><b><code>graph</code></b> (boolean): True: reads the file without a
+header; False: reads the file with a header</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><b><code>in_file</code></b> (pandas.DataFrame): data or adjacency
+matrix</li>
+</ul>
 <hr />
 <h2 id="function-snha"><kbd>function</kbd> <code>snha</code></h2>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>snha(args)</span></code></pre></div>
+<p>A wrapper to run the St. Nicolas House algorithm based on the
+arguments given by the parser.</p>
+<p>Argumenst: args (argparse.Namespace): Namespace object result from
+the comando line arguments</p>
 <hr />
 <h2 id="function-main"><kbd>function</kbd> <code>main</code></h2>
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>main(parser)</span></code></pre></div>
+<p>Calls the desired function.</p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><b><code>parser</code></b> (argparse.ArgumentParser): holding
+information of the CLI input</li>
+</ul>
 <hr />
 <p><em>This file was automatically generated via <a
 href="https://github.com/ml-tooling/lazydocs">lazydocs</a>.</em></p>
