@@ -378,8 +378,7 @@ class Snha:
         if labels is None:
             labels = self.check_labels()
 
-        c = self.corr.to_numpy()
-        p = SnhaPlot(data=c, labels_n=labels, ax=ax)
+        p = SnhaPlot(adj_mat=None, corr=self.corr, labels_n=labels, ax=ax)
         p.corr()
 
     def plot_graph(
@@ -423,10 +422,14 @@ class Snha:
             labels = self.check_labels()
 
         if pred:
-            p = SnhaPlot(data=self.graph_pred, labels_n=labels, ax=ax)
+            p = SnhaPlot(
+                adj_mat=self.graph_pred, corr=self.corr, labels_n=labels, ax=ax
+            )
             mode = "undir"
         else:
-            p = SnhaPlot(data=self.graph, labels_n=labels, ax=ax)
+            p = SnhaPlot(
+                adj_mat=self.graph_pred, corr=self.corr, labels_n=labels, ax=ax
+            )
 
         p.graph(layout=layout, mode=mode, col=col, labels_e=labels_e, vs=vs)
 
@@ -615,12 +618,10 @@ if __name__ == "__main__":
         noise=1,
         prop=0.05,
     )
-    print(s.get_data())
-    # s.create_corr_data()
-    # s.comp_corr()
-    # s.st_nich_alg()
-    # s.data.columns = ["A", "B", "C", "D", "E", "F"]
-    # s.plot_graph(pred=False)
-    # s.plot_graph()
-    # s.plot_corr()
-    # plt.show()
+    s.comp_corr()
+    s.st_nich_alg()
+    s.data.columns = ["A", "B", "C", "D", "E", "F"]
+    s.plot_graph(pred=False)
+    s.plot_graph()
+    s.plot_corr()
+    plt.show()

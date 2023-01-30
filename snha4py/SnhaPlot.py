@@ -13,18 +13,18 @@ import igraph as ig
 
 
 class SnhaPlot:
-    def __init__(self, data, labels_n, ax=None):
+    def __init__(self, adj_mat, corr, labels_n, ax=None):
         """
         Create a support object to plot a graph or a correlation matrix.
 
         Args:
-            data (numpy.ndarray):
-                adjacency matrix to plot a graph with SnhaPlot.graph()
-                correlation matrix to plot with SnhaPlot.corr()
+            adj_mat (numpy.ndarray): adjacency matrix to plot a graph with SnhaPlot.graph()
+            corr (pd.DataFrame): correlation matrix to plot with SnhaPlot.corr()
             ax (matplotlib.axes): target axes to place the plot
             labels_n (list): variable names
         """
-        self.data = data  # adjacency matrix or correlation matrix
+        self.adj_mat = adj_mat
+        self.corr_mat = corr
         self.labels_n = labels_n
 
         if ax is None:
@@ -48,16 +48,16 @@ class SnhaPlot:
         norm = plt.Normalize(min(cvals), max(cvals))
         tuples = list(zip(map(norm, cvals), colors))
         cmap = LinearSegmentedColormap.from_list("", tuples)
-        mask = np.zeros_like(self.data)
+        mask = np.zeros_like(self.corr_mat)
         mask[np.triu_indices_from(mask, k=1)] = True
-        mask = self.data * mask
+        mask = self.corr_mat * mask
         im = self.ax.imshow(mask, cmap=cmap, vmin=-1, vmax=1)
-        for i in range(self.data.shape[0]):
-            for j in range(self.data.shape[1]):
-                if mask[j, i] != 0:
+        for i in range(self.corr_mat.shape[0]):
+            for j in range(self.corr_mat.shape[1]):
+                if mask[j][i] != 0:
                     self.ax.annotate(
-                        np.round(mask[j, i], 3),
-                        xy=(j, i),
+                        np.round(mask[j][i], 3),
+                        xy=(i, j),
                         ha="center",
                         va="center",
                     )
@@ -97,7 +97,7 @@ class SnhaPlot:
 
         if layout is None:
             random.seed(123)
-            G = ig.Graph.Adjacency(self.data)
+            G = ig.Graph.Adjacency(self.adj_mat)
             layout = np.array(G.layout("fr"))
         self.scale(layout, scale_a, scale_b)
 
@@ -105,25 +105,31 @@ class SnhaPlot:
             style = "Simple, tail_width=0.5, head_width=4, head_length=8"
         else:
             style = "Simple, tail_width=0.5, head_width=0"
-            self.data = np.triu(self.data + self.data.T)
+            self.adj_mat = np.triu(self.adj_mat + self.adj_mat.T)
 
         kw = dict(arrowstyle=style, color="k")
 
-        start, end = np.where(self.data != 0)
-        start = layout[start]
-        end = layout[end]
+        start, end = np.where(self.adj_mat != 0)
+        # start = layout[start]
+        # end = layout[end]
 
         edges = []
         for i in range(len(start)):
             s = start[i]
             e = end[i]
+            if self.corr_mat.iloc[s, e] >= 0:
+                c = "k"
+            else:
+                c = "red"
             edges.append(
                 patches.FancyArrowPatch(
-                    posA=(s[0], s[1]),
-                    posB=(e[0], e[1]),
+                    posA=(layout[s][0], layout[s][1]),
+                    posB=(layout[e][0], layout[e][1]),
                     shrinkA=circle_radius * 200,  # 20,
                     shrinkB=circle_radius * 200,  # 20,
-                    **kw
+                    arrowstyle=style,
+                    color=c,
+                    # **kw
                 )
             )
         for e in edges:
@@ -222,7 +228,15 @@ class SnhaPlot:
 
 if __name__ == "__main__":
     import numpy as np
+    import pandas as pd
     import matplotlib.pyplot as plt
+
+    data = pd.read_csv("examples/decathlon.tab", sep="\t")
+    dist = [100, 110, 400, 1500]
+
+    for d in dist:
+        data[str(d)] = d / data[str(d)] * 3.6
+        data = data.rename(columns={"poid": "shot", "haut": "high", "perc": "pole"})
 
     graph = np.array(
         [
@@ -238,31 +252,10 @@ if __name__ == "__main__":
             [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0],
         ]
     )
-    """graph = np.array(
-        [
-            [0, 0, 1, 0, 0, 0],
-            [0, 0, 1, 0, 0, 0],
-            [0, 0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 1, 1],
-            [0, 0, 0, 0, 0, 1],
-            [0, 0, 0, 0, 0, 0],
-        ]
-    )"""
-    labels = [
-        "100",
-        "110",
-        "400",
-        "1500",
-        "long",
-        "shot",
-        "high",
-        "disq",
-        "pole",
-        "jave",
-    ]
-    # labels = range(6)
-
-    p = SnhaPlot(graph, labels)
+    labels = data.columns
+    c = data.corr("spearman")
+    print(c)
+    p = SnhaPlot(adj_mat=graph, corr=c, labels_n=labels)
 
     # c = ["blue", "red", "green", "orange", "gray", "tab:blue"]
 
