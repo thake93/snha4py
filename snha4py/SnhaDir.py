@@ -3,7 +3,8 @@
 """
 Direction analysis of the St. Nicolas House Algorithm.
 
-Soon be updated.
+Soon be updated. 
+[Back to github](https://github.com/thake93/snha4py/)
 """
 
 

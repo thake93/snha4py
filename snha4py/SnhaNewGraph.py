@@ -2,7 +2,8 @@
 
 """
 The St. Nicolas House Algorithm graph collection.
-
+ 
+[Back to github](https://github.com/thake93/snha4py/)
 Examples:
 
 ```{.py}

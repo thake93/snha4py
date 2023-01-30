@@ -2,6 +2,7 @@
 
 """
 The St. Nicolas House Algorithm plotting routine.
+ [Back to github](https://github.com/thake93/snha4py/)
 """
 
 import matplotlib.pyplot as plt
