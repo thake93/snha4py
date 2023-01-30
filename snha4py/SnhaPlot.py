@@ -54,10 +54,10 @@ class SnhaPlot:
         im = self.ax.imshow(mask, cmap=cmap, vmin=-1, vmax=1)
         for i in range(self.corr_mat.shape[0]):
             for j in range(self.corr_mat.shape[1]):
-                if mask[j][i] != 0:
+                if mask.iloc[j, i] != 0:
                     self.ax.annotate(
-                        np.round(mask[j][i], 3),
-                        xy=(i, j),
+                        np.round(mask.iloc[j, i], 3),
+                        xy=(j, i),
                         ha="center",
                         va="center",
                     )
