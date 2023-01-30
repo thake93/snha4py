@@ -7,7 +7,7 @@
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
 [CLI](__main__.md) -
-[Usage](readme.md) 
+[Usage](README.md) 
 
 </center>
 
@@ -18,7 +18,7 @@
 # <kbd>module</kbd> `Snha.py`
 The St. Nicolas House algorithm for python. 
 
-The main module of the snha4py package. It can be used either in code or as a command line application. For further information and examples see the  [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/readme.md). 
+The main module of the snha4py package. It can be used either in code or as a command line application. For further information and examples see the  [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/README.md). 
 
 
 

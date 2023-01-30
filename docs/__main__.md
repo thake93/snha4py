@@ -7,7 +7,7 @@
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
 [CLI](__main__.md) -
-[Usage](readme.md) 
+[Usage](README.md) 
 
 </center>
 
@@ -25,7 +25,7 @@ Currently available functions are:
 - create correlated data based on a directed graph 
 - crete a directed graph 
 
-For further information and examples see [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/readme.md). 
+For further information and examples see [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/README.md). 
 
 
 ---
