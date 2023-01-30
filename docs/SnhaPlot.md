@@ -32,7 +32,7 @@ The St. Nicolas House Algorithm plotting routine.
 ### <kbd>function</kbd> `__init__`
 
 ```python
-__init__(data, labels_n, ax=None)
+__init__(adj_mat, corr, labels_n, ax=None)
 ```
 
 Create a support object to plot a graph or a correlation matrix. 
@@ -40,7 +40,9 @@ Create a support object to plot a graph or a correlation matrix.
 
 
 **Args:**
-  data (numpy.ndarray):  adjacency matrix to plot a graph with SnhaPlot.graph()  correlation matrix to plot with SnhaPlot.corr() 
+ 
+ - <b>`adj_mat`</b> (numpy.ndarray):  adjacency matrix to plot a graph with SnhaPlot.graph() 
+ - <b>`corr`</b> (pd.DataFrame):  correlation matrix to plot with SnhaPlot.corr() 
  - <b>`ax`</b> (matplotlib.axes):  target axes to place the plot 
  - <b>`labels_n`</b> (list):  variable names 
 
@@ -104,7 +106,7 @@ Plots a graph.
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L188"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L194"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `scale`
 
@@ -124,7 +126,7 @@ Centers and rescale the layout coordinates for the nodes.
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L207"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L213"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `unit_length_vec`
 

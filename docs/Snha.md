@@ -456,7 +456,7 @@ s.plot_corr()
 
 ---
 
-<a href="../snha4py/Snha.py#L385"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L384"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `plot_graph`
 
@@ -505,7 +505,7 @@ print(stats)
 
 ---
 
-<a href="../snha4py/Snha.py#L433"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L436"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_corr`
 
@@ -523,7 +523,7 @@ Set the correlation data for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L442"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L445"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_data`
 
@@ -541,7 +541,7 @@ Set the data for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L451"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L454"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph`
 
@@ -559,7 +559,7 @@ Set the graph for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L460"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L463"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph_pred`
 
@@ -577,7 +577,7 @@ Set the graph prediction for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L469"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L472"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `snha`
 
@@ -596,7 +596,7 @@ Extracts the association chains resulting from the correlation data.
 
 ---
 
-<a href="../snha4py/Snha.py#L514"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L517"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `snha_bt`
 
@@ -620,7 +620,7 @@ Applying the St Nicholas algorithm within a bootstrapp routine.
 
 ---
 
-<a href="../snha4py/Snha.py#L558"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L561"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `st_nich_alg`
 
