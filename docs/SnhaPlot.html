@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-25" />
+  <meta name="dcterms.date" content="2023-01-30" />
   <title>SnhaPlot manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -101,7 +101,7 @@ href="readme.html">Usage</a></p>
 <header id="title-block-header">
 <h1 class="title">SnhaPlot manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-25</p>
+<p class="date">2023-01-30</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snhaplot.py"><kbd>module</kbd>
@@ -112,13 +112,18 @@ href="readme.html">Usage</a></p>
 <h3 id="function-__init__"><kbd>function</kbd>
 <code>__init__</code></h3>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">__init__</span>(data, labels_n, ax<span class="op">=</span><span class="va">None</span>)</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">__init__</span>(adj_mat, corr, labels_n, ax<span class="op">=</span><span class="va">None</span>)</span></code></pre></div>
 <p>Create a support object to plot a graph or a correlation matrix.</p>
-<p><strong>Args:</strong> data (numpy.ndarray): adjacency matrix to plot
-a graph with SnhaPlot.graph() correlation matrix to plot with
-SnhaPlot.corr() - <b><code>ax</code></b> (matplotlib.axes): target axes
-to place the plot - <b><code>labels_n</code></b> (list): variable
-names</p>
+<p><strong>Args:</strong></p>
+<ul>
+<li><b><code>adj_mat</code></b> (numpy.ndarray): adjacency matrix to
+plot a graph with SnhaPlot.graph()</li>
+<li><b><code>corr</code></b> (pd.DataFrame): correlation matrix to plot
+with SnhaPlot.corr()</li>
+<li><b><code>ax</code></b> (matplotlib.axes): target axes to place the
+plot</li>
+<li><b><code>labels_n</code></b> (list): variable names</li>
+</ul>
 <hr />
 <h3 id="function-corr"><kbd>function</kbd> <code>corr</code></h3>
 <div class="sourceCode" id="cb2"><pre
