@@ -7,7 +7,7 @@
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
 [CLI](__main__.md) -
-[Usage](README.md) 
+[Usage](../snha4py/README.md) 
 
 </center>
 
@@ -25,12 +25,12 @@ Currently available functions are:
 - create correlated data based on a directed graph 
 - crete a directed graph 
 
-For further information and examples see [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/README.md). 
+For further information and examples see [readme file](https://github.com/thake93/snha4py/tree/main/snha4py/README.md).  [Back to github](https://github.com/thake93/snha4py/) 
 
 
 ---
 
-<a href="../snha4py/__main__.py#L23"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/__main__.py#L24"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `create_data`
 
@@ -45,7 +45,7 @@ Argumenst:  args (argparse.Namespace): Namespace object result from the comando 
 
 ---
 
-<a href="../snha4py/__main__.py#L63"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/__main__.py#L64"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `create_graph`
 
@@ -60,7 +60,7 @@ Argumenst:  args (argparse.Namespace): Namespace object result from the comando 
 
 ---
 
-<a href="../snha4py/__main__.py#L92"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/__main__.py#L93"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `read_file`
 
@@ -84,7 +84,7 @@ Reads a file.
 
 ---
 
-<a href="../snha4py/__main__.py#L116"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/__main__.py#L117"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `snha`
 
@@ -99,7 +99,7 @@ Argumenst:  args (argparse.Namespace): Namespace object result from the comando 
 
 ---
 
-<a href="../snha4py/__main__.py#L147"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/__main__.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ## <kbd>function</kbd> `main`
 

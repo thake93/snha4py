@@ -7,7 +7,7 @@
 [SnhaNewGraph](SnhaNewGraph.md) -
 [SnhaPlot](SnhaPlot.md) -
 [CLI](__main__.md) -
-[Usage](README.md) 
+[Usage](../snha4py/README.md) 
 
 </center>
 
@@ -18,7 +18,7 @@
 # <kbd>module</kbd> `__init__.py`
 API of snha4py 
 
-Documentation of the St. Nicolas House algorithm for python3.  
+Documentation of the St. Nicolas House algorithm for python3.  [Back to github](https://github.com/thake93/snha4py/) 
 
 Classes 
 
