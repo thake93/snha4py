@@ -7,6 +7,10 @@ Documentation of the St. Nicolas House algorithm for python3.
 [Back to github](https://github.com/thake93/snha4py/)
 
 Classes
+*Note*:
+
+- in green: public methods
+- in red: private methods
 
 ```{.kroki echo=false dia=plantuml}
 class Snha{
