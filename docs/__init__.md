@@ -1,12 +1,12 @@
 <center>
 
-[Introduction](__init__.md) -
-[Snha](Snha.md) -
-[SnhaDataGen](SnhaDataGen.md) -
-[SnhaDir](SnhaDir.md) -
-[SnhaNewGraph](SnhaNewGraph.md) -
-[SnhaPlot](SnhaPlot.md) -
-[CLI](__main__.md) -
+[Introduction](../docs/__init__.md) -
+[Snha](../docs/Snha.md) -
+[SnhaDataGen](../docs/SnhaDataGen.md) -
+[SnhaDir](../docs/SnhaDir.md) -
+[SnhaNewGraph](../docs/SnhaNewGraph.md) -
+[SnhaPlot](../docs/SnhaPlot.md) -
+[CLI](../docs/__main__.md) -
 [Usage](../snha4py/README.md) 
 
 </center>
@@ -20,7 +20,11 @@ API of snha4py
 
 Documentation of the St. Nicolas House algorithm for python3.  [Back to github](https://github.com/thake93/snha4py/) 
 
-Classes 
+Classes *Note*: 
+
+
+- in green: public methods 
+- in red: private methods 
 
 ```{.kroki echo=false dia=plantuml}
 class Snha{
