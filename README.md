@@ -95,7 +95,7 @@ Python 3.x.xx ()
 >>> plt.show()
 ```
 <div align="center">
-  <img src="https://github.com/thake93/snha4py/blob/main/examples/example.png">
+  <img src="https://github.com/thake93/snha4py/blob/main/examples/pics/example.png">
 </div>
 
 # References
