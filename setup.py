@@ -8,7 +8,7 @@ def read(fname):
 
 setuptools.setup(
     name="snha4py",  # Replace with your own username
-    version="0.0.4",
+    version="0.0.5",
     author="Tim Hake",
     author_email="timhake@icloud.com",
     description="St. Nicholas House algorithm for Python",
