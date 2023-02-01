@@ -1,12 +1,12 @@
 #! /usr/bin/env python3
 
 """
-# API of snha4py
+API of snha4py
 
 Documentation of the St. Nicolas House algorithm for python3. 
 [Back to github](https://github.com/thake93/snha4py/)
 
-## Classes 
+Classes  
 
 *Note*:
 
