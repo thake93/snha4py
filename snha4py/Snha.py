@@ -29,6 +29,7 @@ class Snha:
         self.corr = None
         self.chains = []
         self.col_map = {}
+        self.p_val = None
 
     def chains2admat(self):
         """
@@ -252,6 +253,15 @@ class Snha:
         """
         return self.graph_pred
 
+    def get_p_values(self):
+        """
+        Get the p-value matrix with p-values of all edges before the p-value filtering was applied.
+
+        Returns:
+            p_val (numpy.ndarray): matrix of p-values
+        """
+        return self.p_val
+
     def graph_stats(self):
         """
         Computes the accuracy, sensitivity, specificity, BCR (Balanced Classification Rate) and MCC (Matthews Correlation Coefficient).
@@ -427,11 +437,35 @@ class Snha:
             )
             mode = "undir"
         else:
-            p = SnhaPlot(
-                adj_mat=self.graph_pred, corr=self.corr, labels_n=labels, ax=ax
-            )
+            p = SnhaPlot(adj_mat=self.graph, corr=None, labels_n=labels, ax=ax)
 
         p.graph(layout=layout, mode=mode, col=col, labels_e=labels_e, vs=vs)
+
+    def p_value_filter(self, thrsh):
+        """
+        Eliminates edges which are not significant based on a p-value estimate and a threshold.
+
+        Args:
+            thrsh (float): threshold for the p-value
+        """
+        self.p_val = np.zeros_like(self.graph_pred)
+
+        n = self.data.shape[0]
+        m = 10000
+
+        t_dist = np.random.standard_t(df=n - 2, size=m)
+        t_dist.sort()
+
+        idx, idy = np.where(self.graph_pred != 0)
+        for i in zip(idx, idy):
+            r = self.corr.iloc[i]
+            t = r * np.sqrt(n - 2) / np.sqrt(1 - r**2)
+
+            p = 2 * t_dist[t_dist > abs(t)].shape[0] / m
+            self.p_val[i] = p
+
+            if p > thrsh:
+                self.graph_pred[i] = 0
 
     def set_corr(self, c_data):
         """
@@ -559,7 +593,14 @@ class Snha:
                 self.graph_pred[y, x] = 1
 
     def st_nich_alg(
-        self, data=None, alpha=0.1, bt=False, n=100, lbd=0.5, method="pearson"
+        self,
+        data=None,
+        alpha=0.1,
+        bt=False,
+        n=100,
+        lbd=0.5,
+        method="pearson",
+        p_cut=0.05,
     ):
         """
         Selection to use the St. Nicholaus algorithm with or without bootstrapping.
@@ -576,6 +617,7 @@ class Snha:
                 "pearson" (default): standard correlation coefficient
                 "kendall": Kendall Tau correlation coefficient
                 "spearman": Spearman rank correlation
+            p_cut (float): p-value threshold to identify significant edges
 
         Examples:
 
@@ -604,6 +646,8 @@ class Snha:
                 data = self.corr
             self.snha(data**2, alpha**2)
 
+        self.p_value_filter(p_cut)
+
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
@@ -624,4 +668,5 @@ if __name__ == "__main__":
     s.plot_graph(pred=False)
     s.plot_graph()
     s.plot_corr()
+    print(s.get_p_values())
     plt.show()
