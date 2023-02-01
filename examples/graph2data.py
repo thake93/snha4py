@@ -21,8 +21,6 @@ if __name__ == "__main__":
     graph = np.array([[0, 0, 1], [1, 0, 1], [0, 1, 0]])
 
     s = Snha(graph=graph)
-    s.plot_graph(pred=False)
-    plt.show()
     """
     s.create_corr_data(  # create correlation data
         n=200,
