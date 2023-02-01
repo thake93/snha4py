@@ -118,7 +118,7 @@ class SnhaPlot:
         for i in range(len(start)):
             s = start[i]
             e = end[i]
-            if self.corr_mat.iloc[s, e] >= 0:
+            if self.corr_mat is None or self.corr_mat.iloc[s, e] >= 0:
                 c = "k"
             else:
                 c = "red"
