@@ -13,7 +13,7 @@ Next, to the algorithm the package offers a variety of graph implementations, as
 Also, a module to create correlated data along a directed graph based on a Monte Carlo approach is included 
 ([_Novine et al. 2022_](https://doi.org/10.52905/hbph2021.3.26)).
 
-You can use the St. Nicolas House algorithm and other features of the package as a [comando-line interface (CLI)](#comando-line-interface) or you can [import the package](#as-import-in-your-own-code) in your own code.
+You can use the St. Nicolas House algorithm and other features of the package as a [command-line interface (CLI)](#command-line-interface) or you can [import the package](#as-import-in-your-own-code) in your own code.
 
 # Documentation
 
@@ -35,7 +35,7 @@ pip show snha4py
 
 # Create your 1<sup>st</sup> "St. Nicolas House"
 
-## Comando-line interface
+## Command-line interface
 
 We start with creating a directory to store the test files.
 ```shell
