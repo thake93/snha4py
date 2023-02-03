@@ -44,12 +44,12 @@ Create a data generator for correlated data based on a graph.
 **Args:**
  
  - <b>`graph`</b> (numpy.ndarray):  adjacents matrix of a directed graph 
- - <b>`n`</b> (int):  the number of measurements per node, default: 100 
- - <b>`steps`</b> (int):  the number of iterations, default: 15 
- - <b>`mean`</b> (float):  mean value for sampling from a Gaussian distribution, default: 100 
- - <b>`sd`</b> (float):  standard deviation for sampling from a Gaussian distribution, default: 2 
- - <b>`noise`</b> (float):  standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration, default: 1 
- - <b>`prop`</b> (float):  proportion of the target node value take the source node, default: 0.05 
+ - <b>`n`</b> (int):  the number of measurements per node 
+ - <b>`steps`</b> (int):  the number of iterations 
+ - <b>`mean`</b> (float):  mean value for sampling from a Gaussian distribution 
+ - <b>`sd`</b> (float):  standard deviation for sampling from a Gaussian distribution 
+ - <b>`noise`</b> (float):  standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration 
+ - <b>`prop`</b> (float):  proportion of the target node value take the source node 
 
 
 

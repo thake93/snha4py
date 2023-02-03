@@ -51,7 +51,7 @@ Create an St. Nicolas House Object.
 
 ---
 
-<a href="../snha4py/Snha.py#L33"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L34"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `chains2admat`
 
@@ -63,7 +63,7 @@ Converts association chains into an adjacency matrix.
 
 ---
 
-<a href="../snha4py/Snha.py#L43"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L44"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `check_labels`
 
@@ -81,7 +81,7 @@ Checks for attributes and sets labels for the nodes.
 
 ---
 
-<a href="../snha4py/Snha.py#L60"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L61"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `clean_sub_chains`
 
@@ -105,7 +105,7 @@ Removes sub chains of the association chains.
 
 ---
 
-<a href="../snha4py/Snha.py#L90"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `comp_corr`
 
@@ -119,12 +119,9 @@ Computes the correlation matrix for the Snha objects data.
 
 **Args:**
  
- - <b>`df`</b> (pandas.DataFrame):  compute the correlation based on the data method (str): 
- - <b>`"pearson" (default)`</b>:  standard correlation coefficient 
- - <b>`"kendall"`</b>:  Kendall Tau correlation coefficient 
- - <b>`"spearman"`</b>:  Spearman rank correlation in_place (boolean): 
- - <b>`True`</b> (default):  assigns self.corr the computed correlation 
- - <b>`False`</b>:  returns the computed correlation instead 
+ - <b>`df`</b> (pandas.DataFrame):  compute the correlation based on the data 
+ - <b>`method`</b> (str):  choice of ["pearson" : standard correlation coefficient, "kendall": Kendall Tau correlation coefficient, "spearman": Spearman rank correlation] 
+ - <b>`in_place`</b> (boolean):  True : assigns self.corr the computed correlation; False: returns the computed correlation instead 
 
 
 
@@ -151,7 +148,7 @@ print(cor)
 
 ---
 
-<a href="../snha4py/Snha.py#L128"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L124"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `conf_mat`
 
@@ -187,7 +184,7 @@ print(cm)
 
 ---
 
-<a href="../snha4py/Snha.py#L171"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L167"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `create_corr_data`
 
@@ -201,12 +198,12 @@ Create correlation data for the Snha objects graph.
 
 **Args:**
  
- - <b>`n`</b> (int):  the number of measurements per node, default: 100 
- - <b>`steps`</b> (int):  the number of iterations, default: 15 
- - <b>`mean`</b> (float):  mean value for sampling from a Gaussian distribution, default: 100 
- - <b>`sd`</b> (float):  standard deviation for sampling from a Gaussian distribution, default: 2 
- - <b>`noise`</b> (float):  standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration, default: 1 
- - <b>`prop`</b> (float):  proportion of the target node value take the source node, default: 0.05 
+ - <b>`n`</b> (int):  the number of measurements per node 
+ - <b>`steps`</b> (int):  the number of iterations 
+ - <b>`mean`</b> (float):  mean value for sampling from a Gaussian distribution 
+ - <b>`sd`</b> (float):  standard deviation for sampling from a Gaussian distribution 
+ - <b>`noise`</b> (float):  standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration 
+ - <b>`prop`</b> (float):  proportion of the target node value take the source node 
 
 
 
@@ -225,7 +222,7 @@ print(data)
 
 ---
 
-<a href="../snha4py/Snha.py#L200"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L196"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_chains`
 
@@ -239,9 +236,7 @@ Get the association chains extrected by the St. Nicholas Algorithm.
 
 **Args:**
  
- - <b>`rename`</b> (boolean):  default: True 
- - <b>`True`</b>:  Chains of column names of the input data 
- - <b>`False`</b>:  Chains of column index numbers 
+ - <b>`rename`</b> (boolean):  True: Chains of column names of the input data; False: Chains of column index numbers 
 
 
 
@@ -251,7 +246,7 @@ Get the association chains extrected by the St. Nicholas Algorithm.
 
 ---
 
-<a href="../snha4py/Snha.py#L219"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L213"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_corr`
 
@@ -269,7 +264,7 @@ Get the correlation data from the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L228"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L222"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_data`
 
@@ -287,7 +282,7 @@ Get the data from the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L237"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L231"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_graph`
 
@@ -305,7 +300,7 @@ Get the graph from the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L246"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L240"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_graph_pred`
 
@@ -323,7 +318,25 @@ Get the graph predicten from the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L255"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L249"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>function</kbd> `get_p_values`
+
+```python
+get_p_values()
+```
+
+Get the p-value matrix with p-values of all edges before the p-value filtering was applied. 
+
+
+
+**Returns:**
+ 
+ - <b>`p_val`</b> (numpy.ndarray):  matrix of p-values 
+
+---
+
+<a href="../snha4py/Snha.py#L258"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `graph_stats`
 
@@ -359,7 +372,7 @@ print(stats)
 
 ---
 
-<a href="../snha4py/Snha.py#L290"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L293"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `middle_chains`
 
@@ -384,7 +397,7 @@ Extracts the middle chains of resulting from the correlation data.
 
 ---
 
-<a href="../snha4py/Snha.py#L320"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L323"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `new_graph`
 
@@ -398,12 +411,11 @@ Creates a new graph for the Snha object.
 
 **Args:**
  
- - <b>`graph_type`</b> (str):  type of the graph  "werner" (default)  "rnd_chain"  "band"  "circle"  "hub"  "random"  "barabasi_m1"  "barabasi_m2" 
- - <b>`nodes`</b> (int):  number of nodes in the graph (default: 5) 
- - <b>`edges`</b> (int):  number of edges in the graph (default: 6) mode (str): 
- - <b>`"directed"`</b>:  directed graph (default) 
- - <b>`"undirected"`</b>:  undirected graph 
- - <b>`cont`</b> (int):  number of signal seeds; default: 2 (only for graph type rndChain) 
+ - <b>`graph_type`</b> (str):  type of the graph; choice of ["werner", "rnd_chain", "band", "circle", "hub", "random", "barabasi_m1", "barabasi_m2"] 
+ - <b>`nodes`</b> (int):  number of nodes in the graph 
+ - <b>`edges`</b> (int):  number of edges in the graph 
+ - <b>`mode`</b> (str):  "directed": directed graph; "undirected": undirected graph 
+ - <b>`cont`</b> (int):  number of signal seeds (only for graph type rndChain) 
 
 
 
@@ -421,7 +433,25 @@ print(graph)
 
 ---
 
-<a href="../snha4py/Snha.py#L357"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L425"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>function</kbd> `p_value_filter`
+
+```python
+p_value_filter(thrsh)
+```
+
+Eliminates edges which are not significant based on a p-value estimate and a threshold. 
+
+
+
+**Args:**
+ 
+ - <b>`thrsh`</b> (float):  threshold for the p-value 
+
+---
+
+<a href="../snha4py/Snha.py#L350"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `plot_corr`
 
@@ -456,7 +486,7 @@ s.plot_corr()
 
 ---
 
-<a href="../snha4py/Snha.py#L384"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L377"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `plot_graph`
 
@@ -480,10 +510,9 @@ Plots the graph of the Snha Object.
 **Args:**
  
  - <b>`labels`</b> (list):  labels for the nodes of the graph 
- - <b>`target`</b> (matplotlib.axes):  axes to plot the graph on pred (boolean): 
- - <b>`True`</b> (default):  Plot the determined association chains 
- - <b>`False`</b>:  Plot the edges from the adjacency matrix 
- - <b>`vs`</b> (float):  vertrex size; default: 25 
+ - <b>`target`</b> (matplotlib.axes):  axes to plot the graph on 
+ - <b>`pred`</b> (boolean):  True: Plot the determined association chains; False: Plot the edges from the adjacency matrix 
+ - <b>`vs`</b> (float):  vertrex size 
 
 
 
@@ -505,7 +534,7 @@ print(stats)
 
 ---
 
-<a href="../snha4py/Snha.py#L436"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L451"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_corr`
 
@@ -523,7 +552,7 @@ Set the correlation data for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L445"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L460"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_data`
 
@@ -541,7 +570,7 @@ Set the data for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L454"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L469"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph`
 
@@ -559,7 +588,7 @@ Set the graph for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L463"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L478"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph_pred`
 
@@ -577,7 +606,7 @@ Set the graph prediction for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L472"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L487"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `snha`
 
@@ -596,7 +625,7 @@ Extracts the association chains resulting from the correlation data.
 
 ---
 
-<a href="../snha4py/Snha.py#L517"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L532"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `snha_bt`
 
@@ -613,19 +642,25 @@ Applying the St Nicholas algorithm within a bootstrapp routine.
  - <b>`df`</b> (pandas.DataFrame):  Input data 
  - <b>`alpha`</b> (float, [0,1]):  correlation coefficient cut off 
  - <b>`n`</b> (int):  number of bootstrap iterations 
- - <b>`lbd`</b> (float, [0,1]):  fraction of all iterations to accept an edge as a prediction (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100) method (str): 
- - <b>`"pearson" (default)`</b>:  standard correlation coefficient 
- - <b>`"kendall"`</b>:  Kendall Tau correlation coefficient 
- - <b>`"spearman"`</b>:  Spearman rank correlation 
+ - <b>`lbd`</b> (float, [0,1]):  fraction of all iterations to accept an edge as a prediction (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100) 
+ - <b>`method`</b> (str):  choice of ["pearson": standard correlation coefficient, "kendall": Kendall Tau correlation coefficient, "spearman": Spearman rank correlation] 
 
 ---
 
-<a href="../snha4py/Snha.py#L561"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L573"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `st_nich_alg`
 
 ```python
-st_nich_alg(data=None, alpha=0.1, bt=False, n=100, lbd=0.5, method='pearson')
+st_nich_alg(
+    data=None,
+    alpha=0.1,
+    bt=False,
+    n=20,
+    lbd=0.5,
+    method='pearson',
+    p_cut=0.05
+)
 ```
 
 Selection to use the St. Nicholaus algorithm with or without bootstrapping. 
@@ -633,16 +668,14 @@ Selection to use the St. Nicholaus algorithm with or without bootstrapping.
 
 
 **Args:**
-  data (pandas.DataFrame): 
- - <b>`bt=True`</b>:  Input data 
- - <b>`bt=False`</b>:  Correlation matrix 
- - <b>`alpha`</b> (float, [0,1]):  correlation coefficient cut off; default: 0.1 
- - <b>`bt`</b> (boolean):  Bootstrap True/Flase; default: False 
- - <b>`n`</b> (int):  number of bootstrap iterations; default: 100 
- - <b>`lbd`</b> (float, [0,1]):  fraction of all iterations to accept an edge as a prediction; default: 0.5 (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100) method (string): 
- - <b>`"pearson" (default)`</b>:  standard correlation coefficient 
- - <b>`"kendall"`</b>:  Kendall Tau correlation coefficient 
- - <b>`"spearman"`</b>:  Spearman rank correlation 
+ 
+ - <b>`data`</b> (pandas.DataFrame):  bt=True: Input data; bt=False: Correlation matrix 
+ - <b>`alpha`</b> (float, [0,1]):  correlation coefficient cut off 
+ - <b>`bt`</b> (boolean):  Bootstrap True/Flase 
+ - <b>`n`</b> (int):  number of bootstrap iterations 
+ - <b>`lbd`</b> (float, [0,1]):  fraction of all iterations to accept an edge as a prediction (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100) 
+ - <b>`method`</b> (string):  choice of ["pearson" : standard correlation coefficient, "kendall": Kendall Tau correlation coefficient, "spearman": Spearman rank correlation] 
+ - <b>`p_cut`</b> (float):  p-value threshold to identify significant edges 
 
 
 
