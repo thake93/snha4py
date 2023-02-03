@@ -47,6 +47,7 @@
     p.author, p.date {
         font-size: 110%;
         text-align: center;
+        margin-left: 0px;
     }
     img {  max-width: 100%;    }
     figure { text-align: center ; } 
