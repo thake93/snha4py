@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-31" />
+  <meta name="dcterms.date" content="2023-02-03" />
   <title>Usage</title>
   <style>
     code{white-space: pre-wrap;}
@@ -19,6 +19,69 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="../docs/pydoc.css" />
@@ -40,18 +103,234 @@ href="../snha4py/README.html">Usage</a></p>
 <header id="title-block-header">
 <h1 class="title">Usage</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-31</p>
+<p class="date">2023-02-03</p>
 </header>
-<center>
-<p><a href="../docs/__init__.html">Introduction</a> - <a
-href="../docs/Snha.html">Snha</a> - <a
-href="../docs/SnhaDataGen.html">SnhaDataGen</a> - <a
-href="../docs/SnhaDir.html">SnhaDir</a> - <a
-href="../docs/SnhaNewGraph.html">SnhaNewGraph</a> - <a
-href="../docs/SnhaPlot.html">SnhaPlot</a> - <a
-href="../docs/__main__.html">CLI</a> - <a
-href="../snha4py/README.html">Usage</a></p>
-</center>
 <h1 id="usage">Usage</h1>
+<p>Here, I present an in-depth explenation of</p>
+<ol type="1">
+<li><a href="#analysing-your-data-by-graph-prediction">Analysing your
+data by graph prediction</a></li>
+<li><a href="#creating-correlated-data-from-a-directed-graph">Creating
+correlated data from a directed graph</a></li>
+</ol>
+<p>via the command-line interface (CLI) or within your Python
+scirpt.</p>
+<h2 id="analysing-your-data-by-graph-prediction">Analysing your data by
+graph prediction</h2>
+<p>I demonstrate the useage of the tool on exemplary data from the <a
+href="https://github.com/thake93/snha4py/blob/main/examples/data/decathlon.tab">olympic
+decathlon of 1988</a> <a
+href="https://rdrr.io/cran/ade4/man/olympic.html">(further
+information)</a>. The data set comprises the results of 33 Athletes
+competing in 1988 in the events:</p>
+<ul>
+<li><strong>running</strong>: 100m, 400m, 1500m and 110m hurdles
+(seconds)</li>
+<li><strong>jumping</strong>: long jump, high jump and pole vault
+(meter)</li>
+<li><strong>throwing</strong>: javelin, discus, shot put (meter)</li>
+</ul>
+<p>Note, that the running events are measured in seconds. For these
+events lowests is best, while for all other events highest is best. In
+order to follow the same reasoning, we turn the time into speed.</p>
+<p>Also, I will add a random variable to the data set to highlight the
+edge prediction.</p>
+<h3 id="command-line-interface">Command-line interface</h3>
+<p>First, we change the time of the running events into speed and add a
+random variable. The code below will do the task, or you can get the
+preprocessed data set <a
+href="https://github.com/thake93/snha4py/blob/main/examples/data/decathlon_pre.csv">here</a>.
+* * *</p>
+<pre class="shell"><code>python3</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">&quot;decathlon.tab&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.rename(columns<span class="op">=</span>{<span class="st">&quot;poid&quot;</span>:<span class="st">&quot;shot&quot;</span>, <span class="st">&quot;haut&quot;</span>:<span class="st">&quot;high&quot;</span>, <span class="st">&quot;perc&quot;</span>:<span class="st">&quot;pole&quot;</span>})</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> [<span class="dv">100</span>,<span class="dv">110</span>,<span class="dv">400</span>,<span class="dv">1500</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> dist:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    data[<span class="bu">str</span>(d)] <span class="op">=</span> d<span class="op">/</span>data[<span class="bu">str</span>(d)]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>data[<span class="st">&quot;rnd&quot;</span>] <span class="op">=</span> data[<span class="st">&quot;100&quot;</span>].sample(n<span class="op">=</span>data.shape[<span class="dv">0</span>], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">&quot;decathlon_pre.csv&quot;</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<hr />
+<p>Now, we can analyse the preprocessed data with:</p>
+<pre class="shell"><code>python3 -m snha4py --snha -d decathlon_pre.csv --method spearman -o decathlon_pred.csv -p</code></pre>
+<p>Lets have a closer look on the arguments.</p>
+<ul>
+<li><strong>–snha</strong> - calls the St. Nicolas House algorithm</li>
+<li><strong>-d | –data</strong> - holds the path to the file containing
+the input data</li>
+<li><strong>–method</strong> - choose the method to compute the
+correlation</li>
+<li><strong>-o | –output</strong> - holds the path to the file
+containing the resulting graph prediction</li>
+<li><strong>-p | –plot</strong> - plots the resulting matrix of
+correlation coefficients, as well as the input graph.</li>
+</ul>
+<p><strong>Note:</strong> We just used the default argumntes for the
+St. Nicolas House algorithm. For your analysis you might want to play
+around with different sets of arguments.<br />
+See the <a href="#st-nicolas-house-arguments">argument details</a> here.
+### In Python script Using the tool within your script grants you the
+most flexibility. So, I recommend you to use it that way.<br />
+We start with importing required packages:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+<p>Next we load the data and we initialize the Snha object with the
+loaded data. For space reasons I directly load the preprocessed data. In
+the <a
+href="https://github.com/thake93/snha4py/blob/main/examples/olympia.py">Python
+file</a> and the <a
+href="https://github.com/thake93/snha4py/blob/main/examples/olympia.ipynb">jupyter
+notebook</a> the preprocessing steps are included.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">&#39;decathlon_pre.csv&#39;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha(data<span class="op">=</span>data) </span></code></pre></div>
+<p>Afterwards, we compute the correlation and run the algorithm:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s.comp_corr(method<span class="op">=</span><span class="st">&#39;spearman&#39;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>s.st_nich_alg()</span></code></pre></div>
+<p>Finally, we plot the graph prediction:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>s.plot_graph()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p>Till here the CLI and the script yield the same result, but we can
+also improve the plotting to reach figures similar to those on the
+right.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> <span class="dv">4</span><span class="op">*</span>[<span class="st">&#39;tab:orange&#39;</span>]<span class="op">+</span><span class="dv">6</span><span class="op">*</span>[<span class="st">&#39;tab:blue&#39;</span>]<span class="op">+</span>[<span class="st">&#39;red&#39;</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>s.plot_graph(ax<span class="op">=</span>ax[<span class="dv">0</span>],col<span class="op">=</span>cols)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>s.plot_corr(ax<span class="op">=</span>ax[<span class="dv">1</span>])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div data-align="center">
+<p><img src="https://github.com/thake93/snha4py/blob/main/examples/pics/d2g.png"></p>
+</div>
+<p>You can get the code as a <a
+href="https://github.com/thake93/snha4py/blob/main/examples/olympia.py">Python
+script</a> or as a <a
+href="https://github.com/thake93/snha4py/blob/main/examples/olympia.ipynb">jupyter
+notebook</a></p>
+<h3 id="st.-nicolas-house-arguments">St. Nicolas House arguments</h3>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>st_nich_alg(alpha<span class="op">=</span><span class="fl">0.1</span>, bt<span class="op">=</span><span class="va">False</span>, n<span class="op">=</span><span class="dv">20</span>, lbd<span class="op">=</span><span class="fl">0.5</span>, method<span class="op">=</span><span class="st">&#39;pearson&#39;</span>, p_cut<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<ul>
+<li><strong>alpha</strong> - Correlation coefficient cut of</li>
+<li><strong>bt</strong> - Use bootstrap</li>
+<li><strong>n</strong> - Number of bootstrap iterations</li>
+<li><strong>lbd</strong> - fraction of all iterations to accept an edge
+as a prediction</li>
+<li><strong>method</strong> - method to compute the correlation
+coefficient within the bootstrap iterations</li>
+<li><strong>p_cut</strong> - p-value threshold to identify significant
+edges</li>
+</ul>
+<h2 id="creating-correlated-data-from-a-directed-graph">Creating
+correlated data from a directed graph</h2>
+Assume you want to create correlated data for a graph, which looks like
+this:
+<div data-align="center">
+<p><img src="https://github.com/thake93/snha4py/blob/main/examples/pics/werner.png" width="300" height="300"></p>
+</div>
+<p><strong>Note:</strong> The adjacency martix for this graph is stored
+in <a
+href="https://github.com/thake93/snha4py/blob/main/examples/data/werner.csv">werner.csv</a><br />
+We create correlated data along the edges of the graph, e.g. the data in
+column A would be correlated with data in column C.</p>
+<h3 id="command-line-interface-1">Command-line interface</h3>
+<p>The CLI of snha4py has the option –create-data, which creates
+correlated data based on a graph and stores it into a <em>.csv</em>
+file. The terminal command is:</p>
+<pre class="shell"><code>python3 -m snha4py --create-data -g werner.csv -o data.csv -s 25 -i 200 -p</code></pre>
+<p>Lets have a closer look on the arguments.</p>
+<ul>
+<li><strong>-g | –graph</strong> - holds the path to the file containing
+the adjacency matrix</li>
+<li><strong>-o | –output</strong> - holds the path to the file
+containing the resulting data</li>
+<li><strong>-s | –steps</strong> - number of steps within the data
+generation process for further information see (<a
+href="https://doi.org/10.52905/hbph2021.3.26">Novine et
+al. 2022</a>)</li>
+<li><strong>-i | –iterations</strong> - number of steps within the data
+generation process for further information see (<a
+href="https://doi.org/10.52905/hbph2021.3.26://doi.org/10.52905/hbph2021.3.26">Novine
+et al. 2022</a></li>
+<li><strong>-p | –plot</strong> - plots the resulting matrix of
+correlation coefficients, as well as the input graph.</li>
+</ul>
+<h3 id="in-python-script">In Python script</h3>
+<p>We start with importing required packages:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span></code></pre></div>
+<p>Next, we initialize the Snha object with our desired graph.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> np.genfromtxt(<span class="st">&quot;werner.csv&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;,&quot;</span>)  <span class="co"># loading your graph</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha(graph<span class="op">=</span>graph)  <span class="co"># initialize the Snha object with your graph</span></span></code></pre></div>
+<p>Instead of loading a graph stored in a csv file you could use the
+new_graph method to create a graph:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>s.new_graph() <span class="co"># see the API for further details</span></span></code></pre></div>
+<hr />
+<p>Here are four examples of different graph types.</p>
+<div data-align="center">
+<p><img src="https://github.com/thake93/snha4py/blob/main/examples/pics/graphs.png"></p>
+</div>
+<p>You can call the method with the arguments:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>s.new_graph(graph_type<span class="op">=</span><span class="st">&#39;werner&#39;</span>, nodes<span class="op">=</span><span class="dv">5</span>, edges<span class="op">=</span><span class="dv">8</span>, mode<span class="op">=</span><span class="st">&#39;directed&#39;</span>, cont<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><a
+href="https://github.com/thake93/snha4py/blob/main/docs/Snha.html#function-new_graph">Argument
+details</a> * * * or you could type your own graph</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>]])</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha(graph<span class="op">=</span>graph)</span></code></pre></div>
+<p>Now, we can create data, which correlates along the edges of the
+input graph:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(  <span class="co"># create correlation data</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span><span class="dv">200</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    steps<span class="op">=</span><span class="dv">25</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> s.get_data()</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>data.columns <span class="op">=</span> <span class="bu">list</span>(string.ascii_uppercase[: graph.shape[<span class="dv">0</span>]])  <span class="co"># rename the columns</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">&quot;data.csv&quot;</span>, index<span class="op">=</span><span class="va">False</span>)  <span class="co"># save the data</span></span></code></pre></div>
+<p>Finally, we create a plot of the input graph and the resulting
+correlation matrix:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>s.comp_corr()  <span class="co"># compute the correlation for the plot</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>s.plot_graph(ax<span class="op">=</span>ax[<span class="dv">0</span>], labels<span class="op">=</span>data.columns, pred<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>s.plot_corr(ax<span class="op">=</span>ax[<span class="dv">1</span>], labels<span class="op">=</span>data.columns)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p>The code is also stored in a <a
+href="https://github.com/thake93/snha4py/blob/main/examples/graph2data.py">Python
+script</a> , as well as in a <a
+href="https://github.com/thake93/snha4py/blob/main/examples/graph2data.ipynb">jupyter
+notebook</a>.</p>
+<hr />
+<p>Both the Python script and the terminal command leads to the file
+<em>data.csv</em> containing the data and showing the following
+figure:</p>
+<div data-align="center">
+<p><img src="https://github.com/thake93/snha4py/blob/main/examples/pics/g2d.png"></p>
+</div>
 </body>
 </html>
