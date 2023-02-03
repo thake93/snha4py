@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-31" />
+  <meta name="dcterms.date" content="2023-02-03" />
   <title>SnhaDataGen manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -103,7 +103,7 @@ href="../snha4py/README.html">Usage</a></p>
 <header id="title-block-header">
 <h1 class="title">SnhaDataGen manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-31</p>
+<p class="date">2023-02-03</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snhadatagen.py"><kbd>module</kbd>
@@ -125,19 +125,17 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a hr
 <ul>
 <li><b><code>graph</code></b> (numpy.ndarray): adjacents matrix of a
 directed graph</li>
-<li><b><code>n</code></b> (int): the number of measurements per node,
-default: 100</li>
-<li><b><code>steps</code></b> (int): the number of iterations, default:
-15</li>
+<li><b><code>n</code></b> (int): the number of measurements per
+node</li>
+<li><b><code>steps</code></b> (int): the number of iterations</li>
 <li><b><code>mean</code></b> (float): mean value for sampling from a
-Gaussian distribution, default: 100</li>
+Gaussian distribution</li>
 <li><b><code>sd</code></b> (float): standard deviation for sampling from
-a Gaussian distribution, default: 2</li>
+a Gaussian distribution</li>
 <li><b><code>noise</code></b> (float): standard deviation for sampling
-noise from a Gaussian distribution with mean 0 after each iteration,
-default: 1</li>
+noise from a Gaussian distribution with mean 0 after each iteration</li>
 <li><b><code>prop</code></b> (float): proportion of the target node
-value take the source node, default: 0.05</li>
+value take the source node</li>
 </ul>
 <hr />
 <h3 id="function-create_data"><kbd>function</kbd>
@@ -165,17 +163,17 @@ Monte Carlo approach.</p>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> dg.get_data()</span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>             0           1           2           3           4           5
-0   104.044817  102.294222  102.804909   98.464913  101.549887  102.064889
-1   104.681000   92.946412  102.324966  101.388747  101.525099  105.009879
-2    99.447797   98.008703   99.191394   98.693687   99.899227  102.140456
-3    96.182131   97.830718  103.726614  100.440313   95.970250   99.704169
-4    99.185360   96.748288   98.731083   98.420770   96.648280   97.906683
+0   101.806061  100.932451  101.928801  101.150506  104.883123  101.882453
+1   107.727881   95.524715  100.915813   98.804809  100.243530   99.036125
+2    95.517553   98.093535   96.174315  100.371111  101.893091   97.159238
+3    96.861971   96.023962  102.937390  101.200357   99.067309  103.621165
+4    99.812065   99.058917  100.688296   95.099167  100.209586   97.497752
 ..         ...         ...         ...         ...         ...         ...
-95   98.250984  101.555258  100.574978  106.436106  107.480892  103.668115
-96   93.342875   92.258886   97.052146   97.516519  102.938685   96.481625
-97  101.016775   94.971460  101.623953  101.378783  101.355236  101.472524
-98   99.694949  100.495385   98.058799  102.099178  100.340509  105.372089
-99   99.933313  105.636071  103.137178   98.604910   97.375615   95.878467
+95   94.786306   94.020275   99.464492   97.759482  101.455137   93.323474
+96   98.880742  105.300918   99.995980   99.730224   98.676367  103.594966
+97   95.650780  100.948432   97.105189   99.552465   98.935504   96.804142
+98  104.923264  102.598241   99.778768   96.315728   93.132168   98.674168
+99  110.547400   95.810244  105.911212  101.308120   98.431911   95.357164
 
 [100 rows x 6 columns]
 </code></pre>

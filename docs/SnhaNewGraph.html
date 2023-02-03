@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-31" />
+  <meta name="dcterms.date" content="2023-02-03" />
   <title>SnhaNewGraph manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -103,7 +103,7 @@ href="../snha4py/README.html">Usage</a></p>
 <header id="title-block-header">
 <h1 class="title">SnhaNewGraph manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-31</p>
+<p class="date">2023-02-03</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snhanewgraph.py"><kbd>module</kbd>
@@ -114,7 +114,7 @@ href="../snha4py/README.html">Usage</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.SnhaNewGraph <span class="im">import</span> SnhaNewGraph</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fct <span class="op">=</span> <span class="bu">dir</span>(SnhaNewGraph)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ignore <span class="op">=</span> [<span class="st">&quot;set_graph&quot;</span>, <span class="st">&quot;get_graph&quot;</span>, <span class="st">&quot;undir2dir&quot;</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ignore <span class="op">=</span> [<span class="st">&quot;set_graph&quot;</span>, <span class="st">&quot;get_graph&quot;</span>, <span class="st">&quot;undir2dir&quot;</span>, <span class="st">&quot;edge_dir_shuffle&quot;</span>]</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> f <span class="kw">in</span> fct:</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> f <span class="kw">not</span> <span class="kw">in</span> ignore <span class="kw">and</span> <span class="st">&quot;__&quot;</span> <span class="kw">not</span> <span class="kw">in</span> f:</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="bu">print</span>(f)</span>
@@ -128,22 +128,22 @@ href="../snha4py/README.html">Usage</a></p>
  [0. 0. 0. 0. 1.]
  [0. 0. 0. 0. 0.]]
 barabasi
-[[0. 0. 1. 0. 0.]
- [1. 0. 0. 0. 1.]
+[[0. 0. 1. 0. 1.]
+ [1. 0. 0. 0. 0.]
  [0. 0. 0. 1. 0.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]]
 barabasi_m1
-[[0. 0. 0. 0. 1.]
- [1. 0. 1. 1. 0.]
- [0. 0. 0. 0. 0.]
+[[0. 0. 1. 1. 0.]
+ [1. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]]
 barabasi_m2
-[[0. 0. 0. 1. 1.]
- [1. 0. 1. 1. 1.]
- [0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0.]
+[[0. 0. 1. 1. 0.]
+ [1. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0.]
+ [0. 0. 0. 0. 1.]
  [0. 0. 0. 0. 0.]]
 circle
 [[0. 1. 0. 0. 0.]
@@ -151,30 +151,24 @@ circle
  [0. 0. 0. 1. 0.]
  [0. 0. 0. 0. 1.]
  [1. 0. 0. 0. 0.]]
-edge_dir_shuffle
-[[0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0.]
- [0. 0. 0. 0. 0.]]
 hub
 [[0. 0. 0. 0. 0.]
+ [1. 0. 1. 1. 1.]
  [0. 0. 0. 0. 0.]
- [1. 1. 0. 1. 1.]
  [0. 0. 0. 0. 0.]
  [0. 0. 0. 0. 0.]]
 random
-[[1. 0. 0. 1. 0.]
- [1. 1. 1. 0. 1.]
- [0. 1. 0. 0. 0.]
+[[0. 1. 0. 0. 0.]
+ [0. 1. 0. 1. 1.]
  [0. 0. 0. 0. 0.]
- [0. 1. 0. 0. 0.]]
+ [0. 1. 1. 0. 0.]
+ [0. 1. 0. 0. 1.]]
 rnd_chain
-[[0. 0. 1. 0. 0.]
- [1. 0. 1. 1. 1.]
+[[0. 0. 0. 1. 0.]
+ [1. 0. 0. 1. 0.]
+ [1. 1. 0. 1. 0.]
  [0. 0. 0. 0. 0.]
- [1. 0. 1. 0. 0.]
- [0. 0. 1. 0. 0.]]
+ [1. 1. 0. 0. 0.]]
 werner
 [[0 0 1 0 0 0]
  [0 0 1 0 0 0]
@@ -193,17 +187,15 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <p>Creates a new graph.</p>
 <p><strong>Args:</strong></p>
 <ul>
-<li><b><code>graph_type</code></b> (str): type of the graph “werner”
-(default) “rnd_chain” “band” “circle” “hub” “random” “barabasi_m1”
-“barabasi_m2”</li>
-<li><b><code>nodes</code></b> (int): number of nodes in the graph
-(default: 5)</li>
-<li><b><code>edges</code></b> (int): number of edges in the graph
-(default: 6) mode (str):</li>
-<li><b><code>"directed"</code></b>: directed graph (default)</li>
-<li><b><code>"undirected"</code></b>: undirected graph</li>
-<li><b><code>cont</code></b> (int): number of signal seeds; default: 2
-(only for graph type rndChain)</li>
+<li><b><code>graph_type</code></b> (str): type of the graph; choice of
+[“werner”, “rnd_chain”, “band”, “circle”, “hub”, “random”,
+“barabasi_m1”, “barabasi_m2”]</li>
+<li><b><code>nodes</code></b> (int): number of nodes in the graph</li>
+<li><b><code>edges</code></b> (int): number of edges in the graph</li>
+<li><b><code>mode</code></b> (str): “directed”: directed graph;
+“undirected”: undirected graph</li>
+<li><b><code>cont</code></b> (int): number of signal seeds (only for
+graph type rndChain)</li>
 </ul>
 <hr />
 <h3 id="function-band"><kbd>function</kbd> <code>band</code></h3>
@@ -216,8 +208,11 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a hr
 <div class="sourceCode" id="cb5"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>barabasi(m<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
 <p>Creates an Barabasi-M1/M2 graph.</p>
-<p><strong>Args:</strong> m (int): - <b><code>1</code></b> (default):
-barabasi-M1 graph - <b><code>2</code></b>: brabasi-M2 graph</p>
+<p><strong>Args:</strong></p>
+<ul>
+<li><b><code>m</code></b> (int): 1: barabasi-M1 graph; 2: brabasi-M2
+graph</li>
+</ul>
 <hr />
 <h3 id="function-barabasi_m1"><kbd>function</kbd>
 <code>barabasi_m1</code></h3>

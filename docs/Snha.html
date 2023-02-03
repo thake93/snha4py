@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Tim Hake" />
-  <meta name="dcterms.date" content="2023-01-31" />
+  <meta name="dcterms.date" content="2023-02-03" />
   <title>Snha manual</title>
   <style>
     code{white-space: pre-wrap;}
@@ -103,7 +103,7 @@ href="../snha4py/README.html">Usage</a></p>
 <header id="title-block-header">
 <h1 class="title">Snha manual</h1>
 <p class="author">Tim Hake</p>
-<p class="date">2023-01-31</p>
+<p class="date">2023-02-03</p>
 </header>
 <!-- markdownlint-disable -->
 <h1 id="module-snha.py"><kbd>module</kbd> <code>Snha.py</code></h1>
@@ -167,16 +167,12 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a hr
 <p><strong>Args:</strong></p>
 <ul>
 <li><b><code>df</code></b> (pandas.DataFrame): compute the correlation
-based on the data method (str):</li>
-<li><b><code>"pearson" (default)</code></b>: standard correlation
-coefficient</li>
-<li><b><code>"kendall"</code></b>: Kendall Tau correlation
-coefficient</li>
-<li><b><code>"spearman"</code></b>: Spearman rank correlation in_place
-(boolean):</li>
-<li><b><code>True</code></b> (default): assigns self.corr the computed
-correlation</li>
-<li><b><code>False</code></b>: returns the computed correlation
+based on the data</li>
+<li><b><code>method</code></b> (str): choice of [“pearson” : standard
+correlation coefficient, “kendall”: Kendall Tau correlation coefficient,
+“spearman”: Spearman rank correlation]</li>
+<li><b><code>in_place</code></b> (boolean): True : assigns self.corr the
+computed correlation; False: returns the computed correlation
 instead</li>
 </ul>
 <p><strong>Returns:</strong></p>
@@ -195,12 +191,12 @@ correlation</li>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>cor <span class="op">=</span> s.get_corr()</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cor)</span></code></pre></div>
 <pre><code>          0         1         2         3         4         5
-0  1.000000  0.125391  0.595445  0.320090  0.062147  0.164574
-1  0.125391  1.000000  0.480823  0.326708  0.095583  0.186194
-2  0.595445  0.480823  1.000000  0.503005  0.152409  0.237515
-3  0.320090  0.326708  0.503005  1.000000  0.260672  0.413301
-4  0.062147  0.095583  0.152409  0.260672  1.000000  0.525646
-5  0.164574  0.186194  0.237515  0.413301  0.525646  1.000000
+0  1.000000  0.074199  0.461099  0.196699  0.037226  0.100071
+1  0.074199  1.000000  0.578126  0.192650  0.003051  0.073206
+2  0.461099  0.578126  1.000000  0.334223  0.049665  0.192371
+3  0.196699  0.192650  0.334223  1.000000  0.424120  0.510856
+4  0.037226  0.003051  0.049665  0.424120  1.000000  0.564122
+5  0.100071  0.073206  0.192371  0.510856  0.564122  1.000000
 </code></pre>
 <hr />
 <h3 id="function-conf_mat"><kbd>function</kbd>
@@ -225,8 +221,8 @@ matrix</li>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> s.conf_mat()</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span></code></pre></div>
-<pre><code>[[ 5. 12.]
- [ 0.  1.]]
+<pre><code>[[ 6. 12.]
+ [ 0.  0.]]
 </code></pre>
 <hr />
 <h3 id="function-create_corr_data"><kbd>function</kbd>
@@ -236,19 +232,17 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a h
 <p>Create correlation data for the Snha objects graph.</p>
 <p><strong>Args:</strong></p>
 <ul>
-<li><b><code>n</code></b> (int): the number of measurements per node,
-default: 100</li>
-<li><b><code>steps</code></b> (int): the number of iterations, default:
-15</li>
+<li><b><code>n</code></b> (int): the number of measurements per
+node</li>
+<li><b><code>steps</code></b> (int): the number of iterations</li>
 <li><b><code>mean</code></b> (float): mean value for sampling from a
-Gaussian distribution, default: 100</li>
+Gaussian distribution</li>
 <li><b><code>sd</code></b> (float): standard deviation for sampling from
-a Gaussian distribution, default: 2</li>
+a Gaussian distribution</li>
 <li><b><code>noise</code></b> (float): standard deviation for sampling
-noise from a Gaussian distribution with mean 0 after each iteration,
-default: 1</li>
+noise from a Gaussian distribution with mean 0 after each iteration</li>
 <li><b><code>prop</code></b> (float): proportion of the target node
-value take the source node, default: 0.05</li>
+value take the source node</li>
 </ul>
 <p><strong>Examples:</strong></p>
 <div class="sourceCode" id="cb12"><pre
@@ -260,17 +254,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href=
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> s.get_data()</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>              0           1           2           3           4           5
-0     90.285218   93.380176   92.256817   93.990494  100.914697  105.592112
-1     95.887797  100.912804   99.276183   95.500818   94.826101  100.511039
-2    109.188719   94.854660  102.245785  107.769678  100.862880   97.887346
-3    104.908242   98.543765  104.779121  101.498055  101.443070   98.135013
-4     96.476445   97.057928   95.695965  103.426288  104.086489  101.071581
+0     98.881880  105.989400   99.428252   98.316834   98.207742   98.901207
+1     90.092961   99.493863   96.410247   94.389600  102.114637   97.424214
+2    100.045054   96.609345   95.365019   99.454769   98.628660  101.057457
+3    101.728574   96.115273   99.946376   97.002091  102.158495   96.955450
+4     92.882043   95.630035   97.822406  102.102838   96.811033   98.423813
 ..          ...         ...         ...         ...         ...         ...
-195  103.206553   91.550993   99.315541  104.274657  100.244884   97.290928
-196  107.733005  108.242284  109.252981   99.433573  100.848115  100.856896
-197   94.386993   98.475807   99.309537  100.298379  100.964745   97.527313
-198   92.471922   98.319286   99.121908   97.866358   97.385841  100.050568
-199   94.237711   95.247404  106.303077  104.798580  103.522118   97.614704
+195   98.632318   97.848456   95.997475   97.670924  106.200518   97.045768
+196   89.831038   99.808368   92.060794   97.247345   99.468183   99.558775
+197  104.289014  105.209314  102.221929  103.061284  100.177221  103.224947
+198   99.469725   90.433261  100.359287  100.546312   96.123771   95.704118
+199   93.596150  101.403264   97.182499  102.310670  103.996611  101.727980
 
 [200 rows x 6 columns]
 </code></pre>
@@ -283,10 +277,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a h
 Algorithm.</p>
 <p><strong>Args:</strong></p>
 <ul>
-<li><b><code>rename</code></b> (boolean): default: True</li>
-<li><b><code>True</code></b>: Chains of column names of the input
-data</li>
-<li><b><code>False</code></b>: Chains of column index numbers</li>
+<li><b><code>rename</code></b> (boolean): True: Chains of column names
+of the input data; False: Chains of column index numbers</li>
 </ul>
 <p><strong>Returns:</strong></p>
 <ul>
@@ -338,10 +330,21 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a h
 from the predicted graph</li>
 </ul>
 <hr />
+<h3 id="function-get_p_values"><kbd>function</kbd>
+<code>get_p_values</code></h3>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>get_p_values()</span></code></pre></div>
+<p>Get the p-value matrix with p-values of all edges before the p-value
+filtering was applied.</p>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><b><code>p_val</code></b> (numpy.ndarray): matrix of p-values</li>
+</ul>
+<hr />
 <h3 id="function-graph_stats"><kbd>function</kbd>
 <code>graph_stats</code></h3>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>graph_stats()</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>graph_stats()</span></code></pre></div>
 <p>Computes the accuracy, sensitivity, specificity, BCR (Balanced
 Classification Rate) and MCC (Matthews Correlation Coefficient).</p>
 <p><strong>Returns:</strong></p>
@@ -350,24 +353,24 @@ Classification Rate) and MCC (Matthews Correlation Coefficient).</p>
 statistics</li>
 </ul>
 <p><strong>Examples:</strong></p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>s.st_nich_alg()</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>s.st_nich_alg()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
 <pre><code>{&#39;Accuracy&#39;: 0.8888888888888888, &#39;Sensitivity&#39;: 0.8333333333333334, &#39;Specificity&#39;: 0.9166666666666666, &#39;BCR&#39;: 0.875, &#39;MCC&#39;: 0.75}
 </code></pre>
 <hr />
 <h3 id="function-middle_chains"><kbd>function</kbd>
 <code>middle_chains</code></h3>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>middle_chains(nodes, df)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>middle_chains(nodes, df)</span></code></pre></div>
 <p>Extracts the middle chains of resulting from the correlation
 data.</p>
 <p><strong>Args:</strong></p>
@@ -384,31 +387,29 @@ nodes</li>
 <hr />
 <h3 id="function-new_graph"><kbd>function</kbd>
 <code>new_graph</code></h3>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>new_graph(graph_type<span class="op">=</span><span class="st">&#39;werner&#39;</span>, nodes<span class="op">=</span><span class="dv">5</span>, edges<span class="op">=</span><span class="dv">8</span>, mode<span class="op">=</span><span class="st">&#39;directed&#39;</span>, cont<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>new_graph(graph_type<span class="op">=</span><span class="st">&#39;werner&#39;</span>, nodes<span class="op">=</span><span class="dv">5</span>, edges<span class="op">=</span><span class="dv">8</span>, mode<span class="op">=</span><span class="st">&#39;directed&#39;</span>, cont<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
 <p>Creates a new graph for the Snha object.</p>
 <p><strong>Args:</strong></p>
 <ul>
-<li><b><code>graph_type</code></b> (str): type of the graph “werner”
-(default) “rnd_chain” “band” “circle” “hub” “random” “barabasi_m1”
-“barabasi_m2”</li>
-<li><b><code>nodes</code></b> (int): number of nodes in the graph
-(default: 5)</li>
-<li><b><code>edges</code></b> (int): number of edges in the graph
-(default: 6) mode (str):</li>
-<li><b><code>"directed"</code></b>: directed graph (default)</li>
-<li><b><code>"undirected"</code></b>: undirected graph</li>
-<li><b><code>cont</code></b> (int): number of signal seeds; default: 2
-(only for graph type rndChain)</li>
+<li><b><code>graph_type</code></b> (str): type of the graph; choice of
+[“werner”, “rnd_chain”, “band”, “circle”, “hub”, “random”,
+“barabasi_m1”, “barabasi_m2”]</li>
+<li><b><code>nodes</code></b> (int): number of nodes in the graph</li>
+<li><b><code>edges</code></b> (int): number of edges in the graph</li>
+<li><b><code>mode</code></b> (str): “directed”: directed graph;
+“undirected”: undirected graph</li>
+<li><b><code>cont</code></b> (int): number of signal seeds (only for
+graph type rndChain)</li>
 </ul>
 <p><strong>Examples:</strong></p>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> s.get_graph()</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> s.get_graph()</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph)</span></code></pre></div>
 <pre><code>[[0 0 1 0 0 0]
  [0 0 1 0 0 0]
  [0 0 0 1 0 0]
@@ -417,10 +418,21 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb24-1"><a href=
  [0 0 0 0 0 0]]
 </code></pre>
 <hr />
+<h3 id="function-p_value_filter"><kbd>function</kbd>
+<code>p_value_filter</code></h3>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p_value_filter(thrsh)</span></code></pre></div>
+<p>Eliminates edges which are not significant based on a p-value
+estimate and a threshold.</p>
+<p><strong>Args:</strong></p>
+<ul>
+<li><b><code>thrsh</code></b> (float): threshold for the p-value</li>
+</ul>
+<hr />
 <h3 id="function-plot_corr"><kbd>function</kbd>
 <code>plot_corr</code></h3>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plot_corr(labels<span class="op">=</span><span class="va">None</span>, ax<span class="op">=</span><span class="va">None</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plot_corr(labels<span class="op">=</span><span class="va">None</span>, ax<span class="op">=</span><span class="va">None</span>)</span></code></pre></div>
 <p>Plots the correlation matrix of the Snha data.</p>
 <p><strong>Args:</strong></p>
 <ul>
@@ -430,62 +442,60 @@ graph</li>
 on</li>
 </ul>
 <p><strong>Examples:</strong></p>
-<div class="sourceCode" id="cb27"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>s.plot_corr()</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>s.plot_corr()</span></code></pre></div>
 <pre><code></code></pre>
 <hr />
 <h3 id="function-plot_graph"><kbd>function</kbd>
 <code>plot_graph</code></h3>
-<div class="sourceCode" id="cb29"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plot_graph(</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    layout<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">&#39;directed&#39;</span>,</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    col<span class="op">=</span><span class="st">&#39;tab:blue&#39;</span>,</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    labels_e<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    pred<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    vs<span class="op">=</span><span class="fl">0.15</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plot_graph(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    layout<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    mode<span class="op">=</span><span class="st">&#39;directed&#39;</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    col<span class="op">=</span><span class="st">&#39;tab:blue&#39;</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    labels_e<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    pred<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    vs<span class="op">=</span><span class="fl">0.15</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Plots the graph of the Snha Object.</p>
 <p><strong>Args:</strong></p>
 <ul>
 <li><b><code>labels</code></b> (list): labels for the nodes of the
 graph</li>
 <li><b><code>target</code></b> (matplotlib.axes): axes to plot the graph
-on pred (boolean):</li>
-<li><b><code>True</code></b> (default): Plot the determined association
-chains</li>
-<li><b><code>False</code></b>: Plot the edges from the adjacency
-matrix</li>
-<li><b><code>vs</code></b> (float): vertrex size; default: 25</li>
+on</li>
+<li><b><code>pred</code></b> (boolean): True: Plot the determined
+association chains; False: Plot the edges from the adjacency matrix</li>
+<li><b><code>vs</code></b> (float): vertrex size</li>
 </ul>
 <p><strong>Examples:</strong></p>
-<div class="sourceCode" id="cb30"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>s.st_nich_alg()</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>s.st_nich_alg()</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
 <pre><code>{&#39;Accuracy&#39;: 0.9444444444444444, &#39;Sensitivity&#39;: 0.8333333333333334, &#39;Specificity&#39;: 1.0, &#39;BCR&#39;: 0.9166666666666667, &#39;MCC&#39;: 0.8770580193070291}
 </code></pre>
 <hr />
 <h3 id="function-set_corr"><kbd>function</kbd>
 <code>set_corr</code></h3>
-<div class="sourceCode" id="cb32"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>set_corr(c_data)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>set_corr(c_data)</span></code></pre></div>
 <p>Set the correlation data for the Snha object.</p>
 <p><strong>Args:</strong></p>
 <ul>
@@ -495,8 +505,8 @@ matrix</li>
 <hr />
 <h3 id="function-set_data"><kbd>function</kbd>
 <code>set_data</code></h3>
-<div class="sourceCode" id="cb33"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>set_data(data)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>set_data(data)</span></code></pre></div>
 <p>Set the data for the Snha object.</p>
 <p><strong>Args:</strong></p>
 <ul>
@@ -506,8 +516,8 @@ observations for n variables</li>
 <hr />
 <h3 id="function-set_graph"><kbd>function</kbd>
 <code>set_graph</code></h3>
-<div class="sourceCode" id="cb34"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>set_graph(graph)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>set_graph(graph)</span></code></pre></div>
 <p>Set the graph for the Snha object.</p>
 <p><strong>Args:</strong></p>
 <ul>
@@ -516,8 +526,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a h
 <hr />
 <h3 id="function-set_graph_pred"><kbd>function</kbd>
 <code>set_graph_pred</code></h3>
-<div class="sourceCode" id="cb35"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>set_graph_pred(graph)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>set_graph_pred(graph)</span></code></pre></div>
 <p>Set the graph prediction for the Snha object.</p>
 <p><strong>Args:</strong></p>
 <ul>
@@ -525,8 +535,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a h
 </ul>
 <hr />
 <h3 id="function-snha"><kbd>function</kbd> <code>snha</code></h3>
-<div class="sourceCode" id="cb36"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>snha(df, alpha)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>snha(df, alpha)</span></code></pre></div>
 <p>Extracts the association chains resulting from the correlation
 data.</p>
 <p><strong>Args:</strong></p>
@@ -537,8 +547,8 @@ cut off</li>
 </ul>
 <hr />
 <h3 id="function-snha_bt"><kbd>function</kbd> <code>snha_bt</code></h3>
-<div class="sourceCode" id="cb37"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>snha_bt(df, alpha, n, lbd, method)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>snha_bt(df, alpha, n, lbd, method)</span></code></pre></div>
 <p>Applying the St Nicholas algorithm within a bootstrapp routine.</p>
 <p><strong>Args:</strong></p>
 <ul>
@@ -548,54 +558,65 @@ cut off</li>
 <li><b><code>n</code></b> (int): number of bootstrap iterations</li>
 <li><b><code>lbd</code></b> (float, [0,1]): fraction of all iterations
 to accept an edge as a prediction (e.g. 50/100 iterations an edge need
-to be found, to be considered as a predicted edge at lbd=0.5 and n=100)
-method (str):</li>
-<li><b><code>"pearson" (default)</code></b>: standard correlation
-coefficient</li>
-<li><b><code>"kendall"</code></b>: Kendall Tau correlation
-coefficient</li>
-<li><b><code>"spearman"</code></b>: Spearman rank correlation</li>
+to be found, to be considered as a predicted edge at lbd=0.5 and
+n=100)</li>
+<li><b><code>method</code></b> (str): choice of [“pearson”: standard
+correlation coefficient, “kendall”: Kendall Tau correlation coefficient,
+“spearman”: Spearman rank correlation]</li>
 </ul>
 <hr />
 <h3 id="function-st_nich_alg"><kbd>function</kbd>
 <code>st_nich_alg</code></h3>
-<div class="sourceCode" id="cb38"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>st_nich_alg(data<span class="op">=</span><span class="va">None</span>, alpha<span class="op">=</span><span class="fl">0.1</span>, bt<span class="op">=</span><span class="va">False</span>, n<span class="op">=</span><span class="dv">100</span>, lbd<span class="op">=</span><span class="fl">0.5</span>, method<span class="op">=</span><span class="st">&#39;pearson&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>st_nich_alg(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    bt<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    lbd<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    method<span class="op">=</span><span class="st">&#39;pearson&#39;</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    p_cut<span class="op">=</span><span class="fl">0.05</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Selection to use the St. Nicholaus algorithm with or without
 bootstrapping.</p>
-<p><strong>Args:</strong> data (pandas.DataFrame): -
-<b><code>bt=True</code></b>: Input data - <b><code>bt=False</code></b>:
-Correlation matrix - <b><code>alpha</code></b> (float, [0,1]):
-correlation coefficient cut off; default: 0.1 - <b><code>bt</code></b>
-(boolean): Bootstrap True/Flase; default: False - <b><code>n</code></b>
-(int): number of bootstrap iterations; default: 100 -
-<b><code>lbd</code></b> (float, [0,1]): fraction of all iterations to
-accept an edge as a prediction; default: 0.5 (e.g. 50/100 iterations an
-edge need to be found, to be considered as a predicted edge at lbd=0.5
-and n=100) method (string): - <b><code>"pearson" (default)</code></b>:
-standard correlation coefficient - <b><code>"kendall"</code></b>:
-Kendall Tau correlation coefficient - <b><code>"spearman"</code></b>:
-Spearman rank correlation</p>
+<p><strong>Args:</strong></p>
+<ul>
+<li><b><code>data</code></b> (pandas.DataFrame): bt=True: Input data;
+bt=False: Correlation matrix</li>
+<li><b><code>alpha</code></b> (float, [0,1]): correlation coefficient
+cut off</li>
+<li><b><code>bt</code></b> (boolean): Bootstrap True/Flase</li>
+<li><b><code>n</code></b> (int): number of bootstrap iterations</li>
+<li><b><code>lbd</code></b> (float, [0,1]): fraction of all iterations
+to accept an edge as a prediction (e.g. 50/100 iterations an edge need
+to be found, to be considered as a predicted edge at lbd=0.5 and
+n=100)</li>
+<li><b><code>method</code></b> (string): choice of [“pearson” : standard
+correlation coefficient, “kendall”: Kendall Tau correlation coefficient,
+“spearman”: Spearman rank correlation]</li>
+<li><b><code>p_cut</code></b> (float): p-value threshold to identify
+significant edges</li>
+</ul>
 <p><strong>Examples:</strong></p>
-<div class="sourceCode" id="cb39"><pre
-class="sourceCode py"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>s.st_nich_alg()</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>chains <span class="op">=</span> s.get_chains()</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>graph_pred <span class="op">=</span> s.get_graph_pred()</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chains)</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph_pred)</span></code></pre></div>
-<pre><code>[[5, 4, 3], [4, 5, 3, 2], [1, 2, 3], [0, 2, 3, 4]]
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode py"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> Snha()</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>s.new_graph()</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>s.create_corr_data(n<span class="op">=</span><span class="dv">200</span>, steps<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>s.comp_corr()</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>s.st_nich_alg()</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>chains <span class="op">=</span> s.get_chains()</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>graph_pred <span class="op">=</span> s.get_graph_pred()</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chains)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph_pred)</span></code></pre></div>
+<pre><code>[[5, 4, 3], [4, 5, 3, 2], [1, 2, 3], [0, 2, 3]]
 [[0. 0. 1. 0. 0. 0.]
  [0. 0. 1. 0. 0. 0.]
  [0. 0. 0. 1. 0. 0.]
- [0. 0. 1. 0. 1. 0.]
+ [0. 0. 1. 0. 0. 0.]
  [0. 0. 0. 1. 0. 1.]
  [0. 0. 0. 1. 1. 0.]]
 </code></pre>
