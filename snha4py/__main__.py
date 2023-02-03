@@ -134,6 +134,7 @@ def snha(args):
         n=args.iterations,
         lbd=args.lbd,
         method=args.method,
+        p_cut=args.p_cut,
     )
 
     g = s.get_graph_pred()
@@ -170,28 +171,30 @@ if __name__ == "__main__":
         formatter_class=argparse.RawTextHelpFormatter,
     )
 
-    parser.add_argument("--snha", action="store_true")
-    parser.add_argument("-d", "--data", type=str)
-    parser.add_argument("--alpha", type=float, default=0.1)
-    parser.add_argument("--bootstrap", action="store_true")
-    parser.add_argument("--lbd", type=float, default=0.5)
+    parser.add_argument("--snha", action="store_true", help="")
+    parser.add_argument("-d", "--data", type=str, help="")
+    parser.add_argument("--alpha", type=float, default=0.1, help="")
+    parser.add_argument("--bootstrap", action="store_true", help="")
+    parser.add_argument("--lbd", type=float, default=0.5, help="")
     parser.add_argument(
         "--method",
         type=str,
         choices=["pearson", "kendall", "spearman"],
         default="pearson",
+        help="",
     )
+    parser.add_argument("--p-cut", type=float, default=0.05, help="")
 
-    parser.add_argument("--create-data", action="store_true")
-    parser.add_argument("-g", "--graph")
-    parser.add_argument("-s", "--steps", default=25, type=int)
-    parser.add_argument("-i", "--iterations", default=200, type=int)
-    parser.add_argument("--mean", default=100, type=float)
-    parser.add_argument("--std", default=2, type=float)
-    parser.add_argument("--noise", default=1, type=float)
-    parser.add_argument("--prop", default=0.05, type=float)
+    parser.add_argument("--create-data", action="store_true", help="")
+    parser.add_argument("-g", "--graph", help="")
+    parser.add_argument("-s", "--steps", default=25, type=int, help="")
+    parser.add_argument("-i", "--iterations", default=200, type=int, help="")
+    parser.add_argument("--mean", default=100, type=float, help="")
+    parser.add_argument("--std", default=2, type=float, help="")
+    parser.add_argument("--noise", default=1, type=float, help="")
+    parser.add_argument("--prop", default=0.05, type=float, help="")
 
-    parser.add_argument("--create-graph", action="store_true")
+    parser.add_argument("--create-graph", action="store_true", help="")
     parser.add_argument(
         "-t",
         "--graph-type",
@@ -207,15 +210,21 @@ if __name__ == "__main__":
             "barabasi_m2",
         ],
         default="werner",
+        help="",
     )
-    parser.add_argument("-n", "--nodes", type=int, default=5)
+    parser.add_argument("-n", "--nodes", type=int, default=5, help="")
     parser.add_argument(
-        "-m", "--mode", type=str, choices=["directed", "undirected"], default="directed"
+        "-m",
+        "--mode",
+        type=str,
+        choices=["directed", "undirected"],
+        default="directed",
+        help="",
     )
-    parser.add_argument("-e", "--edges", type=int, default=10)
-    parser.add_argument("--cont", type=int, default=2)
+    parser.add_argument("-e", "--edges", type=int, default=10, help="")
+    parser.add_argument("--cont", type=int, default=2, help="")
 
-    parser.add_argument("-p", "--plot", action="store_true")
-    parser.add_argument("-o", "--output", type=str)
+    parser.add_argument("-p", "--plot", action="store_true", help="")
+    parser.add_argument("-o", "--output", type=str, help="")
 
     main(parser)
