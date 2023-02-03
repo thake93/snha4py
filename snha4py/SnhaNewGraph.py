@@ -10,7 +10,7 @@ Examples:
 from snha4py.SnhaNewGraph import SnhaNewGraph
 
 fct = dir(SnhaNewGraph)
-ignore = ["set_graph", "get_graph", "undir2dir"]
+ignore = ["set_graph", "get_graph", "undir2dir", "edge_dir_shuffle"]
 for f in fct:
     if f not in ignore and "__" not in f:
         print(f)
@@ -28,21 +28,11 @@ class SnhaNewGraph:
         Creates a new graph.
 
         Args:
-            graph_type (str): type of the graph
-                "werner" (default)
-                "rnd_chain"
-                "band"
-                "circle"
-                "hub"
-                "random"
-                "barabasi_m1"
-                "barabasi_m2"
-            nodes (int): number of nodes in the graph (default: 5)
-            edges (int): number of edges in the graph (default: 6)
-            mode (str):
-                "directed": directed graph (default)
-                "undirected": undirected graph
-            cont (int): number of signal seeds; default: 2 (only for graph type rndChain)
+            graph_type (str): type of the graph; choice of ["werner", "rnd_chain", "band", "circle", "hub", "random", "barabasi_m1", "barabasi_m2"]
+            nodes (int): number of nodes in the graph
+            edges (int): number of edges in the graph
+            mode (str): "directed": directed graph; "undirected": undirected graph
+            cont (int): number of signal seeds (only for graph type rndChain)
         """
         self.nodes = nodes
         self.edges = edges
@@ -63,9 +53,7 @@ class SnhaNewGraph:
         Creates an Barabasi-M1/M2 graph.
 
         Args:
-            m (int):
-                1 (default): barabasi-M1 graph
-                2: brabasi-M2 graph
+            m (int): 1: barabasi-M1 graph; 2: brabasi-M2 graph
         """
         self.graph[1, 0] = 1
         for n in range(2, self.nodes):

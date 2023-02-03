@@ -94,13 +94,8 @@ class Snha:
 
         Args:
             df (pandas.DataFrame): compute the correlation based on the data
-            method (str):
-                "pearson" (default): standard correlation coefficient
-                "kendall": Kendall Tau correlation coefficient
-                "spearman": Spearman rank correlation
-            in_place (boolean):
-                True (default): assigns self.corr the computed correlation
-                False: returns the computed correlation instead
+            method (str): choice of ["pearson" : standard correlation coefficient, "kendall": Kendall Tau correlation coefficient, "spearman": Spearman rank correlation]
+            in_place (boolean): True : assigns self.corr the computed correlation; False: returns the computed correlation instead
 
         Returns:
             Only if in_place=False: the computed correlation
@@ -174,12 +169,12 @@ class Snha:
         Create correlation data for the Snha objects graph.
 
         Args:
-            n (int): the number of measurements per node, default: 100
-            steps (int): the number of iterations, default: 15
-            mean (float): mean value for sampling from a Gaussian distribution, default: 100
-            sd (float): standard deviation for sampling from a Gaussian distribution, default: 2
-            noise (float): standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration, default: 1
-            prop (float): proportion of the target node value take the source node, default: 0.05
+            n (int): the number of measurements per node
+            steps (int): the number of iterations
+            mean (float): mean value for sampling from a Gaussian distribution
+            sd (float): standard deviation for sampling from a Gaussian distribution
+            noise (float): standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration
+            prop (float): proportion of the target node value take the source node
 
         Examples:
 
@@ -203,9 +198,7 @@ class Snha:
         Get the association chains extrected by the St. Nicholas Algorithm.
 
         Args:
-            rename (boolean): default: True
-                True: Chains of column names of the input data
-                False: Chains of column index numbers
+            rename (boolean): True: Chains of column names of the input data; False: Chains of column index numbers
 
         Returns:
             chains (list): Association chains for the correlation data
@@ -332,21 +325,11 @@ class Snha:
         Creates a new graph for the Snha object.
 
         Args:
-            graph_type (str): type of the graph
-                "werner" (default)
-                "rnd_chain"
-                "band"
-                "circle"
-                "hub"
-                "random"
-                "barabasi_m1"
-                "barabasi_m2"
-            nodes (int): number of nodes in the graph (default: 5)
-            edges (int): number of edges in the graph (default: 6)
-            mode (str):
-                "directed": directed graph (default)
-                "undirected": undirected graph
-            cont (int): number of signal seeds; default: 2 (only for graph type rndChain)
+            graph_type (str): type of the graph; choice of ["werner", "rnd_chain", "band", "circle", "hub", "random", "barabasi_m1", "barabasi_m2"]
+            nodes (int): number of nodes in the graph
+            edges (int): number of edges in the graph
+            mode (str): "directed": directed graph; "undirected": undirected graph
+            cont (int): number of signal seeds (only for graph type rndChain)
 
         Examples:
 
@@ -408,10 +391,8 @@ class Snha:
         Args:
             labels (list): labels for the nodes of the graph
             target (matplotlib.axes): axes to plot the graph on
-            pred (boolean):
-                True (default): Plot the determined association chains
-                False: Plot the edges from the adjacency matrix
-            vs (float): vertrex size; default: 25
+            pred (boolean): True: Plot the determined association chains; False: Plot the edges from the adjacency matrix
+            vs (float): vertrex size
 
         Examples:
 
@@ -557,10 +538,7 @@ class Snha:
             alpha (float, [0,1]): correlation coefficient cut off
             n (int): number of bootstrap iterations
             lbd (float, [0,1]): fraction of all iterations to accept an edge as a prediction (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100)
-            method (str):
-                "pearson" (default): standard correlation coefficient
-                "kendall": Kendall Tau correlation coefficient
-                "spearman": Spearman rank correlation
+            method (str): choice of ["pearson": standard correlation coefficient, "kendall": Kendall Tau correlation coefficient, "spearman": Spearman rank correlation]
         """
         predictions = []
         samples = [df.sample(len(df), replace=True) for i in range(n)]
@@ -597,7 +575,7 @@ class Snha:
         data=None,
         alpha=0.1,
         bt=False,
-        n=100,
+        n=20,
         lbd=0.5,
         method="pearson",
         p_cut=0.05,
@@ -606,17 +584,12 @@ class Snha:
         Selection to use the St. Nicholaus algorithm with or without bootstrapping.
 
         Args:
-            data (pandas.DataFrame):
-                bt=True: Input data
-                bt=False: Correlation matrix
-            alpha (float, [0,1]): correlation coefficient cut off; default: 0.1
-            bt (boolean): Bootstrap True/Flase; default: False
-            n (int): number of bootstrap iterations; default: 100
-            lbd (float, [0,1]): fraction of all iterations to accept an edge as a prediction; default: 0.5 (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100)
-            method (string):
-                "pearson" (default): standard correlation coefficient
-                "kendall": Kendall Tau correlation coefficient
-                "spearman": Spearman rank correlation
+            data (pandas.DataFrame): bt=True: Input data; bt=False: Correlation matrix
+            alpha (float, [0,1]): correlation coefficient cut off
+            bt (boolean): Bootstrap True/Flase
+            n (int): number of bootstrap iterations
+            lbd (float, [0,1]): fraction of all iterations to accept an edge as a prediction (e.g. 50/100 iterations an edge need to be found, to be considered as a predicted edge at lbd=0.5 and n=100)
+            method (string): choice of ["pearson" : standard correlation coefficient, "kendall": Kendall Tau correlation coefficient, "spearman": Spearman rank correlation]
             p_cut (float): p-value threshold to identify significant edges
 
         Examples:

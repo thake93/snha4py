@@ -17,12 +17,12 @@ class SnhaDataGen:
 
         Args:
             graph (numpy.ndarray): adjacents matrix of a directed graph
-            n (int): the number of measurements per node, default: 100
-            steps (int): the number of iterations, default: 15
-            mean (float): mean value for sampling from a Gaussian distribution, default: 100
-            sd (float): standard deviation for sampling from a Gaussian distribution, default: 2
-            noise (float): standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration, default: 1
-            prop (float): proportion of the target node value take the source node, default: 0.05
+            n (int): the number of measurements per node
+            steps (int): the number of iterations
+            mean (float): mean value for sampling from a Gaussian distribution
+            sd (float): standard deviation for sampling from a Gaussian distribution
+            noise (float): standard deviation for sampling noise from a Gaussian distribution with mean 0 after each iteration
+            prop (float): proportion of the target node value take the source node
         """
         self.graph = graph
         self.n = n
