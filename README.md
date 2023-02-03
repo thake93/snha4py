@@ -1,5 +1,5 @@
 # snha4py
-Snha4py is a python implementation of the St. Nicholas House algorithm ([_Groth et al. 2019_](https://doi.org/10.1127/anthranz/2019/1027), 
+Snha4py is a Python implementation of the St. Nicholas House algorithm ([_Groth et al. 2019_](https://doi.org/10.1127/anthranz/2019/1027), 
 [_Hermanussen et al. 2021_](https://doi.org/10.3390%2Fijerph18041741), 
 _Hake et al. 2023_). 
 The algorithm infers a graph based on the correlation coefficient between variables of a data set. Here, the nodes and the edges would be the variables of the data set and the correlation coefficient, respectively. 
@@ -105,7 +105,7 @@ from tracing association chains by st. nicolas house analysis. *Anthropologische
 76(5):445–451. [DOI](https://doi.org/10.1127/anthranz/2019/1027)
 
 Hake, T., Bodenberger, B., Groth, D. (2023). In Python available: St. Nicolas House Algorithm (SNHA)
-with bootstrap support for improved performance in dense networks. *Human Biology and Public Health* 4.
+with bootstrap support for improved performance in dense networks. *Human Biology and Public Health* 4. (Accepted, doi follows)
 
 Hermanussen, M., Aßmann, C., and Groth, D. (2021). Chain reversion for detecting associations
 in interacting variables—st. nicolas house analysis. *International Journal of Environmental
