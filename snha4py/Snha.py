@@ -35,7 +35,7 @@ class Snha:
         """
         Converts association chains into an adjacency matrix.
         """
-        g = np.zeros((self.data.shape[1], self.data.shape[1]))
+        g = np.zeros((self.corr.shape[1], self.corr.shape[1]))
         for ch in self.chains:
             for i in range(len(ch) - 1):
                 g[ch[i], ch[i + 1]] = 1
@@ -384,15 +384,21 @@ class Snha:
         pred=True,
         ax=None,
         vs=0.15,
+        col_mode=None,
     ):
         """
         Plots the graph of the Snha Object.
 
         Args:
-            labels (list): labels for the nodes of the graph
-            target (matplotlib.axes): axes to plot the graph on
-            pred (boolean): True: Plot the determined association chains; False: Plot the edges from the adjacency matrix
-            vs (float): vertrex size
+            layout (list): list of coordinates of the nodes
+            mode (string): 'directed' or 'undirected'
+            col (matplotlib.colors): color of the nodes or a list of colors, which holds a color for each node
+            labels (list): list of labels for the nodes
+            labels_e (list): list of edge labels
+            pred (boolean): plot graph prediction
+            ax (matplotlib.axes): axes to plot the graph on
+            vs (float): size for the nodes
+            col_mode (string): 'in_out' highlight nodes, which have only outgoing and in going edges
 
         Examples:
 
@@ -420,7 +426,14 @@ class Snha:
         else:
             p = SnhaPlot(adj_mat=self.graph, corr=None, labels_n=labels, ax=ax)
 
-        p.graph(layout=layout, mode=mode, col=col, labels_e=labels_e, vs=vs)
+        p.graph(
+            layout=layout,
+            mode=mode,
+            col=col,
+            labels_e=labels_e,
+            vs=vs,
+            col_mode=col_mode,
+        )
 
     def p_value_filter(self, thrsh):
         """

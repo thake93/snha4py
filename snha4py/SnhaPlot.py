@@ -82,7 +82,7 @@ class SnhaPlot:
         orth_vec = self.unit_length_vec(orth_vec)
         return orth_vec * scale
 
-    def graph(self, layout, mode, col, labels_e, vs):
+    def graph(self, layout, mode, col, labels_e, vs, col_mode):
         """
         Plots a graph.
         Args:
@@ -91,6 +91,7 @@ class SnhaPlot:
             col (matplotlib.colors): color of the nodes or a list of colors, which holds a color for each node
             labels_e (list): list of edge labels
             vs (float): size for the nodes
+            col_mode (string): 'in_out' highlight nodes, which have only outgoing and in going edges
         """
         circle_radius = vs
         scale_a = -2
@@ -136,8 +137,19 @@ class SnhaPlot:
         for e in edges:
             self.ax.add_patch(e)
 
+        if col_mode == "in_out":
+            col = np.array(["0.3"] * len(layout)).astype("U25")
+            sum_col = self.adj_mat.sum(axis=0)
+            sum_row = self.adj_mat.sum(axis=1)
+
+            outgoing = np.asarray((sum_col == 0) & (sum_row > 0))
+            ingoing = np.asarray((sum_row == 0) & (sum_col > 0))
+
+            col[outgoing] = "tab:orange"
+            col[ingoing] = "tab:blue"
+
         for i, l in enumerate(layout):
-            if type(col) == list:
+            if type(col) in [list, np.ndarray]:
                 c = col[i]
             else:
                 c = col
@@ -173,6 +185,8 @@ class SnhaPlot:
             )
 
         if not (labels_e is None):
+            start = layout[start]
+            end = layout[end]
             true_edge = end - start
             perp_edge = self.get_orth_vec(true_edge, 0.1)
             edge_center_coords = start + true_edge * 0.5 + perp_edge
