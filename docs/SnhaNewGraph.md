@@ -27,7 +27,7 @@ The St. Nicolas House Algorithm graph collection.
 from snha4py.SnhaNewGraph import SnhaNewGraph
 
 fct = dir(SnhaNewGraph)
-ignore = ["set_graph", "get_graph", "undir2dir", "edge_dir_shuffle"]
+ignore = ["set_graph", "get_graph", "undir2dir", "edge_dir_shuffle", "dir2undir"]
 for f in fct:
      if f not in ignore and "__" not in f:
          print(f)
@@ -112,7 +112,7 @@ Implementation of a barabasi-M1 graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L75"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L80"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `barabasi_m2`
 
@@ -124,7 +124,7 @@ Implementation of a barabasi-M2 graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L81"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L91"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `circle`
 
@@ -136,7 +136,19 @@ Implementation of a circle graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L88"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L98"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+
+### <kbd>function</kbd> `dir2undir`
+
+```python
+dir2undir()
+```
+
+Turns a directed graph into an undirected graph. 
+
+---
+
+<a href="../snha4py/SnhaNewGraph.py#L105"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `edge_dir_shuffle`
 
@@ -148,7 +160,7 @@ Shuffle the direction of the Snha objects graph edges.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L111"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L128"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_graph`
 
@@ -164,7 +176,7 @@ get_graph()
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L103"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L120"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `hub`
 
@@ -176,7 +188,7 @@ Implementation of a hub graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L121"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L138"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `random`
 
@@ -188,7 +200,7 @@ Implementation of a random graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L130"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L147"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `rnd_chain`
 
@@ -200,7 +212,7 @@ Implementation of a random graph. Select random start nodes and create directed 
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L148"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L165"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph`
 
@@ -218,7 +230,7 @@ Calls the graph-function and sets the graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L158"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L175"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `undir2dir`
 
@@ -239,7 +251,7 @@ Creates a directed graph from an undirected graph.
 
 ---
 
-<a href="../snha4py/SnhaNewGraph.py#L188"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaNewGraph.py#L205"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `werner`
 
