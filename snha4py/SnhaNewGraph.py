@@ -10,7 +10,7 @@ Examples:
 from snha4py.SnhaNewGraph import SnhaNewGraph
 
 fct = dir(SnhaNewGraph)
-ignore = ["set_graph", "get_graph", "undir2dir", "edge_dir_shuffle"]
+ignore = ["set_graph", "get_graph", "undir2dir", "edge_dir_shuffle", "dir2undir"]
 for f in fct:
     if f not in ignore and "__" not in f:
         print(f)
@@ -71,12 +71,22 @@ class SnhaNewGraph:
         Implementation of a barabasi-M1 graph.
         """
         self.barabasi()
+        self.dir2undir()
+        start = np.random.choice(range(self.nodes), size=self.cont, replace=False)
+        g_new = np.zeros((self.nodes, self.nodes))
+        self.undir2dir(start, [], g_new, self.nodes)
+        self.graph = g_new
 
     def barabasi_m2(self):
         """
         Implementation of a barabasi-M2 graph.
         """
         self.barabasi(m=2)
+        self.dir2undir()
+        start = np.random.choice(range(self.nodes), size=self.cont, replace=False)
+        g_new = np.zeros((self.nodes, self.nodes))
+        self.undir2dir(start, [], g_new, self.nodes)
+        self.graph = g_new
 
     def circle(self):
         """
@@ -84,6 +94,13 @@ class SnhaNewGraph:
         """
         self.band()
         self.graph[self.nodes - 1, 0] = 1
+
+    def dir2undir(self):
+        """
+        Turns a directed graph into an undirected graph.
+        """
+        self.graph = self.graph.T + self.graph
+        self.graph[self.graph != 0] = 1
 
     def edge_dir_shuffle(self):
         """
@@ -203,7 +220,7 @@ class SnhaNewGraph:
 
 if __name__ == "__main__":
     fct = dir(SnhaNewGraph)
-    ignore = ["set_graph", "get_graph", "undir2dir"]
+    ignore = ["set_graph", "get_graph", "undir2dir", "dir2undir"]
     for f in fct:
         if f not in ignore and "__" not in f:
             print(f)
