@@ -433,7 +433,7 @@ print(graph)
 
 ---
 
-<a href="../snha4py/Snha.py#L425"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L438"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `p_value_filter`
 
@@ -499,7 +499,8 @@ plot_graph(
     labels_e=None,
     pred=True,
     ax=None,
-    vs=0.15
+    vs=0.15,
+    col_mode=None
 )
 ```
 
@@ -509,10 +510,15 @@ Plots the graph of the Snha Object.
 
 **Args:**
  
- - <b>`labels`</b> (list):  labels for the nodes of the graph 
- - <b>`target`</b> (matplotlib.axes):  axes to plot the graph on 
- - <b>`pred`</b> (boolean):  True: Plot the determined association chains; False: Plot the edges from the adjacency matrix 
- - <b>`vs`</b> (float):  vertrex size 
+ - <b>`layout`</b> (list):  list of coordinates of the nodes 
+ - <b>`mode`</b> (string):  'directed' or 'undirected' 
+ - <b>`col`</b> (matplotlib.colors):  color of the nodes or a list of colors, which holds a color for each node 
+ - <b>`labels`</b> (list):  list of labels for the nodes 
+ - <b>`labels_e`</b> (list):  list of edge labels 
+ - <b>`pred`</b> (boolean):  plot graph prediction 
+ - <b>`ax`</b> (matplotlib.axes):  axes to plot the graph on 
+ - <b>`vs`</b> (float):  size for the nodes 
+ - <b>`col_mode`</b> (string):  'in_out' highlight nodes, which have only outgoing and in going edges 
 
 
 
@@ -534,7 +540,7 @@ print(stats)
 
 ---
 
-<a href="../snha4py/Snha.py#L451"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L464"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_corr`
 
@@ -552,7 +558,7 @@ Set the correlation data for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L460"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L473"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_data`
 
@@ -570,7 +576,7 @@ Set the data for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L469"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L482"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph`
 
@@ -588,7 +594,7 @@ Set the graph for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L478"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L491"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_graph_pred`
 
@@ -606,7 +612,7 @@ Set the graph prediction for the Snha object.
 
 ---
 
-<a href="../snha4py/Snha.py#L487"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L500"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `snha`
 
@@ -625,7 +631,7 @@ Extracts the association chains resulting from the correlation data.
 
 ---
 
-<a href="../snha4py/Snha.py#L532"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L545"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `snha_bt`
 
@@ -647,7 +653,7 @@ Applying the St Nicholas algorithm within a bootstrapp routine.
 
 ---
 
-<a href="../snha4py/Snha.py#L573"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/Snha.py#L586"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `st_nich_alg`
 

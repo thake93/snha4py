@@ -91,7 +91,7 @@ Computes an orthogonal vector of an input vector.
 ### <kbd>function</kbd> `graph`
 
 ```python
-graph(layout, mode, col, labels_e, vs)
+graph(layout, mode, col, labels_e, vs, col_mode)
 ```
 
 Plots a graph. 
@@ -103,10 +103,11 @@ Plots a graph.
  - <b>`col`</b> (matplotlib.colors):  color of the nodes or a list of colors, which holds a color for each node 
  - <b>`labels_e`</b> (list):  list of edge labels 
  - <b>`vs`</b> (float):  size for the nodes 
+ - <b>`col_mode`</b> (string):  'in_out' highlight nodes, which have only outgoing and in going edges 
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L195"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L209"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `scale`
 
@@ -126,7 +127,7 @@ Centers and rescale the layout coordinates for the nodes.
 
 ---
 
-<a href="../snha4py/SnhaPlot.py#L214"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../snha4py/SnhaPlot.py#L228"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `unit_length_vec`
 
