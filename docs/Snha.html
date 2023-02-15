@@ -191,12 +191,12 @@ correlation</li>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>cor <span class="op">=</span> s.get_corr()</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cor)</span></code></pre></div>
 <pre><code>          0         1         2         3         4         5
-0  1.000000 -0.136233  0.461448  0.128869  0.118526  0.027488
-1 -0.136233  1.000000  0.457032  0.136718  0.017575  0.059765
-2  0.461448  0.457032  1.000000  0.360329  0.165128  0.154420
-3  0.128869  0.136718  0.360329  1.000000  0.307734  0.443944
-4  0.118526  0.017575  0.165128  0.307734  1.000000  0.453949
-5  0.027488  0.059765  0.154420  0.443944  0.453949  1.000000
+0  1.000000 -0.147988  0.390361  0.211899  0.033819  0.112750
+1 -0.147988  1.000000  0.489323  0.225167  0.032883  0.081823
+2  0.390361  0.489323  1.000000  0.368669  0.093684  0.052001
+3  0.211899  0.225167  0.368669  1.000000  0.323964  0.357519
+4  0.033819  0.032883  0.093684  0.323964  1.000000  0.489271
+5  0.112750  0.081823  0.052001  0.357519  0.489271  1.000000
 </code></pre>
 <hr />
 <h3 id="function-conf_mat"><kbd>function</kbd>
@@ -221,8 +221,8 @@ matrix</li>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>cm <span class="op">=</span> s.conf_mat()</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cm)</span></code></pre></div>
-<pre><code>[[ 5. 11.]
- [ 1.  1.]]
+<pre><code>[[ 5. 12.]
+ [ 0.  1.]]
 </code></pre>
 <hr />
 <h3 id="function-create_corr_data"><kbd>function</kbd>
@@ -254,17 +254,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href=
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> s.get_data()</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>              0           1           2           3           4           5
-0    106.543391   94.322731  103.614874  100.214787  100.214732  100.221789
-1     98.760811   99.244881  100.394390   99.694476  101.874438   98.979099
-2     98.802700   99.277530   96.503972  101.004339  102.003820  104.035664
-3    100.411433  102.996824  103.510486  102.278192  107.675828  103.066502
-4    106.546337  107.421218  105.460693  102.415698   99.047231  100.459757
+0    100.196939  101.586668   97.882347   93.470413   94.267017   95.380977
+1     99.474078  101.760429   97.530390   98.787218  100.657589  103.092396
+2     96.314343   96.759338   93.684856   95.285056  102.728477  102.696301
+3     89.977296  107.300602   97.166553   99.748891  100.623886  101.393387
+4    113.020788   99.739180  106.660706  104.707975  102.454053  101.905464
 ..          ...         ...         ...         ...         ...         ...
-195  105.238689  104.286605  104.229989   98.957141  102.060015   96.868106
-196   98.438386   96.705714   96.657874  102.532563   99.555430  101.104992
-197  105.449513  104.769037  102.712627  104.281566  101.908005   99.422235
-198  102.286892   89.284181   98.277830  103.409666  103.241390   97.998397
-199  109.490086   97.169859  102.607529  101.402850  101.315209  101.995951
+195   99.596079   92.091802   98.472013   99.795170   93.339181   99.855298
+196  104.354826  101.212473  101.552609  102.400494  103.988888  101.190131
+197  101.492403  107.859491  106.347403  108.502476  103.801457   99.134432
+198   99.326009   88.659405   98.857023   95.034772  100.301749   97.371111
+199   93.262866  103.696557   98.824940   97.479145   99.977500   98.678212
 
 [200 rows x 6 columns]
 </code></pre>
@@ -364,7 +364,7 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb21-1"><a href=
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
-<pre><code>{&#39;Accuracy&#39;: 1.0, &#39;Sensitivity&#39;: 1.0, &#39;Specificity&#39;: 1.0, &#39;BCR&#39;: 1.0, &#39;MCC&#39;: 1.0}
+<pre><code>{&#39;Accuracy&#39;: 0.9444444444444444, &#39;Sensitivity&#39;: 0.8333333333333334, &#39;Specificity&#39;: 1.0, &#39;BCR&#39;: 0.9166666666666667, &#39;MCC&#39;: 0.8770580193070291}
 </code></pre>
 <hr />
 <h3 id="function-middle_chains"><kbd>function</kbd>
@@ -496,7 +496,7 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb32-1"><a href=
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
-<pre><code>{&#39;Accuracy&#39;: 0.9444444444444444, &#39;Sensitivity&#39;: 1.0, &#39;Specificity&#39;: 0.9166666666666666, &#39;BCR&#39;: 0.9583333333333333, &#39;MCC&#39;: 0.8864052604279183}
+<pre><code>{&#39;Accuracy&#39;: 0.8888888888888888, &#39;Sensitivity&#39;: 0.8333333333333334, &#39;Specificity&#39;: 0.9166666666666666, &#39;BCR&#39;: 0.875, &#39;MCC&#39;: 0.75}
 </code></pre>
 <hr />
 <h3 id="function-set_corr"><kbd>function</kbd>
@@ -619,12 +619,12 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb41-1"><a href=
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chains)</span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph_pred)</span></code></pre></div>
-<pre><code>[[4, 5, 3], [1, 2, 3], [0, 2, 3, 5, 4]]
+<pre><code>[[4, 5, 3], [5, 4, 3, 2], [1, 2, 3, 4, 5], [0, 2, 4, 3]]
 [[0. 0. 1. 0. 0. 0.]
  [0. 0. 1. 0. 0. 0.]
- [0. 0. 0. 1. 0. 0.]
- [0. 0. 0. 0. 0. 1.]
- [0. 0. 0. 0. 0. 1.]
+ [0. 0. 0. 1. 1. 0.]
+ [0. 0. 1. 0. 1. 0.]
+ [0. 0. 0. 1. 0. 1.]
  [0. 0. 0. 1. 1. 0.]]
 </code></pre>
 <hr />
