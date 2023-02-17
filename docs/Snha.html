@@ -191,12 +191,12 @@ correlation</li>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>cor <span class="op">=</span> s.get_corr()</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cor)</span></code></pre></div>
 <pre><code>          0         1         2         3         4         5
-0  1.000000 -0.032734  0.528626  0.236058  0.186657  0.141261
-1 -0.032734  1.000000  0.510391  0.210577  0.008793 -0.009098
-2  0.528626  0.510391  1.000000  0.366228  0.147626  0.136441
-3  0.236058  0.210577  0.366228  1.000000  0.403607  0.431057
-4  0.186657  0.008793  0.147626  0.403607  1.000000  0.595662
-5  0.141261 -0.009098  0.136441  0.431057  0.595662  1.000000
+0  1.000000 -0.063258  0.519431  0.291623  0.053113  0.083909
+1 -0.063258  1.000000  0.409964  0.041924  0.046002  0.016741
+2  0.519431  0.409964  1.000000  0.346628  0.143418  0.121044
+3  0.291623  0.041924  0.346628  1.000000  0.388355  0.443973
+4  0.053113  0.046002  0.143418  0.388355  1.000000  0.541512
+5  0.083909  0.016741  0.121044  0.443973  0.541512  1.000000
 </code></pre>
 <hr />
 <h3 id="function-conf_mat"><kbd>function</kbd>
@@ -254,17 +254,17 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb12-1"><a href=
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> s.get_data()</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span></code></pre></div>
 <pre><code>              0           1           2           3           4           5
-0     97.025663  100.328784  104.316597   99.399129  106.398425  102.989691
-1    108.903915   96.042304  101.872621  101.750213  105.745095  103.869985
-2    101.219336  104.119004  101.995464  111.491053  104.382670  102.277350
-3    102.574043  103.490753  100.613026  102.920564   96.720317  101.302751
-4     99.578795   96.834199   94.604687   96.228361   97.465584   96.189385
+0    109.958998   98.136192  102.555277   98.490108  102.577338   97.708703
+1    104.055866  105.676179  105.042783  100.790053   97.072637   96.748714
+2    103.241712  103.121424  100.758823   96.593550   97.477325  101.601441
+3     97.918451   94.323849   99.109261   99.530914  103.128488  105.633594
+4    102.260213  101.165416   94.188313   97.900131  104.716656   99.549558
 ..          ...         ...         ...         ...         ...         ...
-195   99.400277   99.777634   98.398450  102.843598   96.904907   97.983624
-196   98.756077  103.471295   98.034440  106.982791  104.140607  103.825974
-197   97.825829   93.891219   97.122286   96.451093   96.302382  100.121067
-198   95.647566  111.571655   95.273847   92.323760  100.460213   98.599381
-199  109.264485   93.740221   99.396426   94.692030   97.491595   96.278612
+195   94.731439  102.899502  103.120394   97.393084   95.348096  100.028072
+196   92.980401  100.699708   96.093876   94.412657  102.216080   97.655055
+197   97.757406   98.548622  100.994799   96.756304   99.154849   99.021452
+198  102.020867   86.086286   93.638623   94.625761   96.951247   94.520502
+199   99.585150   96.830047  102.207557  101.257687  103.659639  101.866086
 
 [200 rows x 6 columns]
 </code></pre>
@@ -364,7 +364,7 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb21-1"><a href=
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
-<pre><code>{&#39;Accuracy&#39;: 0.8888888888888888, &#39;Sensitivity&#39;: 1.0, &#39;Specificity&#39;: 0.8333333333333334, &#39;BCR&#39;: 0.9166666666666667, &#39;MCC&#39;: 0.7905694150420948}
+<pre><code>{&#39;Accuracy&#39;: 0.9444444444444444, &#39;Sensitivity&#39;: 1.0, &#39;Specificity&#39;: 0.9166666666666666, &#39;BCR&#39;: 0.9583333333333333, &#39;MCC&#39;: 0.8864052604279183}
 </code></pre>
 <hr />
 <h3 id="function-middle_chains"><kbd>function</kbd>
@@ -496,7 +496,7 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb32-1"><a href=
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> s.graph_stats()</span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code></pre></div>
-<pre><code>{&#39;Accuracy&#39;: 1.0, &#39;Sensitivity&#39;: 1.0, &#39;Specificity&#39;: 1.0, &#39;BCR&#39;: 1.0, &#39;MCC&#39;: 1.0}
+<pre><code>{&#39;Accuracy&#39;: 0.9444444444444444, &#39;Sensitivity&#39;: 0.8333333333333334, &#39;Specificity&#39;: 1.0, &#39;BCR&#39;: 0.9166666666666667, &#39;MCC&#39;: 0.8770580193070291}
 </code></pre>
 <hr />
 <h3 id="function-set_corr"><kbd>function</kbd>
@@ -619,13 +619,13 @@ class="sourceCode py"><code class="sourceCode python"><span id="cb41-1"><a href=
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chains)</span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph_pred)</span></code></pre></div>
-<pre><code>[[4, 5, 3, 1], [3, 5, 4], [2, 1, 3, 4, 5], [0, 2, 3]]
+<pre><code>[[3, 5, 4], [1, 2, 3], [0, 2, 3, 4]]
 [[0. 0. 1. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 0.]
  [0. 0. 0. 1. 0. 0.]
- [0. 1. 0. 1. 0. 0.]
- [0. 1. 0. 0. 1. 1.]
- [0. 0. 0. 0. 0. 1.]
- [0. 0. 0. 1. 1. 0.]]
+ [0. 0. 0. 0. 1. 1.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0.]]
 </code></pre>
 <hr />
 <p><em>This file was automatically generated via <a
