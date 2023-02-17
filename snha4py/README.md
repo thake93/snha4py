@@ -41,6 +41,7 @@ Also, I will add a random variable to the data set to highlight the edge predict
 First, we change the time of the running events into speed and add a random variable.
 The code below will do the task, or you can get the preprocessed data set
 [here](https://github.com/thake93/snha4py/blob/main/examples/data/decathlon_pre.csv).
+
 * * *
 
 ```shell
@@ -61,6 +62,7 @@ for d in dist:
 data["rnd"] = data["100"].sample(n=data.shape[0], ignore_index=True)
 data.to_csv("decathlon_pre.csv", index=False)
 ```
+
 * * *
 
 Now, we can analyse the preprocessed data with:
@@ -80,6 +82,7 @@ For your analysis you might want to play around with different sets of arguments
 See the 
 [argument details](#st-nicolas-house-arguments)
  here.
+
 ### In Python script 
 Using the tool within your script grants you the most flexibility. 
 So, I recommend you to use it that way.  
@@ -192,7 +195,9 @@ Instead of loading a graph stored in a csv file you could use the new_graph meth
 s = Snha()
 s.new_graph() # see the API for further details
 ```
+
 * * *
+
 Here are four examples of different graph types.
 
 <div align="center">
@@ -204,7 +209,9 @@ You can call the method with the arguments:
 s.new_graph(graph_type='werner', nodes=5, edges=8, mode='directed', cont=2)
 ```
 [Argument details](https://github.com/thake93/snha4py/blob/main/docs/Snha.md#function-new_graph)
+
 * * *
+
 or you could type your own graph
 ```python
 graph = np.array([[0, 0, 1], [1, 0, 1], [0, 1, 0]])
@@ -239,6 +246,7 @@ The code is also stored in a
 [jupyter notebook](https://github.com/thake93/snha4py/blob/main/examples/graph2data.ipynb).
 
 * * *
+
 Both the Python script and the terminal command leads to the file *data.csv* containing the data and showing the following figure:
 
 <div align="center">

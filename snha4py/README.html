@@ -140,8 +140,8 @@ edge prediction.</p>
 <p>First, we change the time of the running events into speed and add a
 random variable. The code below will do the task, or you can get the
 preprocessed data set <a
-href="https://github.com/thake93/snha4py/blob/main/examples/data/decathlon_pre.csv">here</a>.
-* * *</p>
+href="https://github.com/thake93/snha4py/blob/main/examples/data/decathlon_pre.csv">here</a>.</p>
+<hr />
 <pre class="shell"><code>python3</code></pre>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -174,9 +174,11 @@ correlation coefficients, as well as the input graph.</li>
 <p><strong>Note:</strong> We just used the default argumntes for the
 St. Nicolas House algorithm. For your analysis you might want to play
 around with different sets of arguments.<br />
-See the <a href="#st-nicolas-house-arguments">argument details</a> here.
-### In Python script Using the tool within your script grants you the
-most flexibility. So, I recommend you to use it that way.<br />
+See the <a href="#st-nicolas-house-arguments">argument details</a>
+here.</p>
+<h3 id="in-python-script">In Python script</h3>
+<p>Using the tool within your script grants you the most flexibility.
+So, I recommend you to use it that way.<br />
 We start with importing required packages:</p>
 <div class="sourceCode" id="cb4"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
@@ -267,7 +269,7 @@ et al. 2022</a></li>
 <li><strong>-p | –plot</strong> - plots the resulting matrix of
 correlation coefficients, as well as the input graph.</li>
 </ul>
-<h3 id="in-python-script">In Python script</h3>
+<h3 id="in-python-script-1">In Python script</h3>
 <p>We start with importing required packages:</p>
 <div class="sourceCode" id="cb11"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snha4py.Snha <span class="im">import</span> Snha</span>
@@ -295,7 +297,9 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a h
 class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>s.new_graph(graph_type<span class="op">=</span><span class="st">&#39;werner&#39;</span>, nodes<span class="op">=</span><span class="dv">5</span>, edges<span class="op">=</span><span class="dv">8</span>, mode<span class="op">=</span><span class="st">&#39;directed&#39;</span>, cont<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><a
 href="https://github.com/thake93/snha4py/blob/main/docs/Snha.html#function-new_graph">Argument
-details</a> * * * or you could type your own graph</p>
+details</a></p>
+<hr />
+<p>or you could type your own graph</p>
 <div class="sourceCode" id="cb15"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>]])</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
