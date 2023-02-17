@@ -19,6 +19,8 @@ Here, I present an in-depth explenation of
 
 via the command-line interface (CLI) or within your Python scirpt.
 
+[Back to github](https://github.com/thake93/snha4py/)
+
 ## Analysing your data by graph prediction
 I demonstrate the useage of the tool on exemplary data from the 
 [olympic decathlon of 1988](https://github.com/thake93/snha4py/blob/main/examples/data/decathlon.tab)
