@@ -15,6 +15,10 @@ Also, a module to create correlated data along a directed graph based on a Monte
 
 You can use the St. Nicolas House algorithm and other features of the package as a [command-line interface (CLI)](#command-line-interface) or you can [import the package](#as-import-in-your-own-code) in your own code.
 
+There is also an implementation of the SNHA in
+[R](https://github.com/mittelmark/snha)
+available.
+
 # Documentation
 
 - [HTML](https://htmlpreview.github.io/?https://github.com/thake93/snha4py/blob/main/docs/__init__.html)
