@@ -53,7 +53,7 @@ class SnhaNewGraph:
         Creates an Barabasi-M1/M2 graph.
 
         Args:
-            m (int): 1: barabasi-M1 graph; 2: brabasi-M2 graph
+            m (int): 1: barabasi-M1 graph; 2: barabasi-M2 graph
         """
         self.graph[1, 0] = 1
         for n in range(2, self.nodes):
@@ -63,7 +63,7 @@ class SnhaNewGraph:
                 sel = m
             deg = (self.graph + self.graph.T).sum(axis=1)
             prob = deg[:n] / (deg[:n].sum())
-            idx = np.random.choice(range(n), size=sel, p=prob)
+            idx = np.random.choice(range(n), size=sel, p=prob, replace=False)
             self.graph[idx, n] = 1
 
     def barabasi_m1(self):
