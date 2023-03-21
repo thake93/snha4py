@@ -69,23 +69,28 @@ class Snha:
             chains_clean (list): list of chains wihtout sub chains
         """
         chains_clean = []
-        max_len = len(chains[0])
-        for i in range(len(chains) - 1, -1, -1):
-            f = False
-            l = len(chains[i])
-            for j in range(len(chains)):
-                cur_check = chains[j]
-                if l == max_len:
-                    f = False
-                    break
-                for k in range(len(cur_check) - l + 1):
-                    if chains[i] == cur_check[k : k + l] and not (len(cur_check) == l):
-                        f = True
+        for i in range(len(chains)):
+            s = chains[i][0]
+            e = chains[i][-1]
+            if e < s:
+                chains[i] = chains[i][::-1]
+
+        for i, c in enumerate(chains):
+            l = len(c)
+            found = False
+            for j, c2 in enumerate(chains):
+                if len(c2) < len(c):
+                    continue
+                if i == j:
+                    continue
+                for k in range(len(c2) - l + 1):
+                    if np.array_equal(c, c2[k : k + l]):
+                        found = True
                         break
-                if f:
+                if found:
                     break
-            if not (f):
-                chains_clean.append(chains[i])
+            if not found:
+                chains_clean.append(c)
         return chains_clean
 
     def comp_corr(self, df=None, method="pearson", in_place=True):
