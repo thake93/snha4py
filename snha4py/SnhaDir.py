@@ -1,4 +1,6 @@
 #! /usr/bin/env python3
+import numpy as np
+import pandas as pd
 
 """
 Direction analysis of the St. Nicolas House Algorithm.
@@ -9,24 +11,62 @@ Soon be updated.
 
 
 class SnhaDir:
+    def __init__(self, data):
+        self.data = data
+        self.xi = None
+
     def comp_xi(self):
         """
         Computes Xi correlation matrix for the Snha objects data.
         """
-        self.xi = np.zeros((self.data.shape[1], self.data.shape[1]))
+        xi = np.zeros((self.data.shape[1], self.data.shape[1]))
         for i, r1 in enumerate(self.data):
             for j, r2 in enumerate(self.data):
-                self.xi[i, j] = self.xiCorr(self.data[r1], self.data[r2])
-        self.xi = pd.DataFrame(self.xi)
+                xi[i, j] = self.xi_corr(self.data[r1], self.data[r2])
+        self.xi = pd.DataFrame(xi)
+
+    def deg_mat(mat):
+        """
+        Computes the degree matrix.
+
+        Args:
+            mat (numpy.ndarray): Input matrix
+
+        Returns:
+            deg (numpy.ndarray): degree matrix of input matrix
+        """
+        m_undir = mat + mat.T
+        m_undir[m_undir != 0] = 1
+        tri = np.triu(m_undir)
+        c = tri.sum(axis=0)
+        r = tri.sum(axis=1)
+        deg = (c + r) * np.eye(mat.shape[0])
+        return deg
 
     def get_xi(self):
         """
         Get the Xi correlation matrix from the Snha object.
 
         Returns:
-            xi: Xi correlation matrix
+            xi (pandas.DataFrame): Xi correlation matrix
         """
         return self.xi
+
+    def np_in(arr, lst):
+        """
+        Checks if an array is contained in a list of arrays.
+
+        Args:
+            arr (numpy.ndarray): array which may contain in lst
+            lst (itterable): list containing arrays
+
+        Returns:
+            boolean
+        """
+        for l in lst:
+            if np.array_equal(arr, l):
+                return True
+        return False
 
     def xi_corr(self, x, y):
         """
@@ -37,7 +77,7 @@ class SnhaDir:
             y (pandas.Series): Data vector
 
         Returns:
-            xi: Xi correlation from x to y
+            xi (float): Xi correlation from x to y
         """
         # x, y = pd.Series(x), pd.Series(y)
         n = len(x)
