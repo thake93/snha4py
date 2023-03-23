@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 import numpy as np
 import pandas as pd
+from snha4py.Snha import np_in
 
 """
 Direction analysis of the St. Nicolas House Algorithm.
@@ -25,7 +26,33 @@ class SnhaDir:
                 xi[i, j] = self.xi_corr(self.data[r1], self.data[r2])
         self.xi = pd.DataFrame(xi)
 
-    def deg_mat(mat):
+        def conn_nodes(self, chs, deg_mat):
+            # nodes mit unterschiedlichen nachbarn
+            """
+            Finds nodes with different neighbors.
+
+            Args:
+                chs (list): list with chains from a SNHA object
+                deg_mat (numpy.ndarray): degree matrix of a graph prediciton
+
+            Returns:
+                nodes (dictionary): nodes with different neighbors and its corresponing chain
+            """
+            nodes = {}
+            for i in range(len(chs)):
+                ch1 = chs[i]
+                for n in ch1[1:-1]:
+                    for j in range(len(chs)):
+                        if i == j:
+                            continue
+                        if n in chs[j][1:-1] and deg_mat[n, n] > 2:
+                            if n in nodes.keys() and not chs[j] in nodes[n]:
+                                nodes[n].append(chs[j])
+                            else:
+                                nodes[n] = [ch1, chs[j]]
+            return nodes
+
+    def deg_mat(self, mat):
         """
         Computes the degree matrix.
 
@@ -51,22 +78,6 @@ class SnhaDir:
             xi (pandas.DataFrame): Xi correlation matrix
         """
         return self.xi
-
-    def np_in(arr, lst):
-        """
-        Checks if an array is contained in a list of arrays.
-
-        Args:
-            arr (numpy.ndarray): array which may contain in lst
-            lst (itterable): list containing arrays
-
-        Returns:
-            boolean
-        """
-        for l in lst:
-            if np.array_equal(arr, l):
-                return True
-        return False
 
     def xi_corr(self, x, y):
         """
