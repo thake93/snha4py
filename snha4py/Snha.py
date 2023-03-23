@@ -90,7 +90,7 @@ class Snha:
                 if found:
                     break
             if not found:
-                chains_clean.append(c)
+                chains_clean.append(np.array(c))
         return chains_clean
 
     def comp_corr(self, df=None, method="pearson", in_place=True):
@@ -210,7 +210,7 @@ class Snha:
         """
         if rename:
             col_map_rev = {y: x for x, y in self.col_map.items()}
-            new_names = [[col_map_rev[i] for i in l] for l in self.chains]
+            new_names = [np.array([col_map_rev[i] for i in l]) for l in self.chains]
             return new_names
         else:
             return self.chains
@@ -351,6 +351,22 @@ class Snha:
             graph_type=graph_type, nodes=nodes, edges=edges, mode=mode, cont=cont
         )
         self.graph = g.get_graph()
+
+    def np_in(self, arr, lst):
+        """
+        Checks if an array is contained in a list of arrays.
+
+        Args:
+            arr (numpy.ndarray): array which may contain in lst
+            lst (itterable): list containing arrays
+
+        Returns:
+            boolean
+        """
+        for l in lst:
+            if np.array_equal(arr, l):
+                return True
+        return False
 
     def plot_corr(self, labels=None, ax=None):
         """
