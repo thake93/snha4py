@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import numpy as np
 import pandas as pd
-from snha4py.Snha import Snha
+from snha4py.utils import np_in
 
 """
 Direction analysis of the St. Nicolas House Algorithm.
@@ -12,8 +12,10 @@ Soon be updated.
 
 
 class SnhaDir:
-    def __init__(self, data):
+    def __init__(self, graph_pred, data=None, chains=None):
         self.data = data
+        self.graph_pred = graph_pred
+        self.chains = chains
         self.xi = None
 
     def comp_xi(self):
@@ -142,7 +144,6 @@ class SnhaDir:
         checked = []
         changed = []
         directed = []
-        s = Snha()
         for di in dir_indic:
             for c in chains:
                 (idx,) = np.where(c == di[0])
@@ -152,18 +153,18 @@ class SnhaDir:
                         break
                     checked.append(c)
                     if not (idx2 > idx):
-                        if s.np_in(c, changed):
+                        if np_in(c, changed):
                             print(f"{c} already changed")
                         changed.append(c)
                         c = c[::-1]
-                    if not s.np_in(c, directed):
+                    if not np_in(c, directed):
                         directed.append(c)
 
         temp = []
 
         for c in chains:
             found = False
-            if s.np_in(c, checked):
+            if np_in(c, checked):
                 continue
             checked.append(c)
             for dc in directed:
@@ -177,20 +178,27 @@ class SnhaDir:
                             continue
                         found = True
                         if not (idx2 > idx):
-                            if s.np_in(c, changed):
+                            if np_in(c, changed):
                                 print(f"{c} already changed")
                             changed.append(c)
                             c = c[::-1]
-                        if not s.np_in(c, temp):
+                        if not np_in(c, temp):
                             temp.append(c)
                         break
             if not found:
-                if not s.np_in(c, temp):
+                if not np_in(c, temp):
                     temp.append(c)
-                if not s.np_in(c[::-1], temp):
+                if not np_in(c[::-1], temp):
                     temp.append(c[::-1])
 
         return directed + temp
+
+    def predict_dir(method="logic"):
+        if mehtod == 'logic':
+            deg_mat = self.deg_mat(self.graph_pred)
+            nodes = self.conn_nodes(self.chains, deg_mat)
+            directions = self.dir_ind(nodes, 
+        return
 
     def xi_corr(self, x, y):
         """
@@ -217,6 +225,8 @@ class SnhaDir:
 
 
 if __name__ == "__main__":
+    from snha4py.Snha import Snha
+
     d = pd.read_csv(
         f"/media/sf_Documents/Uni/data/MA/notebooks/eval_data/d_0284",
         header=None,
