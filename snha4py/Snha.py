@@ -160,7 +160,7 @@ class Snha:
 
         return cmat / 2
 
-    def create_corr_data(self, n=100, steps=15, mean=100, sd=2, noise=1, prop=0.05):
+    def create_corr_data(self, n=200, steps=25, mean=100, sd=2, noise=1, prop=0.05):
         """
         Create correlation data for the Snha objects graph.
 
