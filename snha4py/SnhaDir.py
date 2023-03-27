@@ -194,7 +194,7 @@ class SnhaDir:
 
         return directed + temp
 
-    def predict_dir(method="logic"):
+    def predict_dir(self, method="logic"):
         graph_pred = self.snha.get_graph_pred()
         if method == "logic":
             chains = self.snha.get_chains()
@@ -205,8 +205,18 @@ class SnhaDir:
             directed_chains = self.inf_dir(chains, directions)
             self.pred_logic = chains2admat(directed_chains, corr.shape)
         elif method == "xi":
-            return
-        return
+            if self.xi is None:
+                self.comp_xi()
+            self.pred_xi = np.zeros_like(graph_pred)
+            x, y = np.where(graph_pred != 0)
+            for i in range(len(x)):
+                if self.xi.iloc[x[i], y[i]] == 0 and self.xi.iloc[y[i], x[i]] == 0:
+                    self.pred_xi[x[i], y[i]] = 1
+                    self.pred_xi[y[i], x[i]] = 1
+                elif self.xi.iloc[x[i], y[i]] > self.xi.iloc[y[i], x[i]]:
+                    self.pred_xi[x[i], y[i]] = 1
+                else:
+                    self.pred_xi[y[i], x[i]] = 1
 
     def xi_corr(self, x, y):
         """
