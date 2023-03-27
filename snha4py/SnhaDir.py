@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 import numpy as np
 import pandas as pd
-from snha4py.utils import np_in
+from snha4py.utils import np_in, chains2admat
 
 """
 Direction analysis of the St. Nicolas House Algorithm.
@@ -12,20 +12,21 @@ Soon be updated.
 
 
 class SnhaDir:
-    def __init__(self, graph_pred, data=None, chains=None):
-        self.data = data
-        self.graph_pred = graph_pred
-        self.chains = chains
+    def __init__(self, snha):
+        self.snha = snha
         self.xi = None
+        self.pred_xi = None
+        self.pred_logic = None
 
     def comp_xi(self):
         """
         Computes Xi correlation matrix for the Snha objects data.
         """
-        xi = np.zeros((self.data.shape[1], self.data.shape[1]))
-        for i, r1 in enumerate(self.data):
-            for j, r2 in enumerate(self.data):
-                xi[i, j] = self.xi_corr(self.data[r1], self.data[r2])
+        data = self.snha.get_data()
+        xi = np.zeros((data.shape[1], data.shape[1]))
+        for i, r1 in enumerate(data):
+            for j, r2 in enumerate(data):
+                xi[i, j] = self.xi_corr(data[r1], data[r2])
         self.xi = pd.DataFrame(xi)
 
     def conn_nodes(self, chs, deg_mat):
@@ -194,10 +195,17 @@ class SnhaDir:
         return directed + temp
 
     def predict_dir(method="logic"):
-        if mehtod == 'logic':
-            deg_mat = self.deg_mat(self.graph_pred)
-            nodes = self.conn_nodes(self.chains, deg_mat)
-            directions = self.dir_ind(nodes, 
+        graph_pred = self.snha.get_graph_pred()
+        if method == "logic":
+            chains = self.snha.get_chains()
+            corr = self.snha.get_corr()
+            deg_mat = self.deg_mat(graph_pred)
+            nodes = self.conn_nodes(chains, deg_mat)
+            directions = self.dir_ind(nodes, corr)
+            directed_chains = self.inf_dir(chains, directions)
+            self.pred_logic = chains2admat(directed_chains)
+        elif method == "xi":
+            return
         return
 
     def xi_corr(self, x, y):
