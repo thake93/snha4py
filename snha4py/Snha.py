@@ -12,6 +12,7 @@ import numpy as np
 from snha4py.SnhaNewGraph import SnhaNewGraph
 from snha4py.SnhaPlot import SnhaPlot
 from snha4py.SnhaDataGen import SnhaDataGen
+from snha4py.utils import chains2admat
 
 
 class Snha:
@@ -30,16 +31,6 @@ class Snha:
         self.chains = []
         self.col_map = {}
         self.p_val = None
-
-    def chains2admat(self):
-        """
-        Converts association chains into an adjacency matrix.
-        """
-        g = np.zeros((self.corr.shape[1], self.corr.shape[1]))
-        for ch in self.chains:
-            for i in range(len(ch) - 1):
-                g[ch[i], ch[i + 1]] = 1
-        self.graph_pred = g
 
     def check_labels(self):
         """
@@ -545,7 +536,7 @@ class Snha:
                 pos_ends.pop(0)
         if len(chains) > 0:
             self.chains = self.clean_sub_chains(chains)
-        self.chains2admat()
+        self.graph_pred = chains2admat(chains, self.corr.shape)
 
     def snha_bt(self, df, alpha, n, lbd, method):
         """
@@ -659,5 +650,4 @@ if __name__ == "__main__":
     s.plot_graph(pred=False)
     s.plot_graph()
     s.plot_corr()
-    print(s.get_p_values())
     plt.show()
