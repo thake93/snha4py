@@ -49,7 +49,7 @@ class SnhaDir:
                     if i == j:
                         continue
                     if n in chs[j][1:-1] and deg_mat[n, n] > 2:
-                        if n in nodes.keys() and not chs[j] in nodes[n]:
+                        if n in nodes.keys() and not np_in(chs[j], nodes[n]):
                             nodes[n].append(chs[j])
                         else:
                             nodes[n] = [ch1, chs[j]]
@@ -105,7 +105,7 @@ class SnhaDir:
                         l, m = idx[k]
                         (ix,) = cur[l]
                         (iy,) = comp[m]
-                        if ix != iy:
+                        if not ix == iy:
                             c = corr.iloc[ix, iy]
                             if abs(c) < 0.05:
                                 cent_2 = True
@@ -114,9 +114,9 @@ class SnhaDir:
                                 if not ((iy, node) in dir_indic):
                                     dir_indic.append((iy, node))
                                 break
-                        elif abs(c) > max_c:
-                            max_c = abs(c)
-                            cont = (ix, iy)
+                            elif abs(c) > max_c:
+                                max_c = abs(c)
+                                cont = (ix, iy)
             if not cent_2:
                 dir_indic.append((node, cont[0]))
                 dir_indic.append((node, cont[1]))
@@ -126,9 +126,9 @@ class SnhaDir:
         if not self.pred_logic is None and not self.pred_xi is None:
             return self.pred_logic, self.pred_xi
         elif not self.pred_logic is None:
-            return self.pred_logic,
+            return (self.pred_logic,)
         elif not self.pred_xi is None:
-            return ,self.pred_xi
+            return (self.pred_xi,)
 
     def get_xi(self):
         """
