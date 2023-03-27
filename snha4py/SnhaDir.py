@@ -122,6 +122,14 @@ class SnhaDir:
                 dir_indic.append((node, cont[1]))
         return dir_indic
 
+    def get_direction(self):
+        if not self.pred_logic is None and not self.pred_xi is None:
+            return self.pred_logic, self.pred_xi
+        elif not self.pred_logic is None:
+            return self.pred_logic,
+        elif not self.pred_xi is None:
+            return ,self.pred_xi
+
     def get_xi(self):
         """
         Get the Xi correlation matrix from the Snha object.
