@@ -203,7 +203,7 @@ class SnhaDir:
             nodes = self.conn_nodes(chains, deg_mat)
             directions = self.dir_ind(nodes, corr)
             directed_chains = self.inf_dir(chains, directions)
-            self.pred_logic = chains2admat(directed_chains)
+            self.pred_logic = chains2admat(directed_chains, corr.shape)
         elif method == "xi":
             return
         return
