@@ -139,9 +139,9 @@ class Snha:
         print(cm)
         ```
         """
-        true = self.graph + self.graph.T
+        true = self.graph  # + self.graph.T
 
-        pred = self.graph_pred + self.graph_pred.T
+        pred = self.graph_pred  # + self.graph_pred.T
         cmat = np.zeros((2, 2))
         for i in range(true.shape[0]):
             for j in range(true.shape[1]):
