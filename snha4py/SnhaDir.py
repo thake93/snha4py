@@ -16,6 +16,7 @@ class SnhaDir:
         self.snha = snha
         self.xi = None
         self.pred_xi = None
+        self.pred_xi_chains = None
         self.pred_logic = None
 
     def comp_xi(self):
@@ -96,7 +97,7 @@ class SnhaDir:
         dir_indic = []
         cent_2 = False
         for node, ch in red.items():
-            max_c = 0
+            # max_c = 0
             for i in range(len(ch)):
                 cur = ch[i]
                 for j in range(i + 1, len(ch)):
@@ -107,28 +108,38 @@ class SnhaDir:
                         (iy,) = comp[m]
                         if not ix == iy:
                             c = corr.iloc[ix, iy]
-                            if abs(c) < 0.05:
+                            if abs(c) < 0.07:
                                 cent_2 = True
                                 if not ((ix, node) in dir_indic):
                                     dir_indic.append((ix, node))
                                 if not ((iy, node) in dir_indic):
                                     dir_indic.append((iy, node))
                                 break
-                            elif abs(c) > max_c:
-                                max_c = abs(c)
-                                cont = (ix, iy)
+                            # elif abs(c) > max_c:
+                            #    max_c = abs(c)
+                            #    cont = (ix, iy)
             if not cent_2:
-                dir_indic.append((node, cont[0]))
-                dir_indic.append((node, cont[1]))
+                for node, chs in red.items():
+                    max_c = 0.0
+                    for ch in chs:
+                        for n in ch:
+                            c = corr.iloc[node, n[0]]
+                            if max_c < abs(c):
+                                max_c = abs(c)
+                                dir_indic.append((n[0], node))
+
+                # dir_indic.append((node, cont[0]))
+                # dir_indic.append((node, cont[1]))
         return dir_indic
 
     def get_direction(self):
-        if not self.pred_logic is None and not self.pred_xi is None:
-            return self.pred_logic, self.pred_xi
-        elif not self.pred_logic is None:
-            return (self.pred_logic,)
-        elif not self.pred_xi is None:
-            return (self.pred_xi,)
+        """
+        Get the directed graph prediction.
+
+        Returns:
+            pred_logic, pred_xi_chains, pred_xi (numpy.ndarray): asymmetric adjacency matrix predicted by the method logic, xi_chains and xi, respectively.
+        """
+        return self.pred_logic, self.pred_xi_chains, self.pred_xi
 
     def get_xi(self):
         """
@@ -162,8 +173,8 @@ class SnhaDir:
                         break
                     checked.append(c)
                     if not (idx2 > idx):
-                        if np_in(c, changed):
-                            print(f"{c} already changed")
+                        # if np_in(c, changed):
+                        #    print(f"{c} already changed")
                         changed.append(c)
                         c = c[::-1]
                     if not np_in(c, directed):
@@ -203,15 +214,26 @@ class SnhaDir:
         return directed + temp
 
     def predict_dir(self, method="logic"):
+        """
+        Performs the prediciton of edge directions ontop of the St Nicholas House analysis.
+
+        Args:
+            method (str): decide which method to use to predict edge directions choice of ["logic", "xi_chains", "xi"]
+        """
         graph_pred = self.snha.get_graph_pred()
         if method == "logic":
-            chains = self.snha.get_chains()
+            chains = self.snha.get_chains(rename=False)
             corr = self.snha.get_corr()
             deg_mat = self.deg_mat(graph_pred)
             nodes = self.conn_nodes(chains, deg_mat)
             directions = self.dir_ind(nodes, corr)
             directed_chains = self.inf_dir(chains, directions)
             self.pred_logic = chains2admat(directed_chains, corr.shape)
+        elif method == "xi_chains":
+            if self.xi is None:
+                self.comp_xi()
+            directed_chains = self.xi_chains()
+            self.pred_xi_chains = chains2admat(directed_chains, self.xi.shape)
         elif method == "xi":
             if self.xi is None:
                 self.comp_xi()
@@ -225,6 +247,25 @@ class SnhaDir:
                     self.pred_xi[x[i], y[i]] = 1
                 else:
                     self.pred_xi[y[i], x[i]] = 1
+
+    def xi_chains(self):
+        directed_chains = []
+        for ch in self.snha.get_chains(rename=False):
+            dir1 = 0
+            dir2 = 0
+            for i in range(len(ch) - 1):
+                if self.xi.iloc[ch[i], ch[i + 1]] > self.xi.iloc[ch[i + 1], ch[i]]:
+                    dir1 += 1
+                else:
+                    dir2 += 1
+            if dir1 > dir2:
+                directed_chains.append(ch)
+            elif dir2 > dir1:
+                directed_chains.append(ch[::-1])
+            else:
+                directed_chains.append(ch)
+                directed_chains.append(ch[::-1])
+        return directed_chains
 
     def xi_corr(self, x, y):
         """
