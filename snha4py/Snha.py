@@ -158,7 +158,7 @@ class Snha:
                     # TN
                     cmat[0, 1] += 1
 
-        return cmat / 2
+        return cmat
 
     def create_corr_data(self, n=200, steps=25, mean=100, sd=2, noise=1, prop=0.05):
         """
