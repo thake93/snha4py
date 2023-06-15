@@ -40,12 +40,17 @@ class SnhaPlot:
         self.ax.spines["bottom"].set_visible(False)
         self.ax.spines["left"].set_visible(False)
 
-    def corr(self):
+    def corr(self, col_low, col_zero, col_high):
         """
         Plot the correlation matrix.
+
+        Args:
+            col_low (matplotlib.color): color for correlation -1
+            col_zero (matplotlib.color): color for correlation
+            col_high (matplotlib.color): color for correlation 1
         """
         cvals = [-1, 0, 1]
-        colors = ["tab:orange", "white", "tab:blue"]
+        colors = [col_low, col_zero, col_high]
         norm = plt.Normalize(min(cvals), max(cvals))
         tuples = list(zip(map(norm, cvals), colors))
         cmap = LinearSegmentedColormap.from_list("", tuples)

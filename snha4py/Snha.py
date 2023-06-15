@@ -343,7 +343,14 @@ class Snha:
         )
         self.graph = g.get_graph()
 
-    def plot_corr(self, labels=None, ax=None):
+    def plot_corr(
+        self,
+        labels=None,
+        ax=None,
+        col_low="tab:orange",
+        col_zero="white",
+        col_high="tab:blue",
+    ):
         """
         Plots the correlation matrix of the Snha data.
 
