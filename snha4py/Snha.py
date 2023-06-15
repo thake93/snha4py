@@ -375,7 +375,11 @@ class Snha:
             labels = self.check_labels()
 
         p = SnhaPlot(adj_mat=None, corr=self.corr, labels_n=labels, ax=ax)
-        p.corr()
+        p.corr(
+            col_low="tab:orange",
+            col_zero="white",
+            col_high="tab:blue",
+        )
 
     def plot_graph(
         self,
