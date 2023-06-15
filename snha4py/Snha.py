@@ -376,9 +376,9 @@ class Snha:
 
         p = SnhaPlot(adj_mat=None, corr=self.corr, labels_n=labels, ax=ax)
         p.corr(
-            col_low="tab:orange",
-            col_zero="white",
-            col_high="tab:blue",
+            col_low=col_low,
+            col_zero=col_zero,
+            col_high=col_high,
         )
 
     def plot_graph(
